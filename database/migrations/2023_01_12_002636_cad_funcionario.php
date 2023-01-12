@@ -1,0 +1,46 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('cad_funcionario', function (Blueprint $table) {
+            $table->id('id_funcionario');
+            $table->uuid('uuid');
+            $table->string('nome_funcionario');
+            $table->string('email')->unique();
+            $table->string('telefone');
+            $table->string('cpf');
+            $table->string('endereco');
+            $table->string('cep');
+            $table->string('numero');
+            $table->string('cidade');
+            $table->string('estado');
+            $table->string('complemento');
+            $table->boolean('acesso_sistema')->default(true);
+            $table->boolean('ativo')->default(true);
+            $table->string('codigo_ativacao');
+            $table->foreignId('id_departamento')->references('id_departamento')->on('cad_departamento');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('cad_funcionario');
+    }
+};

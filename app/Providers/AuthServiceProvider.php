@@ -6,7 +6,7 @@ namespace App\Providers;
 use MVC\Models\User\User;
 use MVC\Models\User\UserPolicy;
 use MVC\Models\Example\Example;
-use MVC\Models\Example\ExamplePolicy;
+use MVC\Models\Example\CadMedicoPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider {
@@ -19,7 +19,7 @@ class AuthServiceProvider extends ServiceProvider {
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
         User::class    => UserPolicy::class,
-        Example::class => ExamplePolicy::class,
+        Example::class => CadMedicoPolicy::class,
     ];
 
     /**

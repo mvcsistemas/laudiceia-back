@@ -6,13 +6,13 @@ use MVC\Base\MVCController;
 
 class ExampleController extends MVCController {
 
-    protected ExampleService   $service;
+    protected CadMedicoService   $service;
     protected               $resource;
 
-    public function __construct(ExampleService $service)
+    public function __construct(CadMedicoService $service)
     {
         $this->service  = $service;
-        $this->resource = ExampleResource::class;
+        $this->resource = CadMedicoResource::class;
     }
 
     public function index()
@@ -29,14 +29,14 @@ class ExampleController extends MVCController {
         return $this->responseBuilderRow($row);
     }
 
-    public function store(ExampleRequest $request)
+    public function store(CadMedicoRequest $request)
     {
         $row = $this->service->create($request->all());
 
         return $this->responseBuilderRow($row, true, 201);
     }
 
-    public function update($id, ExampleRequest $request)
+    public function update($id, CadMedicoRequest $request)
     {
         $this->service->updateById($id, $request->all());
 

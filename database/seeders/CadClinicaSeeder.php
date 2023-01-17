@@ -1,0 +1,36 @@
+<?php
+
+namespace Database\Seeders;
+
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
+use Illuminate\Support\Str;
+use Ramsey\Uuid\Type\Integer;
+
+class CadClinicaSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $faker = Faker::create();
+
+        for ($i = 0; $i < 3; $i++) {
+            DB::table('cad_clinica')->insert([
+                'uuid' => Str::uuid(36),
+                'nome_clinica' => $faker->name,
+                'endereco' => 'Teste',
+                'cep' => '13504361',
+                'numero' => '3455',
+                'cidade' => 'Teste',
+                'estado' => 'Teste',
+                'complemento' => 'complemento Teste'
+            ]);
+        }
+    }
+}

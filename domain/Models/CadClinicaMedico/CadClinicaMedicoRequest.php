@@ -4,23 +4,30 @@ namespace MVC\Models\CadClinicaMedico;
 
 use MVC\Base\MVCRequest;
 
-class CadClinicaMedicoRequest extends MVCRequest {
+class CadClinicaMedicoRequest extends MVCRequest
+{
 
     public function rules()
     {
         return [
-            'name'     => 'required',
-            'email'    => 'required',
-            'password' => 'required'
+            'id_clinica_medico' => '',
+            'uuid' => '',
+            'id_clinica' => 'required',
+            'id_medico' => 'required',
+            'telefone' => 'required',
+            'whatsapp' => 'required',
+            'created_at' => '',
+            'updated_at' => '',
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required'     => 'O campo Nome é um campo obrigatório.',
-            'email.required'    => 'O campo Email é um campo obrigatório.',
-            'password.required' => 'O campo Senha é um campo obrigatório.',
+            'id_clinica.required' => 'O campo Clínica é obrigatório.',
+            'id_medico.required' => 'O campo Médico é obrigatório.',
+            'telefone.required' => 'O campo Telefone é obrigatório.',
+            'whatsapp.required' => 'O campo Whatsapp é obrigatório.',
         ];
     }
 }

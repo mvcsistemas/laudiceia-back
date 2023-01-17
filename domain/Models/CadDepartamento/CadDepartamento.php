@@ -3,25 +3,22 @@
 namespace MVC\Models\CadDepartamento;
 
 use MVC\Base\MVCModel;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Foundation\Auth\Access\Authorizable;
+use YourAppRocks\EloquentUuid\Traits\HasUuid;
 
-class CadDepartamento extends MVCModel implements AuthenticatableContract, AuthorizableContract {
+class CadDepartamento extends MVCModel {
 
-    use Authenticatable, Authorizable;
+    use HasUuid;
 
-    protected $table      = 'CadDepartamento';
-    protected $primaryKey = 'id';
+    protected $table      = 'cad_departamento';
+    protected $primaryKey = 'id_departamento';
     protected $guarded    = [''];
 
     public function filter($query, array $params = [])
     {
-        $id = (int)($params['id'] ?? '');
+        $id = (int)($params['id_departamento'] ?? '');
 
         if ($id) {
-            $query->where('id', $id);
+            $query->where('id_departamento', $id);
         }
 
         return $query;

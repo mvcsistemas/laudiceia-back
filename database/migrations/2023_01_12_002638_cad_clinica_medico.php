@@ -18,8 +18,8 @@ return new class extends Migration
             $table->uuid('uuid');
             $table->foreignId('id_clinica')->references('id_clinica')->on('cad_clinica');
             $table->foreignId('id_medico')->references('id_medico')->on('cad_medico');
-            $table->string('telefone');
-            $table->string('whatsapp');
+            $table->string('telefone', 15);
+            $table->string('whatsapp', 15);
             $table->timestamps();
         });
     }

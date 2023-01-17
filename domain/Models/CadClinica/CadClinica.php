@@ -3,15 +3,11 @@
 namespace MVC\Models\CadClinica;
 
 use MVC\Base\MVCModel;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Foundation\Auth\Access\Authorizable;
 use YourAppRocks\EloquentUuid\Traits\HasUuid;
 
-class CadClinica extends MVCModel implements AuthenticatableContract, AuthorizableContract {
+class CadClinica extends MVCModel {
 
-    use Authenticatable, Authorizable, HasUuid;
+    use HasUuid;
 
     protected $table      = 'cad_clinica';
     protected $primaryKey = 'id_clinica';

@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->boolean('acesso_sistema')->default(true);
             $table->boolean('ativo')->default(true);
-            $table->string('codigo_ativacao');
-            $table->string('telefone_interno');
+            $table->string('codigo_ativacao', 10)->nullable();
+            $table->string('telefone_interno',15)->nullable();
             $table->foreignId('id_clinica')->references('id_clinica')->on('cad_clinica');
             $table->timestamps();
         });

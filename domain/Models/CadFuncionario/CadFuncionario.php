@@ -3,25 +3,22 @@
 namespace MVC\Models\CadFuncionario;
 
 use MVC\Base\MVCModel;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Foundation\Auth\Access\Authorizable;
+use YourAppRocks\EloquentUuid\Traits\HasUuid;
 
-class CadFuncionario extends MVCModel implements AuthenticatableContract, AuthorizableContract {
+class CadFuncionario extends MVCModel {
 
-    use Authenticatable, Authorizable;
+    use HasUuid;
 
-    protected $table      = 'CadFuncionario';
-    protected $primaryKey = 'id';
+    protected $table      = 'cad_funcionario';
+    protected $primaryKey = 'id_funcionario';
     protected $guarded    = [''];
 
     public function filter($query, array $params = [])
     {
-        $id = (int)($params['id'] ?? '');
+        $id = (int)($params['id_funcionario'] ?? '');
 
         if ($id) {
-            $query->where('id', $id);
+            $query->where('id_funcionario', $id);
         }
 
         return $query;

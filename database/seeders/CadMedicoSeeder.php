@@ -9,7 +9,7 @@ use Faker\Factory as Faker;
 use Illuminate\Support\Str;
 use Ramsey\Uuid\Type\Integer;
 
-class MedicoSeeder extends Seeder
+class CadMedicoSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -25,8 +25,8 @@ class MedicoSeeder extends Seeder
                 'uuid' => Str::uuid(36),
                 'nome_medico' => $faker->name,
                 'email' => $faker->unique()->safeEmail(),
-                'codigo_ativacao' => Integer::random(6),
-                'telefone_interno' => $faker->e164PhoneNumber(),
+                'codigo_ativacao' => '123456',
+                'telefone_interno' => '19997778998',
                 'id_clinica' => 1
             ]);
         }

@@ -8,20 +8,21 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 
-class CadMedico extends MVCModel implements AuthenticatableContract, AuthorizableContract {
+class CadMedico extends MVCModel implements AuthenticatableContract, AuthorizableContract
+{
 
     use Authenticatable, Authorizable;
 
-    protected $table      = 'CadMedico';
-    protected $primaryKey = 'id';
-    protected $guarded    = [''];
+    protected $table = 'cad_medico';
+    protected $primaryKey = 'id_medico';
+    protected $guarded = [''];
 
     public function filter($query, array $params = [])
     {
-        $id = (int)($params['id'] ?? '');
+        $id = (int)($params['id_medico'] ?? '');
 
         if ($id) {
-            $query->where('id', $id);
+            $query->where('id_medico', $id);
         }
 
         return $query;

@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('cad_clinica', function (Blueprint $table) {
             $table->id('id_clinica');
             $table->uuid('uuid');
-            $table->string('nome_clinica');
+            $table->string('nome_clinica', 200);
             $table->string('endereco');
-            $table->string('cep');
-            $table->string('numero');
-            $table->string('cidade');
-            $table->string('estado');
-            $table->string('complemento');
+            $table->string('cep', 10);
+            $table->string('numero', 10);
+            $table->string('cidade', 50);
+            $table->string('estado', 50);
+            $table->string('complemento', 200)->nullable();
             $table->timestamps();
         });
     }

@@ -4,14 +4,15 @@ namespace MVC\Models\CadMedico;
 
 use MVC\Base\MVCController;
 
-class CadMedicoController extends MVCController {
+class CadMedicoController extends MVCController
+{
 
-    protected CadMedicoService   $service;
-    protected               $resource;
+    protected CadMedicoService $service;
+    protected $resource;
 
     public function __construct(CadMedicoService $service)
     {
-        $this->service  = $service;
+        $this->service = $service;
         $this->resource = CadMedicoResource::class;
     }
 
@@ -22,9 +23,9 @@ class CadMedicoController extends MVCController {
         return $this->responseBuilder($rows);
     }
 
-    public function show($id)
+    public function show($uuid)
     {
-        $row = $this->service->showById($id);
+        $row = $this->service->showByUuid($uuid);
 
         return $this->responseBuilderRow($row);
     }
@@ -36,16 +37,16 @@ class CadMedicoController extends MVCController {
         return $this->responseBuilderRow($row, true, 201);
     }
 
-    public function update($id, CadMedicoRequest $request)
+    public function update($uuid, CadMedicoRequest $request)
     {
-        $this->service->updateById($id, $request->all());
+        $this->service->updateByUuid($uuid, $request->all());
 
         return $this->responseBuilderRow([], false, 204);
     }
 
-    public function destroy($id)
+    public function destroy($uuid)
     {
-        $this->service->deleteById($id);
+        $this->service->deleteByUuid($uuid);
 
         return $this->responseBuilderRow([], false, 204);
     }

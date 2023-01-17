@@ -19,7 +19,7 @@ class UserRequest extends MVCRequest {
     {
         return [
             'name.required'  => 'O campo Nome é um campo obrigatório.',
-            'email.required' => 'O campo Email é um campo obrigatório.'
+            'email.required' => 'O campo E-mail é um campo obrigatório.'
         ];
     }
 }

@@ -23,9 +23,9 @@ class CadClinicaMedicoController extends MVCController
         return $this->responseBuilder($rows);
     }
 
-    public function show($id)
+    public function show($uuid)
     {
-        $row = $this->service->showById($id);
+        $row = $this->service->showByUuid($uuid);
 
         return $this->responseBuilderRow($row);
     }
@@ -37,16 +37,16 @@ class CadClinicaMedicoController extends MVCController
         return $this->responseBuilderRow($row, true, 201);
     }
 
-    public function update($id, CadClinicaMedicoRequest $request)
+    public function update($uuid, CadClinicaMedicoRequest $request)
     {
-        $this->service->updateById($id, $request->all());
+        $this->service->updateByUuid($uuid, $request->all());
 
         return $this->responseBuilderRow([], false, 204);
     }
 
-    public function destroy($id)
+    public function destroy($uuid)
     {
-        $this->service->deleteById($id);
+        $this->service->deleteByUuid($uuid);
 
         return $this->responseBuilderRow([], false, 204);
     }

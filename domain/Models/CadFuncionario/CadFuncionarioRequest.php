@@ -4,23 +4,40 @@ namespace MVC\Models\CadFuncionario;
 
 use MVC\Base\MVCRequest;
 
-class CadFuncionarioRequest extends MVCRequest {
+class CadFuncionarioRequest extends MVCRequest
+{
 
     public function rules()
     {
         return [
-            'name'     => 'required',
-            'email'    => 'required',
-            'password' => 'required'
+            'id_funcionario' => '',
+            'uuid' => '',
+            'id_departamento' => 'required',
+            'cpf' => 'required',
+            'email' => 'required',
+            'endereco' => 'required',
+            'numero' => 'required',
+            'complemento' => 'required',
+            'estado' => 'required',
+            'nome_funcionario' => 'required',
+            'telefone' => 'required',
+            'created_at' => '',
+            'updated_at' => '',
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required'     => 'O campo Nome é um campo obrigatório.',
-            'email.required'    => 'O campo Email é um campo obrigatório.',
-            'password.required' => 'O campo Senha é um campo obrigatório.',
+            'id_departamento.required' => 'O campo Departamento é obrigatório.',
+            'cpf.required' => 'O campo CPF é obrigatório.',
+            'email.required' => 'O campo E-mail é obrigatório.',
+            'endereco.required' => 'O campo Endereço é obrigatório.',
+            'numero.required' => 'O campo Número é obrigatório.',
+            'complemento.required' => 'O campo Complemento é obrigatório.',
+            'estado.required' => 'O campo Estado é obrigatório.',
+            'nome_funcionario.required' => 'O campo Nome é obrigatório.',
+            'telefone.required' => 'O campo Telefone é obrigatório.',
         ];
     }
 }

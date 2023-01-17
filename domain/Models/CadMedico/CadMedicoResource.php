@@ -4,20 +4,24 @@ namespace MVC\Models\CadMedico;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CadMedicoResource extends JsonResource {
+class CadMedicoResource extends JsonResource
+{
 
     public function toArray($request)
     {
         $retorno = [
-            'id'    => $this->id,
-            'name'  => $this->name,
+            'id_medico' => $this->id_medico,
+            'uuid' => $this->uuid,
+            'id_clinica' => $this->id_clinica,
+            'nome_medico' => $this->nome_medico,
+            'acesso_sistema' => $this->acesso_sistema,
+            'ativo' => $this->ativo,
+            'codigo_ativacao' => $this->codigo_ativacao,
             'email' => $this->email,
+            'telefone_interno' => $this->telefone_interno,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
-
-        // Quando há a necessidade de um merge com um array no objeto.
-        //        $retorno = array_merge($retorno, [
-        //            'etapas' => CadMedicoItemResource::collection($this->etapas),
-        //        ]);
 
         return $retorno;
     }

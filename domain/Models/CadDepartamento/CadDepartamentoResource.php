@@ -9,15 +9,12 @@ class CadDepartamentoResource extends JsonResource {
     public function toArray($request)
     {
         $retorno = [
-            'id'    => $this->id,
-            'name'  => $this->name,
-            'email' => $this->email,
+            'id_departamento' => $this->id_departamento,
+            'uuid' => $this->uuid,
+            'dsc_departamento' => $this->dsc_departamento,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
-
-        // Quando há a necessidade de um merge com um array no objeto.
-        //        $retorno = array_merge($retorno, [
-        //            'etapas' => CadDepartamentoItemResource::collection($this->etapas),
-        //        ]);
 
         return $retorno;
     }

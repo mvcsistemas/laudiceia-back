@@ -6,10 +6,10 @@ use MVC\Base\MVCController;
 
 class CadDepartamentoController extends MVCController {
 
-    protected CadFuncionarioService   $service;
+    protected CadDepartamentoService   $service;
     protected               $resource;
 
-    public function __construct(CadFuncionarioService $service)
+    public function __construct(CadDepartamentoService $service)
     {
         $this->service  = $service;
         $this->resource = CadDepartamentoResource::class;

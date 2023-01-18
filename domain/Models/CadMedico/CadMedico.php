@@ -3,19 +3,18 @@
 namespace MVC\Models\CadMedico;
 
 use MVC\Base\MVCModel;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Foundation\Auth\Access\Authorizable;
+use YourAppRocks\EloquentUuid\Traits\HasUuid;
 
-class CadMedico extends MVCModel implements AuthenticatableContract, AuthorizableContract
+class CadMedico extends MVCModel
 {
 
-    use Authenticatable, Authorizable;
+    use HasUuid;
 
     protected $table = 'cad_medico';
     protected $primaryKey = 'id_medico';
     protected $guarded = [''];
+
+    public $timestamps = true;
 
     public function filter($query, array $params = [])
     {

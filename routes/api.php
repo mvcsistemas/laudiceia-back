@@ -26,6 +26,26 @@ Route::name('api.')->middleware('auth:sanctum')->group(function () {
     Route::prefix('user')->name('user.')->group(function () {
         Route::resource('', 'User\UserController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
+
+    Route::prefix('clinica')->name('clinica.')->group(function () {
+        Route::resource('', 'CadClinica\CadClinicaController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
+    });
+
+    Route::prefix('medico')->name('medico.')->group(function () {
+        Route::resource('', 'CadMedico\CadMedicoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
+    });
+
+    Route::prefix('funcionario')->name('funcionario.')->group(function () {
+        Route::resource('', 'CadFuncionario\CadFuncionarioController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
+    });
+
+    Route::prefix('departamento')->name('departamento.')->group(function () {
+        Route::resource('', 'CadDepartamento\CadDepartamentoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
+    });
+
+    Route::prefix('clinica_medico')->name('clinica_medico.')->group(function () {
+        Route::resource('', 'CadClinicaMedico\CadClinicaMedicoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
+    });
 });
 
 

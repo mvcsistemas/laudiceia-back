@@ -13,6 +13,8 @@ class CadFuncionario extends MVCModel {
     protected $primaryKey = 'id_funcionario';
     protected $guarded    = [''];
 
+    public $timestamps = true;
+
     public function filter($query, array $params = [])
     {
         $id = (int)($params['id_funcionario'] ?? '');

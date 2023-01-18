@@ -13,6 +13,7 @@ class CadClinicaMedico extends MVCModel
     protected $table = 'cad_clinica_medico';
     protected $primaryKey = 'id_clinica_medico';
     protected $guarded = [''];
+    public $timestamps = true;
 
     public function filter($query, array $params = [])
     {

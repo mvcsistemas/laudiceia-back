@@ -12,15 +12,18 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use YourAppRocks\EloquentUuid\Traits\HasUuid;
 
-class User extends MVCModel implements AuthenticatableContract, AuthorizableContract {
+class User extends MVCModel implements AuthenticatableContract, AuthorizableContract
+{
 
     use Authenticatable, Authorizable, HasApiTokens, HasFactory, HasUuid;
 
-    protected $table      = 'users';
+    protected $table = 'users';
     protected $primaryKey = 'id';
-    protected $fillable   = ['name', 'email', 'password'];
-    protected $hidden     = ['password', 'remember_token'];
-    protected $casts      = ['email_verified_at' => 'datetime'];
+    protected $guarded = [''];
+    protected $hidden = ['password', 'remember_token'];
+    protected $casts = ['email_verified_at' => 'datetime'];
+
+    public $timestamps = true;
 
     public static function boot()
     {
@@ -33,17 +36,7 @@ class User extends MVCModel implements AuthenticatableContract, AuthorizableCont
 
     public function filter($query, array $params = [])
     {
-        $uuid      = (string)($params['uuid'] ?? '');
-        $name_user = (string)($params['name_user'] ?? '');
-        $email     = (string)($params['email'] ?? '');
-
-        if ($uuid) {
-            $query->where('uuid', $uuid);
-        }
-
-        if ($name_user) {
-            $query->where('name', 'LIKE', "%$name_user%");
-        }
+        $email = (string)($params['email'] ?? '');
 
         if ($email) {
             $query->where('email', 'LIKE', "%$email%");

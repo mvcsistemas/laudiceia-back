@@ -11,7 +11,7 @@ class CadDepartamentoRequest extends MVCRequest
     {
         return [
             'id_departamento' => '',
-            'uuid' => 'required',
+            'uuid' => '',
             'dsc_departamento' => 'required',
             'created_at' => '',
             'updated_at' => '',

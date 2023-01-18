@@ -13,6 +13,8 @@ class CadDepartamento extends MVCModel {
     protected $primaryKey = 'id_departamento';
     protected $guarded    = [''];
 
+    public $timestamps = true;
+
     public function filter($query, array $params = [])
     {
         $id = (int)($params['id_departamento'] ?? '');

@@ -1,6 +1,4 @@
 <?php
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +19,10 @@ Route::post('/logout', 'Auth\AuthenticateController@logout');
 //Login API
 Route::post('/loginApi', 'Auth\AuthenticateController@loginApi');
 Route::post('/logoutApi', 'Auth\AuthenticateController@logoutApi')->middleware('auth:sanctum');
+
+//Reset Password
+Route::post('forgot-password', 'ResetPassword\NewPasswordController@forgotPassword')->name('password.forgot');
+Route::post('reset-password', 'ResetPassword\NewPasswordController@resetPassword')->name('password.reset');
 
 Route::name('api.')->middleware('auth:sanctum')->group(function () {
     Route::prefix('user')->name('user.')->group(function () {

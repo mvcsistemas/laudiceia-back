@@ -11,11 +11,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use YourAppRocks\EloquentUuid\Traits\HasUuid;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\ResetPasswordNotification;
 
-class User extends MVCModel implements AuthenticatableContract, AuthorizableContract
+class User extends MVCModel implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
 
-    use Authenticatable, Authorizable, HasApiTokens, HasFactory, HasUuid;
+    use Authenticatable, Authorizable, HasApiTokens, HasFactory, HasUuid, CanResetPassword, Notifiable;
 
     protected $table = 'users';
     protected $primaryKey = 'id';
@@ -43,5 +47,12 @@ class User extends MVCModel implements AuthenticatableContract, AuthorizableCont
         }
 
         return $query;
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $url =  env('FRONT_URL') . 'reset-password?token=' . $token;
+
+        $this->notify(new ResetPasswordNotification($url));
     }
 }

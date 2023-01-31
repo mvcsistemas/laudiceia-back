@@ -25,7 +25,7 @@ class CadFuncionarioSeeder extends Seeder
                 'uuid' => Str::uuid(36),
                 'nome_funcionario' => $faker->name,
                 'email' => $faker->email,
-                'telefone' => $faker->phoneNumber,
+                'telefone' => '997711122',
                 'cpf' => '12345678934',
                 'cep' => '13504361',
                 'numero' => '3455',

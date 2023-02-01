@@ -2561,3 +2561,61 @@ Stack trace:
 2023/01/30 20:54:59 [notice] 1#1: start worker process 35
 2023/01/30 21:02:34 [error] 32#32: *2 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Cannot declare class CRM\Models\ResetPassword\NewPasswordController, because the name is already in use in /var/www/html/domain/Models/ResetPassword/NewPasswordController.php on line 0" while reading response header from upstream, client: 172.19.0.1, server: back_default.test, request: "POST /api/forgot-password HTTP/1.1", upstream: "fastcgi://172.19.0.3:9000", host: "localhost"
 2023/01/30 21:04:49 [error] 32#32: *5 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Cannot declare class CRM\Models\ResetPassword\NewPasswordController, because the name is already in use in /var/www/html/domain/Models/ResetPassword/NewPasswordController.php on line 0" while reading response header from upstream, client: 172.19.0.1, server: back_default.test, request: "POST /api/forgot-password HTTP/1.1", upstream: "fastcgi://172.19.0.3:9000", host: "localhost"
+2023/01/30 23:29:55 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/01/30 23:29:55 [notice] 32#32: gracefully shutting down
+2023/01/30 23:29:55 [notice] 33#33: gracefully shutting down
+2023/01/30 23:29:55 [notice] 35#35: gracefully shutting down
+2023/01/30 23:29:55 [notice] 34#34: gracefully shutting down
+2023/01/30 23:29:55 [notice] 32#32: exiting
+2023/01/30 23:29:55 [notice] 32#32: exit
+2023/01/30 23:29:55 [notice] 34#34: exiting
+2023/01/30 23:29:55 [notice] 34#34: exit
+2023/01/30 23:29:55 [notice] 33#33: exiting
+2023/01/30 23:29:55 [notice] 33#33: exit
+2023/01/30 23:29:55 [notice] 35#35: exiting
+2023/01/30 23:29:55 [notice] 35#35: exit
+2023/01/30 23:29:55 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2023/01/30 23:29:55 [notice] 1#1: worker process 33 exited with code 0
+2023/01/30 23:29:55 [notice] 1#1: worker process 34 exited with code 0
+2023/01/30 23:29:55 [notice] 1#1: signal 29 (SIGIO) received
+2023/01/30 23:29:55 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2023/01/30 23:29:55 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2023/01/30 23:29:55 [notice] 1#1: worker process 32 exited with code 0
+2023/01/30 23:29:55 [notice] 1#1: worker process 35 exited with code 0
+2023/01/30 23:29:55 [notice] 1#1: exit
+2023/01/31 20:29:37 [notice] 1#1: using the "epoll" event method
+2023/01/31 20:29:37 [notice] 1#1: nginx/1.20.0
+2023/01/31 20:29:37 [notice] 1#1: built by gcc 10.2.1 20201203 (Alpine 10.2.1_pre1) 
+2023/01/31 20:29:37 [notice] 1#1: OS: Linux 5.15.79.1-microsoft-standard-WSL2
+2023/01/31 20:29:37 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/01/31 20:29:37 [notice] 1#1: start worker processes
+2023/01/31 20:29:37 [notice] 1#1: start worker process 31
+2023/01/31 20:29:37 [notice] 1#1: start worker process 32
+2023/01/31 20:29:37 [notice] 1#1: start worker process 33
+2023/01/31 20:29:37 [notice] 1#1: start worker process 34
+2023/01/31 22:40:44 [warn] 31#31: *127 an upstream response is buffered to a temporary file /var/cache/nginx/fastcgi_temp/1/00/0000000001 while reading upstream, client: 172.18.0.1, server: back_default.test, request: "GET /api/get-data-token HTTP/1.1", upstream: "fastcgi://172.18.0.4:9000", host: "localhost"
+2023/01/31 23:39:34 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/01/31 23:39:34 [notice] 31#31: gracefully shutting down
+2023/01/31 23:39:34 [notice] 32#32: gracefully shutting down
+2023/01/31 23:39:34 [notice] 31#31: exiting
+2023/01/31 23:39:34 [notice] 32#32: exiting
+2023/01/31 23:39:34 [notice] 34#34: gracefully shutting down
+2023/01/31 23:39:34 [notice] 34#34: exiting
+2023/01/31 23:39:34 [notice] 33#33: gracefully shutting down
+2023/01/31 23:39:34 [notice] 33#33: exiting
+2023/01/31 23:39:34 [notice] 33#33: exit
+2023/01/31 23:39:34 [notice] 31#31: exit
+2023/01/31 23:39:34 [notice] 32#32: exit
+2023/01/31 23:39:34 [notice] 34#34: exit
+2023/01/31 23:39:34 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2023/01/31 23:39:34 [notice] 1#1: worker process 34 exited with code 0
+2023/01/31 23:39:34 [notice] 1#1: signal 29 (SIGIO) received
+2023/01/31 23:39:34 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2023/01/31 23:39:34 [notice] 1#1: worker process 33 exited with code 0
+2023/01/31 23:39:34 [notice] 1#1: signal 29 (SIGIO) received
+2023/01/31 23:39:34 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2023/01/31 23:39:34 [notice] 1#1: worker process 32 exited with code 0
+2023/01/31 23:39:34 [notice] 1#1: signal 29 (SIGIO) received
+2023/01/31 23:39:34 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2023/01/31 23:39:34 [notice] 1#1: worker process 31 exited with code 0
+2023/01/31 23:39:34 [notice] 1#1: exit

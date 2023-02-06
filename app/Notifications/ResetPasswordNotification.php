@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Lang;
 
 class ResetPasswordNotification extends Notification implements ShouldQueue
 {
@@ -43,11 +44,14 @@ class ResetPasswordNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Redefinição de Senha')
-                    ->greeting('Olá!')
-                    ->line('Esqueceu sua senha?')
-                    ->action('Clique aqui para resetar', $this->url)
-                    ->line('Caso você não solicitou a troca da senha, desconsidere este e-mail.');
+                    ->subject(Lang::get('assunto_redefinir_senha'))
+                    ->greeting(Lang::get('linha_redefina_sua_senha_1'))
+                    ->line(Lang::get('linha_redefina_sua_senha_2'))
+                    ->line(Lang::get('linha_redefina_sua_senha_3'))
+                    ->action(Lang::get('linha_redefina_sua_senha_4'), $this->url)
+                    ->line(Lang::get('linha_redefina_sua_senha_5'))
+                    ->line(Lang::get('linha_redefina_sua_senha_6'))
+                    ->salutation(Lang::get('saudacao_email'));
     }
 
     /**

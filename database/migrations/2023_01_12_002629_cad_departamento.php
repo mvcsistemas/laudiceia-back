@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id('id_departamento');
             $table->uuid('uuid');
             $table->string('dsc_departamento', 150);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

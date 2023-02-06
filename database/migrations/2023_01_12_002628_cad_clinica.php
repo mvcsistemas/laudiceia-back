@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('cidade', 50);
             $table->string('estado', 50);
             $table->string('complemento', 200)->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

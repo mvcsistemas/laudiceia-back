@@ -12,3 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Notifications\SuccessResetPassword;
+
+Route::get('/notification', function () {
+    $user = \MVC\Models\User\User::first();
+
+    return (new SuccessResetPassword($user))
+        ->toMail('teste@teste.com');
+});

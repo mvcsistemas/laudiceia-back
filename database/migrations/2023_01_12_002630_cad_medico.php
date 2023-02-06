@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('codigo_ativacao', 10)->nullable();
             $table->string('telefone_interno',15)->nullable();
             $table->foreignId('id_clinica')->references('id_clinica')->on('cad_clinica');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

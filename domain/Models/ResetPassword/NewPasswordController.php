@@ -5,6 +5,7 @@ namespace MVC\Models\ResetPassword;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
@@ -44,16 +45,19 @@ class NewPasswordController extends Controller {
 
         $status = Password::reset(
             $request->only('email', 'password', 'password_confirmation', 'token'),
+
             function ($user) use ($request) {
                 $user->forceFill([
-                    'password'       => Hash::make($request->password),
-                    'remember_token' => Str::random(60),
-                ])->save();
+                    'password' => Hash::make($request->password)
+                ])->setRememberToken(Str::random(60));
 
-                //delete all tokens
+                $user->save();
+
+                // Desloga de todos os outros dispositivos
+                Auth::logoutOtherDevices($request->password);
+
+                // Apaga todos os tokes de api vinculado ao usuario
                 $user->tokens()->delete();
-
-                //TODO: Delete all sessions
 
                 event(new PasswordReset($user));
             }

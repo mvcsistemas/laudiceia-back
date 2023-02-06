@@ -20,7 +20,8 @@ return new class extends Migration
             $table->foreignId('id_medico')->references('id_medico')->on('cad_medico');
             $table->string('telefone', 15);
             $table->string('whatsapp', 15);
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

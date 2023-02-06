@@ -30,7 +30,8 @@ return new class extends Migration
             $table->boolean('ativo')->default(true);
             $table->string('codigo_ativacao', 10);
             $table->foreignId('id_departamento')->references('id_departamento')->on('cad_departamento');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

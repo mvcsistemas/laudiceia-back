@@ -24,7 +24,7 @@ Route::post('/logoutApi', 'Auth\AuthenticateController@logoutApi')->middleware('
 Route::post('forgot-password', 'ResetPassword\NewPasswordController@forgotPassword')->name('password.forgot');
 Route::post('reset-password', 'ResetPassword\NewPasswordController@resetPassword')->name('password.reset');
 
-Route::name('api.')->middleware('auth:sanctum')->group(function () {
+Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     Route::prefix('user')->name('user.')->group(function () {
         Route::resource('', 'User\UserController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });

@@ -2619,3 +2619,151 @@ Stack trace:
 2023/01/31 23:39:34 [notice] 1#1: signal 17 (SIGCHLD) received from 31
 2023/01/31 23:39:34 [notice] 1#1: worker process 31 exited with code 0
 2023/01/31 23:39:34 [notice] 1#1: exit
+2023/02/06 12:16:55 [notice] 1#1: using the "epoll" event method
+2023/02/06 12:16:55 [notice] 1#1: nginx/1.20.0
+2023/02/06 12:16:55 [notice] 1#1: built by gcc 10.2.1 20201203 (Alpine 10.2.1_pre1) 
+2023/02/06 12:16:55 [notice] 1#1: OS: Linux 5.15.79.1-microsoft-standard-WSL2
+2023/02/06 12:16:55 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/02/06 12:16:55 [notice] 1#1: start worker processes
+2023/02/06 12:16:55 [notice] 1#1: start worker process 32
+2023/02/06 12:16:55 [notice] 1#1: start worker process 33
+2023/02/06 12:16:55 [notice] 1#1: start worker process 34
+2023/02/06 12:16:55 [notice] 1#1: start worker process 35
+2023/02/06 13:42:22 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/02/06 13:42:22 [notice] 32#32: gracefully shutting down
+2023/02/06 13:42:22 [notice] 33#33: gracefully shutting down
+2023/02/06 13:42:22 [notice] 33#33: exiting
+2023/02/06 13:42:22 [notice] 32#32: exiting
+2023/02/06 13:42:22 [notice] 34#34: gracefully shutting down
+2023/02/06 13:42:22 [notice] 32#32: exit
+2023/02/06 13:42:22 [notice] 33#33: exit
+2023/02/06 13:42:22 [notice] 34#34: exiting
+2023/02/06 13:42:22 [notice] 35#35: gracefully shutting down
+2023/02/06 13:42:22 [notice] 34#34: exit
+2023/02/06 13:42:22 [notice] 35#35: exiting
+2023/02/06 13:42:22 [notice] 35#35: exit
+2023/02/06 13:42:22 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2023/02/06 13:42:22 [notice] 1#1: worker process 32 exited with code 0
+2023/02/06 13:42:22 [notice] 1#1: signal 29 (SIGIO) received
+2023/02/06 13:42:22 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2023/02/06 13:42:22 [notice] 1#1: worker process 34 exited with code 0
+2023/02/06 13:42:22 [notice] 1#1: signal 29 (SIGIO) received
+2023/02/06 13:42:22 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2023/02/06 13:42:22 [notice] 1#1: worker process 35 exited with code 0
+2023/02/06 13:42:22 [notice] 1#1: signal 29 (SIGIO) received
+2023/02/06 13:42:22 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2023/02/06 13:42:22 [notice] 1#1: worker process 33 exited with code 0
+2023/02/06 13:42:22 [notice] 1#1: exit
+2023/02/06 13:43:03 [notice] 1#1: using the "epoll" event method
+2023/02/06 13:43:03 [notice] 1#1: nginx/1.20.0
+2023/02/06 13:43:03 [notice] 1#1: built by gcc 10.2.1 20201203 (Alpine 10.2.1_pre1) 
+2023/02/06 13:43:03 [notice] 1#1: OS: Linux 5.15.79.1-microsoft-standard-WSL2
+2023/02/06 13:43:03 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/02/06 13:43:03 [notice] 1#1: start worker processes
+2023/02/06 13:43:03 [notice] 1#1: start worker process 31
+2023/02/06 13:43:03 [notice] 1#1: start worker process 32
+2023/02/06 13:43:03 [notice] 1#1: start worker process 33
+2023/02/06 13:43:03 [notice] 1#1: start worker process 34
+2023/02/06 17:08:21 [error] 31#31: *12 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Cannot declare class CRM\Models\ResetPassword\NewPasswordController, because the name is already in use in /var/www/html/domain/Models/ResetPassword/NewPasswordController.php on line 0" while reading response header from upstream, client: 172.19.0.1, server: back_default.test, request: "POST /api/forgot-password HTTP/1.1", upstream: "fastcgi://172.19.0.5:9000", host: "localhost", referrer: "http://localhost:8080/"
+2023/02/06 17:16:07 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/02/06 17:16:07 [notice] 31#31: gracefully shutting down
+2023/02/06 17:16:07 [notice] 32#32: gracefully shutting down
+2023/02/06 17:16:07 [notice] 33#33: gracefully shutting down
+2023/02/06 17:16:07 [notice] 34#34: gracefully shutting down
+2023/02/06 17:16:07 [notice] 32#32: exiting
+2023/02/06 17:16:07 [notice] 34#34: exiting
+2023/02/06 17:16:07 [notice] 31#31: exiting
+2023/02/06 17:16:07 [notice] 33#33: exiting
+2023/02/06 17:16:07 [notice] 32#32: exit
+2023/02/06 17:16:07 [notice] 34#34: exit
+2023/02/06 17:16:07 [notice] 31#31: exit
+2023/02/06 17:16:07 [notice] 33#33: exit
+2023/02/06 17:16:07 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2023/02/06 17:16:07 [notice] 1#1: worker process 32 exited with code 0
+2023/02/06 17:16:07 [notice] 1#1: signal 29 (SIGIO) received
+2023/02/06 17:16:07 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2023/02/06 17:16:07 [notice] 1#1: worker process 33 exited with code 0
+2023/02/06 17:16:07 [notice] 1#1: signal 29 (SIGIO) received
+2023/02/06 17:16:07 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2023/02/06 17:16:07 [notice] 1#1: worker process 31 exited with code 0
+2023/02/06 17:16:07 [notice] 1#1: worker process 34 exited with code 0
+2023/02/06 17:16:07 [notice] 1#1: exit
+2023/02/06 17:16:37 [notice] 1#1: using the "epoll" event method
+2023/02/06 17:16:37 [notice] 1#1: nginx/1.20.0
+2023/02/06 17:16:37 [notice] 1#1: built by gcc 10.2.1 20201203 (Alpine 10.2.1_pre1) 
+2023/02/06 17:16:37 [notice] 1#1: OS: Linux 5.15.79.1-microsoft-standard-WSL2
+2023/02/06 17:16:37 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/02/06 17:16:37 [notice] 1#1: start worker processes
+2023/02/06 17:16:37 [notice] 1#1: start worker process 32
+2023/02/06 17:16:37 [notice] 1#1: start worker process 33
+2023/02/06 17:16:37 [notice] 1#1: start worker process 34
+2023/02/06 17:16:37 [notice] 1#1: start worker process 35
+2023/02/06 17:17:11 [error] 32#32: *3 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Cannot declare class CRM\Models\ResetPassword\NewPasswordController, because the name is already in use in /var/www/html/domain/Models/ResetPassword/NewPasswordController.php on line 0" while reading response header from upstream, client: 172.20.0.1, server: back_default.test, request: "POST /api/forgot-password HTTP/1.1", upstream: "fastcgi://172.20.0.3:9000", host: "localhost", referrer: "http://localhost:8080/"
+2023/02/06 17:18:09 [error] 32#32: *7 FastCGI sent in stderr: "PHP message: PHP Fatal error:  Cannot declare class CRM\Models\ResetPassword\NewPasswordController, because the name is already in use in /var/www/html/domain/Models/ResetPassword/NewPasswordController.php on line 0" while reading response header from upstream, client: 172.20.0.1, server: back_default.test, request: "POST /api/forgot-password HTTP/1.1", upstream: "fastcgi://172.20.0.3:9000", host: "localhost"
+2023/02/06 17:35:57 [error] 32#32: *95 directory index of "/var/www/html/public/assets/images/" is forbidden, client: 172.20.0.1, server: back_default.test, request: "GET /assets/images/ HTTP/1.1", host: "localhost"
+2023/02/06 17:36:19 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/02/06 17:36:19 [notice] 34#34: gracefully shutting down
+2023/02/06 17:36:19 [notice] 33#33: gracefully shutting down
+2023/02/06 17:36:19 [notice] 32#32: gracefully shutting down
+2023/02/06 17:36:19 [notice] 35#35: gracefully shutting down
+2023/02/06 17:36:19 [notice] 32#32: exiting
+2023/02/06 17:36:19 [notice] 35#35: exiting
+2023/02/06 17:36:19 [notice] 34#34: exiting
+2023/02/06 17:36:19 [notice] 33#33: exiting
+2023/02/06 17:36:19 [notice] 34#34: exit
+2023/02/06 17:36:19 [notice] 33#33: exit
+2023/02/06 17:36:19 [notice] 35#35: exit
+2023/02/06 17:36:19 [notice] 32#32: exit
+2023/02/06 17:36:19 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2023/02/06 17:36:19 [notice] 1#1: worker process 34 exited with code 0
+2023/02/06 17:36:19 [notice] 1#1: signal 29 (SIGIO) received
+2023/02/06 17:36:19 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2023/02/06 17:36:19 [notice] 1#1: worker process 33 exited with code 0
+2023/02/06 17:36:19 [notice] 1#1: signal 29 (SIGIO) received
+2023/02/06 17:36:19 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2023/02/06 17:36:19 [notice] 1#1: worker process 35 exited with code 0
+2023/02/06 17:36:19 [notice] 1#1: signal 29 (SIGIO) received
+2023/02/06 17:36:19 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2023/02/06 17:36:19 [notice] 1#1: worker process 32 exited with code 0
+2023/02/06 17:36:19 [notice] 1#1: exit
+2023/02/06 17:36:56 [notice] 1#1: using the "epoll" event method
+2023/02/06 17:36:56 [notice] 1#1: nginx/1.20.0
+2023/02/06 17:36:56 [notice] 1#1: built by gcc 10.2.1 20201203 (Alpine 10.2.1_pre1) 
+2023/02/06 17:36:56 [notice] 1#1: OS: Linux 5.15.79.1-microsoft-standard-WSL2
+2023/02/06 17:36:56 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/02/06 17:36:56 [notice] 1#1: start worker processes
+2023/02/06 17:36:56 [notice] 1#1: start worker process 32
+2023/02/06 17:36:56 [notice] 1#1: start worker process 33
+2023/02/06 17:36:56 [notice] 1#1: start worker process 34
+2023/02/06 17:36:56 [notice] 1#1: start worker process 35
+2023/02/06 17:38:21 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/02/06 17:38:21 [notice] 32#32: gracefully shutting down
+2023/02/06 17:38:21 [notice] 33#33: gracefully shutting down
+2023/02/06 17:38:21 [notice] 32#32: exiting
+2023/02/06 17:38:21 [notice] 35#35: gracefully shutting down
+2023/02/06 17:38:21 [notice] 33#33: exiting
+2023/02/06 17:38:21 [notice] 35#35: exiting
+2023/02/06 17:38:21 [notice] 33#33: exit
+2023/02/06 17:38:21 [notice] 32#32: exit
+2023/02/06 17:38:21 [notice] 35#35: exit
+2023/02/06 17:38:21 [notice] 34#34: gracefully shutting down
+2023/02/06 17:38:21 [notice] 34#34: exiting
+2023/02/06 17:38:21 [notice] 34#34: exit
+2023/02/06 17:38:21 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2023/02/06 17:38:21 [notice] 1#1: worker process 33 exited with code 0
+2023/02/06 17:38:21 [notice] 1#1: worker process 34 exited with code 0
+2023/02/06 17:38:21 [notice] 1#1: worker process 35 exited with code 0
+2023/02/06 17:38:21 [notice] 1#1: signal 29 (SIGIO) received
+2023/02/06 17:38:21 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2023/02/06 17:38:21 [notice] 1#1: worker process 32 exited with code 0
+2023/02/06 17:38:21 [notice] 1#1: exit
+2023/02/06 17:38:40 [notice] 1#1: using the "epoll" event method
+2023/02/06 17:38:40 [notice] 1#1: nginx/1.20.0
+2023/02/06 17:38:40 [notice] 1#1: built by gcc 10.2.1 20201203 (Alpine 10.2.1_pre1) 
+2023/02/06 17:38:40 [notice] 1#1: OS: Linux 5.15.79.1-microsoft-standard-WSL2
+2023/02/06 17:38:40 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/02/06 17:38:40 [notice] 1#1: start worker processes
+2023/02/06 17:38:40 [notice] 1#1: start worker process 32
+2023/02/06 17:38:40 [notice] 1#1: start worker process 33
+2023/02/06 17:38:40 [notice] 1#1: start worker process 34
+2023/02/06 17:38:40 [notice] 1#1: start worker process 35

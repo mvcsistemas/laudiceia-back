@@ -35,6 +35,7 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     });
 
     Route::prefix('clinica')->name('clinica.')->group(function () {
+        Route::get('lookup', 'CadClinica\CadClinicaController@lookup');
         Route::resource('', 'CadClinica\CadClinicaController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
 

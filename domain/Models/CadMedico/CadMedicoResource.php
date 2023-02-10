@@ -14,6 +14,7 @@ class CadMedicoResource extends JsonResource
             'uuid' => $this->uuid,
             'id_clinica' => $this->id_clinica,
             'nome_medico' => $this->nome_medico,
+            'nome_clinica' => $this->nome_clinica,
             'acesso_sistema' => $this->acesso_sistema,
             'ativo' => $this->ativo,
             'codigo_ativacao' => $this->codigo_ativacao,

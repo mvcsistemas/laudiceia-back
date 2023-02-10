@@ -13,6 +13,7 @@
     "Register": "Registre-se",
     "Home": "Principal",
     "Logout": "Sair",
+    "User": "Não encontramos um usuário com esse endereço de e-mail.",
 	"Email Address": "Endereço de e-mail",
     "Toggle navigation": "Alternar navegação",
     "Nevermind": "Deixa pra lá",
@@ -132,5 +133,13 @@
     "linha_sucesso_redefinir_senha_1": "Gostaríamos de informar que sua senha da Laudicéia Podologia foi redefinida.",
     "linha_sucesso_redefinir_senha_2": "Se você não realizou esta ação, você pode recuperar o acesso digitando :email no formulário, clicando no botão abaixo:",
     "linha_sucesso_redefinir_senha_3": "Por favor, não responda a este e-mail com sua senha. Nunca pediremos sua senha e recomendamos fortemente que você não a compartilhe com nenhuma pessoa.",
-    "recuperar_conta": "Recuperar Conta"
+    "recuperar_conta": "Recuperar Conta",
+    "assunto_primeiro_acesso": "[Laudicéia Podologia] Primeiro Acesso",
+    "linha_primeiro_acesso_1": "Seja Bem vinda(o) a Laudicéia Podologia!",
+    "linha_primeiro_acesso_2": "Para criar sua nova senha e ter acesso ao sistema, preencha os campos com os números que aparecem abaixo.",
+    "linha_primeiro_acesso_3": "Se você não usar este código dentro de 10 minutos, ele expirará.",
+    "usuario_ja_cadastrado": "Usuário já fez acesso no sistema. Caso necessário, redefina sua senha.",
+    "codigo_invalido": "Código inválido",
+    "codigo_expirado": "Seu código expirou",
+    "senha_criada_sucesso": "Senha criada com sucesso!"
 }

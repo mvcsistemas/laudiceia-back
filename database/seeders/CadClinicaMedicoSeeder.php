@@ -25,8 +25,8 @@ class CadClinicaMedicoSeeder extends Seeder
                 'uuid' => Str::uuid(36),
                 'id_clinica' => 1,
                 'id_medico' => 1,
-                'telefone' => $faker->phoneNumber,
-                'whatsapp' => $faker->phoneNumber
+                'telefone' => '999788996',
+                'whatsapp' => '998765421'
             ]);
         }
     }

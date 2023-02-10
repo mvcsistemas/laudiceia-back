@@ -24,6 +24,11 @@ Route::post('/logoutApi', 'Auth\AuthenticateController@logoutApi')->middleware('
 Route::post('forgot-password', 'ResetPassword\NewPasswordController@forgotPassword')->name('password.forgot');
 Route::post('reset-password', 'ResetPassword\NewPasswordController@resetPassword')->name('password.reset');
 
+//First Access
+Route::post('first-access/generate-otp', 'FirstAccess\FirstAccessController@generate')->name('first-acess.generate-otp');
+Route::post('first-access/check-otp', 'FirstAccess\FirstAccessController@checkCodeForNewPassword')->name('first-acess.check-otp');
+Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@createPassword')->name('first-acess.create-password');
+
 Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     Route::prefix('user')->name('user.')->group(function () {
         Route::resource('', 'User\UserController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);

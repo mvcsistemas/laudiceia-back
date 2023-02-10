@@ -12,11 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Notifications\SuccessResetPassword;
+use App\Notifications\SendOtpFirtAccess;
 
 Route::get('/notification', function () {
     $user = \MVC\Models\User\User::first();
+    $newCode = \MVC\Models\FirstAccess\FirstAccess::first();
 
-    return (new SuccessResetPassword($user))
+    return (new SendOtpFirtAccess($user, $newCode))
         ->toMail('teste@teste.com');
 });

@@ -28,7 +28,6 @@ return new class extends Migration
             $table->string('complemento', 200);
             $table->boolean('acesso_sistema')->default(true);
             $table->boolean('ativo')->default(true);
-            $table->string('codigo_ativacao', 10);
             $table->foreignId('id_departamento')->references('id_departamento')->on('cad_departamento');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

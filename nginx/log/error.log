@@ -2934,3 +2934,13 @@ Stack trace:
 2023/02/10 11:09:06 [notice] 1#1: start worker process 32
 2023/02/10 11:09:06 [notice] 1#1: start worker process 33
 2023/02/10 11:09:06 [notice] 1#1: start worker process 34
+2023/02/13 10:29:46 [notice] 1#1: using the "epoll" event method
+2023/02/13 10:29:46 [notice] 1#1: nginx/1.20.0
+2023/02/13 10:29:46 [notice] 1#1: built by gcc 10.2.1 20201203 (Alpine 10.2.1_pre1) 
+2023/02/13 10:29:46 [notice] 1#1: OS: Linux 5.15.79.1-microsoft-standard-WSL2
+2023/02/13 10:29:46 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/02/13 10:29:46 [notice] 1#1: start worker processes
+2023/02/13 10:29:46 [notice] 1#1: start worker process 31
+2023/02/13 10:29:46 [notice] 1#1: start worker process 32
+2023/02/13 10:29:46 [notice] 1#1: start worker process 33
+2023/02/13 10:29:46 [notice] 1#1: start worker process 34

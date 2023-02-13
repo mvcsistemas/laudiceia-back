@@ -33,7 +33,6 @@ class CadFuncionarioSeeder extends Seeder
                 'cidade' => 'Rio Claro',
                 'estado' => 'São Paulo',
                 'complemento' => 'complemento Teste',
-                'codigo_ativacao' => '1234',
                 'id_departamento' => 1,
             ]);
         }

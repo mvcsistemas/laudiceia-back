@@ -14,7 +14,7 @@ trait MVCResponseTrait {
 
         $per_page = (int)request()->per_page > 0 ? request()->per_page : $this->per_page;
 
-        $query = $this->service->filter($query, request()->all())->simplePaginate($per_page);
+        $query = $this->service->filter($query, request()->all())->paginate($per_page);
 
         return $this->resource::collection($query)->response()->setStatusCode($http_code);
     }

@@ -17,7 +17,6 @@ class CadFuncionarioResource extends JsonResource
             'ativo' => $this->ativo,
             'cep' => $this->cep,
             'cidade' => $this->cidade,
-            'codigo_ativacao' => $this->codigo_ativacao,
             'complemento' => $this->complemento,
             'cpf' => $this->cpf,
             'email' => $this->email,

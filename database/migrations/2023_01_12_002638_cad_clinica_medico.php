@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('cad_clinica_medico', function (Blueprint $table) {
             $table->id('id_clinica_medico');
             $table->uuid('uuid');
-            $table->foreignId('id_clinica')->references('id_clinica')->on('cad_clinica');
-            $table->foreignId('id_medico')->references('id_medico')->on('cad_medico');
+            $table->foreignId('id_clinica')->references('id_clinica')->on('cad_clinica')->onDelete('cascade');
+            $table->foreignId('id_medico')->references('id_medico')->on('cad_medico')->onDelete('cascade');
             $table->string('telefone', 15);
             $table->string('whatsapp', 15);
             $table->timestamp('created_at')->useCurrent();

@@ -25,7 +25,6 @@ class CadMedicoSeeder extends Seeder
                 'uuid' => Str::uuid(36),
                 'nome_medico' => $faker->name,
                 'email' => $faker->unique()->safeEmail(),
-                'codigo_ativacao' => '123456',
                 'telefone_interno' => '19997778998',
                 'id_clinica' => 1
             ]);

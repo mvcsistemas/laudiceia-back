@@ -34,7 +34,10 @@ class MVCModel extends Model {
 
     public function showByUuid($uuid)
     {
-        return $this->findByUuid($uuid);
+        $query = $this->index();
+        $params = ['uuid' => $uuid];
+
+        return $this->filter($query, $params)->firstOrFail();
     }
 
     public function updateRecordByUuid($uuid, array $data)

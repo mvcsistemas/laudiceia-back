@@ -14,12 +14,11 @@ class CadMedicoRequest extends MVCRequest
             'uuid' => '',
             'nome_medico' => 'required',
             'id_clinica' => 'required',
-            'acesso_sistema' => 'required',
             'ativo' => 'required',
-            'codigo_ativacao' => '',
-            'email' => 'required',
+            'email' => ['required', 'email'],
             'telefone_interno' => '',
             'created_at' => '',
+            
             'updated_at' => '',
         ];
     }
@@ -29,9 +28,9 @@ class CadMedicoRequest extends MVCRequest
         return [
             'nome_medico.required' => 'O campo Nome é obrigatório.',
             'id_clinica.required' => 'O campo Clínica é obrigatório.',
-            'acesso_sistema.required' => 'O campo Acesso ao Sistema é obrigatório.',
             'ativo.required' => 'O campo Ativo é obrigatório.',
             'email.required' => 'O campo E-mail é obrigatório.',
+            'email.email' => 'O campo E-mail está em um formato inválido.',
         ];
     }
 }

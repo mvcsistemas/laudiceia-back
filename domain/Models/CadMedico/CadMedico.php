@@ -66,7 +66,6 @@ class CadMedico extends MVCModel
             $query->orderBy('cad_medico.nome_medico');
         }
 
-
         return $query;
     }
 }

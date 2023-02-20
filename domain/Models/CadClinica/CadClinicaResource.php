@@ -17,6 +17,7 @@ class CadClinicaResource extends JsonResource
             'cidade' => $this->cidade,
             'complemento' => $this->complemento,
             'endereco' => $this->endereco,
+            'bairro' => $this->bairro,
             'numero' => $this->numero,
             'estado' => $this->estado,
             'created_at' => $this->created_at,

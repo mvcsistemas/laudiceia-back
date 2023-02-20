@@ -17,6 +17,7 @@ class CadClinicaRequest extends MVCRequest
             'cidade' => 'required',
             'complemento' => '',
             'endereco' => 'required',
+            'bairro' => 'required',
             'numero' => 'required',
             'estado' => 'required',
         ];
@@ -31,6 +32,7 @@ class CadClinicaRequest extends MVCRequest
             'endereco.required' => 'O campo Endereço é obrigatório.',
             'numero.required' => 'O campo Número é obrigatório.',
             'estado.required' => 'O campo Estado é obrigatório.',
+            'bairro.required' => 'O campo Bairro é obrigatório.',
         ];
     }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('endereco');
             $table->string('cep', 10);
             $table->string('numero', 10);
+            $table->string('bairro', 200);
             $table->string('cidade', 50);
             $table->string('estado', 50);
             $table->string('complemento', 200)->nullable();

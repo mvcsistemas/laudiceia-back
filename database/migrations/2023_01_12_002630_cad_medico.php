@@ -21,7 +21,7 @@ return new class extends Migration
             $table->boolean('acesso_sistema')->default(true);
             $table->boolean('ativo')->default(true);
             $table->string('telefone_interno',15)->nullable();
-            $table->foreignId('id_clinica')->references('id_clinica')->on('cad_clinica');
+            $table->foreignId('id_clinica')->references('id_clinica')->on('cad_clinica')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

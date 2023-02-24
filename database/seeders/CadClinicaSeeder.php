@@ -29,6 +29,7 @@ class CadClinicaSeeder extends Seeder
                 'numero' => '3455',
                 'cidade' => 'Teste',
                 'estado' => 'Teste',
+                'bairro' => 'Parque Universitario',
                 'complemento' => 'complemento Teste'
             ]);
         }

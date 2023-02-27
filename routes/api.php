@@ -48,6 +48,7 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     });
 
     Route::prefix('departamento')->name('departamento.')->group(function () {
+        Route::get('lookup', 'CadDepartamento\CadDepartamentoController@lookup');
         Route::resource('', 'CadDepartamento\CadDepartamentoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
 

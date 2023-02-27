@@ -13,7 +13,7 @@ class CadClinica extends MVCModel
     protected $table = 'cad_clinica';
     protected $primaryKey = 'id_clinica';
     protected $guarded = [''];
-    public $timestamps = true;
+    public    $timestamps = true;
 
     public function lookup(array $params = [])
     {

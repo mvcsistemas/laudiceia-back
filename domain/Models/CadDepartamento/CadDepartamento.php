@@ -12,7 +12,16 @@ class CadDepartamento extends MVCModel {
     protected $table      = 'cad_departamento';
     protected $primaryKey = 'id_departamento';
     protected $guarded    = [''];
-    public $timestamps = true;
+    public    $timestamps = true;
+
+    public function lookup(array $params = [])
+    {
+        $rows = $this->select('id_departamento', 'dsc_departamento');
+
+        $this->filter($rows, $params);
+
+        return $rows->get();
+    }
 
     public function filter($query, array $params = [])
     {

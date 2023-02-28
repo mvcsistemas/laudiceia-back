@@ -22,15 +22,15 @@ class CadMedico extends MVCModel
 
     public function filter($query, array $params = [])
     {
-        $id_medico = (int)($params['id_medico'] ?? '');
-        $uuid = (string)($params['uuid'] ?? '');
-        $nome_medico = (string)($params['nome_medico'] ?? '');
-        $email = (string)($params['email'] ?? '');
+        $id_medico        = (int)($params['id_medico'] ?? '');
+        $uuid             = (string)($params['uuid'] ?? '');
+        $nome_medico      = (string)($params['nome_medico'] ?? '');
+        $email            = (string)($params['email'] ?? '');
         $telefone_interno = (string)($params['telefone_interno'] ?? '');
-        $id_clinica = (int)($params['id_clinica'] ?? '');
-        $ativo = (int)($params['ativo'] ?? 2);
-        $tipo_ordenacao  = $params['tipo_ordenacao'] ?? '';
-        $campo_ordenacao = $params['campo_ordenacao'] ?? '';
+        $id_clinica       = (int)($params['id_clinica'] ?? '');
+        $ativo            = (int)($params['ativo'] ?? 2);
+        $tipo_ordenacao   = $params['tipo_ordenacao'] ?? '';
+        $campo_ordenacao  = $params['campo_ordenacao'] ?? '';
 
         if ($id_medico) {
             $query->where('cad_medico.id_medico', $id_medico);

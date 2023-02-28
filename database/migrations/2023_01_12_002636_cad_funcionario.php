@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('numero', 10);
             $table->string('cidade', 50);
             $table->string('estado', 50);
-            $table->string('complemento', 200);
+            $table->string('complemento', 200)->nullable();
             $table->boolean('acesso_sistema')->default(true);
             $table->boolean('ativo')->default(true);
             $table->foreignId('id_departamento')->references('id_departamento')->on('cad_departamento');

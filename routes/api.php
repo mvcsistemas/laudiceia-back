@@ -55,6 +55,10 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     Route::prefix('clinica_medico')->name('clinica_medico.')->group(function () {
         Route::resource('', 'CadClinicaMedico\CadClinicaMedicoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
+
+    Route::prefix('paciente')->name('paciente.')->group(function () {
+        Route::resource('', 'CadPaciente\CadPacienteController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
+    });
 });
 
 

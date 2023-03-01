@@ -2,9 +2,7 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use MVC\Models\CadClinica\CadClinica;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,6 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([UserSeeder::class, CadClinicaSeeder::class, CadDepartamentoSeeder::class, CadMedicoSeeder::class, CadFuncionarioSeeder::class, CadClinicaMedicoSeeder::class]);
+        $this->call([UserSeeder::class, CadClinicaSeeder::class, CadDepartamentoSeeder::class, CadMedicoSeeder::class, CadFuncionarioSeeder::class, CadClinicaMedicoSeeder::class, CadPacienteSeeder::class]);
     }
 }

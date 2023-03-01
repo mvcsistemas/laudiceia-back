@@ -30,6 +30,7 @@ class CadFuncionarioSeeder extends Seeder
                 'cep' => '13504361',
                 'numero' => '3455',
                 'endereco' => 'Endereço teste',
+                'bairro' => 'teste',
                 'cidade' => 'Rio Claro',
                 'estado' => 'São Paulo',
                 'complemento' => 'complemento Teste',

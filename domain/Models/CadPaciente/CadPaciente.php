@@ -17,15 +17,17 @@ class CadPaciente extends MVCModel {
 
     public function filter($query, array $params = [])
     {
-        $id               = (int)($params['id_paciente'] ?? '');
-        $uuid             = (string)($params['uuid'] ?? '');
-        $nome_paciente    = (string)($params['nome_paciente'] ?? '');
-        $cep              = (string)($params['cep'] ?? '');
-        $cidade           = (string)($params['cidade'] ?? '');
-        $estado           = (string)($params['estado'] ?? '');
-        $ativo            = (int)($params['ativo'] ?? 2);
-        $tipo_ordenacao   = $params['tipo_ordenacao'] ?? '';
-        $campo_ordenacao  = $params['campo_ordenacao'] ?? '';
+        $id              = (int)($params['id_paciente'] ?? '');
+        $uuid            = (string)($params['uuid'] ?? '');
+        $nome_paciente   = (string)($params['nome_paciente'] ?? '');
+        $email           = (string)($params['email'] ?? '');
+        $cidade          = (string)($params['cidade'] ?? '');
+        $estado          = (string)($params['estado'] ?? '');
+        $cpf             = (string)($params['cpf'] ?? '');
+        $telefone        = (string)($params['telefone'] ?? '');
+        $celular         = (string)($params['celular'] ?? '');
+        $tipo_ordenacao  = $params['tipo_ordenacao'] ?? '';
+        $campo_ordenacao = $params['campo_ordenacao'] ?? '';
 
         if ($id) {
             $query->where('id_paciente', $id);
@@ -39,8 +41,8 @@ class CadPaciente extends MVCModel {
             $query->where('nome_paciente', 'LIKE', "%{$nome_paciente}%");
         }
 
-        if ($cep) {
-            $query->where('cep', 'LIKE', "%{$cep}%");
+        if ($email) {
+            $query->where('email', 'LIKE', "%{$email}%");
         }
 
         if ($cidade) {
@@ -51,8 +53,16 @@ class CadPaciente extends MVCModel {
             $query->where('estado', 'LIKE', "%{$estado}%");
         }
 
-        if (in_array($ativo, [0, 1])) {
-            $query->where('ativo', $ativo);
+        if ($cpf) {
+            $query->where('cpf', $cpf);
+        }
+
+        if ($telefone) {
+            $query->where('telefone', $telefone);
+        }
+
+        if ($celular) {
+            $query->where('celular', $celular);
         }
 
         if ($tipo_ordenacao && $campo_ordenacao) {

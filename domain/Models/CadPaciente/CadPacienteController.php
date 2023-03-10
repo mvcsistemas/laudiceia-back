@@ -31,6 +31,8 @@ class CadPacienteController extends MVCController {
 
     public function store(CadPacienteRequest $request)
     {
+        $request['data_nascimento'] = setData($request['data_nascimento']);
+
         $row = $this->service->create($request->all());
 
         return $this->responseBuilderRow($row, true, 201);
@@ -38,6 +40,8 @@ class CadPacienteController extends MVCController {
 
     public function update($uuid, CadPacienteRequest $request)
     {
+        $request['data_nascimento'] = setData($request['data_nascimento']);
+
         $this->service->updateByUuid($uuid, $request->all());
 
         return $this->responseBuilderRow([], false, 204);

@@ -18,7 +18,7 @@ class CadPacienteResource extends JsonResource
             'cidade' => $this->cidade,
             'complemento' => $this->complemento,
             'cpf' => $this->cpf,
-            'data_nascimento' => $this->data_nascimento,
+            'data_nascimento' => setDataFormatoBr($this->data_nascimento),
             'email' => $this->email,
             'endereco' => $this->endereco,
             'estado' => $this->estado,

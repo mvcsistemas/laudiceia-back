@@ -17,13 +17,14 @@ return new class extends Migration
             $table->id('id_ficha');
             $table->string('meia', 255);
             $table->string('calcado', 255);
-            $table->int('num_calcado');
+            $table->integer('num_calcado');
             $table->string('cirurgia_membro_inferior', 255);
             $table->string('hipertensao', 255);
             $table->string('esporte', 255);
             $table->string('hepatite', 255);
             $table->string('medicamento', 255);
             $table->string('hiv', 255);
+            $table->string('alergia', 255);
             $table->string('psoriase', 255);
             $table->string('dermatite', 255);
             $table->string('hanseniase', 255);

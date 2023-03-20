@@ -22,9 +22,9 @@ class CadFichaAnamneseController extends MVCController {
         return $this->responseBuilder($rows);
     }
 
-    public function show($id)
+    public function show($uuid)
     {
-        $row = $this->service->showById($id);
+        $row = $this->service->showByUuid($uuid);
 
         return $this->responseBuilderRow($row);
     }

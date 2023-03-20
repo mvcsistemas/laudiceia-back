@@ -59,7 +59,7 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     Route::prefix('paciente')->name('paciente.')->group(function () {
         Route::resource('', 'CadPaciente\CadPacienteController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
 
-        Route::prefix('{id_paciente}')->group(function () {
+        Route::prefix('{uuid}')->group(function () {
             Route::resource('ficha_anamnese', 'CadFichaAnamnese\CadFichaAnamneseController', ['except' => ['create', 'edit']]);
         });
     });

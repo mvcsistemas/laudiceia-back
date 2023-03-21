@@ -3,11 +3,8 @@
 namespace MVC\Models\CadFichaAnamnese;
 
 use MVC\Base\MVCModel;
-use YourAppRocks\EloquentUuid\Traits\HasUuid;
 
 class CadFichaAnamnese extends MVCModel {
-
-    use HasUuid;
 
     protected $table      = 'cad_ficha_anamnese';
     protected $primaryKey = 'id_ficha';

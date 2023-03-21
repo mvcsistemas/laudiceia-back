@@ -3,6 +3,7 @@
 namespace MVC\Models\CadFichaAnamnese;
 
 use MVC\Base\MVCController;
+use MVC\Models\CadPaciente\CadPaciente;
 
 class CadFichaAnamneseController extends MVCController {
 
@@ -36,17 +37,28 @@ class CadFichaAnamneseController extends MVCController {
         return $this->responseBuilderRow($row, true, 201);
     }
 
-    public function update($id, CadFichaAnamneseRequest $request)
+    public function update($uuid_paciente, $id_ficha, CadFichaAnamneseRequest $request)
     {
-        $this->service->updateById($id, $request->all());
+        $this->service->updateById($id_ficha, $request->all());
 
         return $this->responseBuilderRow([], false, 204);
     }
 
-    public function destroy($id)
+    public function destroy($uuid_paciente, $id_ficha)
     {
-        $this->service->deleteById($id);
+        $this->service->deleteById($id_ficha);
 
         return $this->responseBuilderRow([], false, 204);
+    }
+
+    public function hasFichaAnamnese($uuid)
+    {
+        $row = $this->service->hasFichaAnamnese($uuid);
+
+        if($row){
+            return $this->show($uuid);
+        }
+
+        return response()->json();
     }
 }

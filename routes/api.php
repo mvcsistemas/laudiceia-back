@@ -60,7 +60,9 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
         Route::resource('', 'CadPaciente\CadPacienteController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
 
         Route::prefix('{uuid}')->group(function () {
-            Route::resource('ficha_anamnese', 'CadFichaAnamnese\CadFichaAnamneseController', ['except' => ['create', 'edit']]);
+            Route::get('ficha_anamnese', 'CadFichaAnamnese\CadFichaAnamneseController@hasFichaAnamnese');
+            Route::put('ficha_anamnese/{id_ficha}', 'CadFichaAnamnese\CadFichaAnamneseController@update');
+            Route::resource('ficha_anamnese', 'CadFichaAnamnese\CadFichaAnamneseController', ['except' => ['index', 'create', 'edit', 'update', 'destroy']]);
         });
     });
 });

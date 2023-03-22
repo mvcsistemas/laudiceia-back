@@ -14,8 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cad_consulta', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id_consulta');
+            $table->date('data_consulta');
+            $table->text('procedimento');
+            $table->float('valor');
+            $table->foreignId('id_paciente')->references('id_paciente')->on('cad_paciente');
+            $table->foreignId('id_medico')->references('id_medico')->on('cad_medico');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
     }
 

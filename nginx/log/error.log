@@ -3609,3 +3609,17 @@ Stack trace:
 2023/03/21 13:12:01 [notice] 1#1: signal 17 (SIGCHLD) received from 31
 2023/03/21 13:12:01 [notice] 1#1: worker process 31 exited with code 0
 2023/03/21 13:12:01 [notice] 1#1: exit
+2023/03/22 12:31:01 [notice] 1#1: using the "epoll" event method
+2023/03/22 12:31:01 [notice] 1#1: nginx/1.20.0
+2023/03/22 12:31:01 [notice] 1#1: built by gcc 10.2.1 20201203 (Alpine 10.2.1_pre1) 
+2023/03/22 12:31:01 [notice] 1#1: OS: Linux 5.19.0-35-generic
+2023/03/22 12:31:01 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/03/22 12:31:01 [notice] 1#1: start worker processes
+2023/03/22 12:31:01 [notice] 1#1: start worker process 31
+2023/03/22 12:31:01 [notice] 1#1: start worker process 32
+2023/03/22 12:31:01 [notice] 1#1: start worker process 33
+2023/03/22 12:31:01 [notice] 1#1: start worker process 34
+2023/03/22 12:31:01 [notice] 1#1: start worker process 35
+2023/03/22 12:31:01 [notice] 1#1: start worker process 36
+2023/03/22 12:31:01 [notice] 1#1: start worker process 37
+2023/03/22 12:31:01 [notice] 1#1: start worker process 38

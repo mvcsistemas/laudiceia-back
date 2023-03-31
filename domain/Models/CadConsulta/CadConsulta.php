@@ -16,11 +16,11 @@ class CadConsulta extends MVCModel {
 
     public function filter($query, array $params = [])
     {
-        $id = (int)($params['id_consulta'] ?? '');
-        $uuid = (string)($params['uuid'] ?? '');
+        $id               = (int)($params['id_consulta'] ?? '');
+        $uuid             = (string)($params['uuid'] ?? '');
         $dsc_departamento = (string)($params['dsc_departamento'] ?? '');
-        $tipo_ordenacao  = $params['tipo_ordenacao'] ?? '';
-        $campo_ordenacao = $params['campo_ordenacao'] ?? '';
+        $tipo_ordenacao   = $params['tipo_ordenacao'] ?? '';
+        $campo_ordenacao  = $params['campo_ordenacao'] ?? '';
 
         if ($id) {
             $query->where('id_consulta', $id);

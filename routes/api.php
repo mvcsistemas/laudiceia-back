@@ -40,6 +40,7 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     });
 
     Route::prefix('medico')->name('medico.')->group(function () {
+        Route::get('lookup', 'CadMedico\CadMedicoController@lookup');
         Route::resource('', 'CadMedico\CadMedicoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
 
@@ -57,6 +58,7 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     });
 
     Route::prefix('paciente')->name('paciente.')->group(function () {
+        Route::get('lookup', 'CadPaciente\CadPacienteController@lookup');
         Route::resource('', 'CadPaciente\CadPacienteController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
 
         Route::prefix('{uuid}')->group(function () {

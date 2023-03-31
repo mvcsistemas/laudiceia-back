@@ -50,4 +50,9 @@ class CadMedicoController extends MVCController
 
         return $this->responseBuilderRow([], false, 204);
     }
+
+    public function lookup()
+    {
+        return $this->service->lookup(request()->all());
+    }
 }

@@ -56,7 +56,7 @@ class FirstAccessController extends MVCController
 
         $newCode = FirstAccess::create([
             'user_uuid' => $user->uuid,
-            'otp' => rand(123456, 999999),
+            'otp'       => rand(123456, 999999),
             'expire_at' => Carbon::now()->addMinutes(10)
         ]);
 
@@ -89,8 +89,8 @@ class FirstAccessController extends MVCController
     {
         $request->validate([
             'user_uuid' => 'required',
-            'otp' => 'required',
-            'password' => ['required', 'confirmed', RulesPassword::defaults()],
+            'otp'       => 'required',
+            'password'  => ['required', 'confirmed', RulesPassword::defaults()],
         ]);
 
         $verificationCode = $this->validateCode($request);

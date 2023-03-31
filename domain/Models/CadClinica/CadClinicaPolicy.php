@@ -11,21 +11,21 @@ class CadClinicaPolicy
 
     public function view(CadClinica $example)
     {
-        return $example->usu_admin ? Response::allow() : Response::deny('Sem permissão.');
+        return $example->usu_admin ? Response::allow(): Response::deny('Sem permissão.');
     }
 
     public function create(CadClinica $example)
     {
-        return $example->usu_admin ? Response::allow() : Response::deny('Sem permissão.');
+        return $example->usu_admin ? Response::allow(): Response::deny('Sem permissão.');
     }
 
     public function update(CadClinica $example)
     {
-        return $example->usu_admin ? Response::allow() : Response::deny('Sem permissão.');
+        return $example->usu_admin ? Response::allow(): Response::deny('Sem permissão.');
     }
 
     public function delete(CadClinica $example)
     {
-        return $example->usu_admin ? Response::allow() : Response::deny('Sem permissão.');
+        return $example->usu_admin ? Response::allow(): Response::deny('Sem permissão.');
     }
 }

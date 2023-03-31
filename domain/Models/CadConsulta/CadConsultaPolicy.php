@@ -16,7 +16,7 @@ class CadConsultaPolicy
 
     public function create(CadConsulta $example)
     {
-        return $example->usu_admin ? Response::allow() : Response::deny('Sem permissão.');
+        return $example->usu_admin ? Response::allow(): Response::deny('Sem permissão.');
     }
 
     public function update(CadConsulta $example)

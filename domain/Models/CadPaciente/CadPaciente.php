@@ -15,6 +15,15 @@ class CadPaciente extends MVCModel {
 
     public $timestamps = true;
 
+    public function lookup(array $params = [])
+    {
+        $rows = $this->select('id_paciente', 'nome_paciente');
+
+        $this->filter($rows, $params);
+
+        return $rows->get();
+    }
+
     public function filter($query, array $params = [])
     {
         $id              = (int)($params['id_paciente'] ?? '');

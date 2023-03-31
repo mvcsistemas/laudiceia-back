@@ -12,7 +12,7 @@ class CadClinicaMedicoController extends MVCController
 
     public function __construct(CadClinicaMedicoService $service)
     {
-        $this->service = $service;
+        $this->service  = $service;
         $this->resource = CadClinicaMedicoResource::class;
     }
 

@@ -15,7 +15,7 @@ class CadFichaAnamneseService extends MVCService {
     }
 
     public function hasFichaAnamnese($uuid){
-        $query = $this->model->index();
+        $query  = $this->model->index();
         $params = ['uuid' => $uuid];
 
         return $this->filter($query, $params)->first();

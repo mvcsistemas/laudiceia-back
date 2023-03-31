@@ -19,6 +19,14 @@ class CadMedico extends MVCModel
                     ->join('cad_clinica', 'cad_clinica.id_clinica', 'cad_medico.id_clinica');
     }
 
+    public function lookup(array $params = [])
+    {
+        $rows = $this->select('id_medico', 'nome_medico');
+
+        $this->filter($rows, $params);
+
+        return $rows->get();
+    }
 
     public function filter($query, array $params = [])
     {

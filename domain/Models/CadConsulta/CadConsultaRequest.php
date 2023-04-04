@@ -10,14 +10,15 @@ class CadConsultaRequest extends MVCRequest
     public function rules()
     {
         return [
-            'id_consulta'   => 'required',
+            'id_consulta'   => '',
+            'uuid'          => '',
             'data_consulta' => 'required',
             'procedimento'  => 'required',
             'valor'         => 'required',
             'id_paciente'   => 'required',
             'id_medico'     => 'required',
-            'created_at'    => 'required',
-            'updated_at'    => 'required',
+            'created_at'    => '',
+            'updated_at'    => '',
         ];
     }
 

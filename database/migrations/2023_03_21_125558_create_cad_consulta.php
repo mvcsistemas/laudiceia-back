@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('cad_consulta', function (Blueprint $table) {
             $table->id('id_consulta');
+            $table->uuid('uuid');
             $table->date('data_consulta');
             $table->text('procedimento');
             $table->float('valor');

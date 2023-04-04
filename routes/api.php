@@ -67,6 +67,10 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
             Route::resource('ficha_anamnese', 'CadFichaAnamnese\CadFichaAnamneseController', ['except' => ['index', 'create', 'edit', 'update', 'destroy']]);
         });
     });
+
+    Route::prefix('consulta')->name('consulta.')->group(function () {
+        Route::resource('', 'CadConsulta\CadConsultaController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
+    });
 });
 
 

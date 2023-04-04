@@ -10,6 +10,7 @@ class CadConsultaResource extends JsonResource {
     {
         $retorno = [
             'id_consulta'   => $this->id_consulta,
+            'uuid'          => $this->uuid,
             'data_consulta' => $this->data_consulta,
             'procedimento'  => $this->procedimento,
             'valor'         => $this->valor,

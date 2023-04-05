@@ -31,6 +31,8 @@ class CadConsultaController extends MVCController {
 
     public function store(CadConsultaRequest $request)
     {
+        $request['data_consulta'] = setData($request['data_consulta']);
+
         $row = $this->service->create($request->all());
 
         return $this->responseBuilderRow($row, true, 201);
@@ -38,6 +40,8 @@ class CadConsultaController extends MVCController {
 
     public function update($uuid, CadConsultaRequest $request)
     {
+        $request['data_consulta'] = setData($request['data_consulta']);
+
         $this->service->updateByUuid($uuid, $request->all());
 
         return $this->responseBuilderRow([], false, 204);

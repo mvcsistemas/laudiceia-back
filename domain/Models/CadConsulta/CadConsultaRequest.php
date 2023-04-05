@@ -25,7 +25,11 @@ class CadConsultaRequest extends MVCRequest
     public function messages()
     {
         return [
-            'dsc_departamento.required' => 'O campo Departamento é obrigatório.'
+            'data_consulta.required' => 'O campo Data Consulta é obrigatório.',
+            'procedimento.required'  => 'O campo Procedimento é obrigatório.',
+            'valor.required'         => 'O campo Valor é obrigatório.',
+            'id_paciente.required'   => 'O campo Paciente é obrigatório.',
+            'id_medico.required'     => 'O campo Podólogo é obrigatório.',
         ];
     }
 }

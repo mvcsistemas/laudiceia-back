@@ -14,30 +14,50 @@ class CadConsulta extends MVCModel {
     protected $guarded    = [''];
     public    $timestamps = true;
 
+    public function index(){
+        return $this->select('cad_consulta.*',
+                             'cad_paciente.id_paciente',
+                             'cad_paciente.nome_paciente',
+                             'cad_medico.id_medico',
+                             'cad_medico.nome_medico')
+                    ->join('cad_paciente', 'cad_paciente.id_paciente', 'cad_consulta.id_paciente')
+                    ->join('cad_medico', 'cad_medico.id_medico', 'cad_consulta.id_medico');
+    }
+
     public function filter($query, array $params = [])
     {
-        $id               = (int)($params['id_consulta'] ?? '');
-        $uuid             = (string)($params['uuid'] ?? '');
-        $dsc_departamento = (string)($params['dsc_departamento'] ?? '');
-        $tipo_ordenacao   = $params['tipo_ordenacao'] ?? '';
-        $campo_ordenacao  = $params['campo_ordenacao'] ?? '';
+        $id              = (int)($params['id_consulta'] ?? '');
+        $id_paciente     = (int)($params['id_paciente'] ?? '');
+        $id_medico       = (int)($params['id_medico'] ?? '');
+        $uuid            = (string)($params['uuid'] ?? '');
+        $data_consulta   = setData($params['data_consulta'] ?? '');
+        $tipo_ordenacao  = $params['tipo_ordenacao'] ?? '';
+        $campo_ordenacao = $params['campo_ordenacao'] ?? '';
 
         if ($id) {
             $query->where('id_consulta', $id);
         }
 
         if ($uuid) {
-            $query->where('uuid', $uuid);
+            $query->where('cad_consulta.uuid', $uuid);
         }
 
-        if ($dsc_departamento) {
-            $query->where('dsc_departamento', 'LIKE', "%{$dsc_departamento}%");
+        if ($id_paciente) {
+            $query->where('cad_paciente.id_paciente', $id_paciente);
+        }
+
+        if ($id_medico) {
+            $query->where('cad_medico.id_medico', $id_medico);
+        }
+
+        if ($data_consulta) {
+            $query->where('data_consulta', $data_consulta);
         }
 
         if ($tipo_ordenacao && $campo_ordenacao) {
             $query->orderBy($campo_ordenacao, $tipo_ordenacao);
         } else {
-            $query->orderBy('dsc_departamento');
+            $query->orderBy('data_consulta', 'desc');
         }
 
         return $query;

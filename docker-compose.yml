@@ -6,7 +6,7 @@ networks:
 
 services:
   nginx:
-    image: crmsolucoes/nginx-stable-alpine:latest
+    image: buenomarcelo/nginx-stable-alpine:latest
     container_name: back_default_nginx
     hostname: back_default_nginx
     restart: unless-stopped
@@ -23,7 +23,7 @@ services:
       - back_default
 
   php:
-    image: crmsolucoes/php-fpm-8.0:latest
+    image: buenomarcelo/php-fmp-8.0:latest
     container_name: back_default_php
     hostname: back_default_php
     restart: unless-stopped
@@ -33,7 +33,7 @@ services:
       - back_default
 
   composer:
-    image: crmsolucoes/composer-latest-php8:latest
+    image: buenomarcelo/composer-php-8:latest
     container_name: back_default_composer
     hostname: back_default_composer
     volumes:
@@ -43,7 +43,7 @@ services:
       - back_default
 
   artisan:
-    image: crmsolucoes/php-fpm-8.0:latest
+    image: buenomarcelo/php-fmp-8.0:latest
     container_name: back_default_artisan
     hostname: back_default_artisan
     volumes:

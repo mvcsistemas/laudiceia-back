@@ -18,7 +18,7 @@ return new class extends Migration
             $table->uuid('uuid');
             $table->date('data_consulta');
             $table->text('procedimento');
-            $table->float('valor');
+            $table->decimal('valor', 8, 2);
             $table->foreignId('id_paciente')->references('id_paciente')->on('cad_paciente');
             $table->foreignId('id_medico')->references('id_medico')->on('cad_medico');
             $table->timestamp('created_at')->useCurrent();

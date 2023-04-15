@@ -42,7 +42,7 @@ class CadFichaAnamneseRequest extends MVCRequest
             'pat_ungueais_pd'          => 'required',
             'pat_ungueais_pe'          => 'required',
             'observacoes'              => 'required',
-            'id_paciente'              => '',
+            'id_paciente'              => 'required',
             'created_at'               => '',
             'updated_at'               => '',
         ];

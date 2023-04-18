@@ -32,6 +32,7 @@ return new class extends Migration
             $table->foreignId('id_departamento')->references('id_departamento')->on('cad_departamento');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
+            // $table->index(['id_funcionario', 'uuid', 'nome_funcionario', 'cpf', 'cep', 'cidade', 'estado', 'acesso_sistema', 'ativo', 'id_departamento']);
         });
     }
 

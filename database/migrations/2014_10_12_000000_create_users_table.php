@@ -23,6 +23,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
+            // $table->index(['id', 'uuid', 'email', 'tipo_cadastro']);
         });
     }
 

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('whatsapp', 15);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
+            // $table->index(['id_clinica_medico', 'uuid', 'id_clinica', 'id_medico']);
         });
     }
 

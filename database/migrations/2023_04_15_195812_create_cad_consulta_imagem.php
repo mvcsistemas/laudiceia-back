@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('cad_consulta_imagem', function (Blueprint $table) {
             $table->bigInteger('id_arquivo');
-            $table->foreignUuid('uuid_consulta')->references('id')->on('cad_consulta')->onDelete('cascade');
+            $table->foreignId('id_consulta')->references('id_consulta')->on('cad_consulta')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
+            // $table->index(['id_arquivo', 'id_consulta']);
         });
     }
 

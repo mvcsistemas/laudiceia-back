@@ -1,6 +1,6 @@
 <?php
 
-namespace CRM\Models\CadConsulta\CadConsultaImagem;
+namespace MVC\Models\CadConsulta\CadConsultaImagem;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -10,7 +10,9 @@ class CadConsultaImagemResource extends JsonResource {
     {
         $retorno = [
             'id_arquivo' => $this->id_arquivo,
-            'id_user'    => $this->id_user
+            'obervacao'  => $this->obervacao,
+            'id_user'    => $this->id_user,
+            'created_at' => $this->created_at
         ];
 
         return $retorno;

@@ -1,6 +1,6 @@
 <?php
 
-namespace CRM\Models\CadConsulta\CadConsultaImagem;
+namespace MVC\Models\CadConsulta\CadConsultaImagem;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;

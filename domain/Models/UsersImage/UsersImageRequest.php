@@ -1,10 +1,10 @@
 <?php
 
-namespace CRM\Models\UsersImage;
+namespace MVC\Models\UsersImage;
 
-use CRM\Base\CRMRequest;
+use MVC\Base\MVCRequest;
 
-class UsersImageRequest extends CRMRequest {
+class UsersImageRequest extends MVCRequest {
 
     public function rules()
     {

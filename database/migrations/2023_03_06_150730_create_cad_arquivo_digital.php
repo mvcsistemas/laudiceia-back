@@ -13,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cad_consulta_imagem', function (Blueprint $table) {
-            $table->bigInteger('id_arquivo');
-            $table->string('observacao', 255)->nullable();
-            $table->foreignId('id_consulta')->references('id_consulta')->on('cad_consulta')->onDelete('cascade');
+        Schema::create('cad_arquivo_digital', function (Blueprint $table) {
+            $table->id('id_arquivo');
+            $table->binary('arq_conteudo');
             $table->timestamp('created_at')->useCurrent();
-            // $table->index(['id_arquivo', 'id_consulta']);
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cad_consulta_imagem');
+        Schema::dropIfExists('cad_arquivo_digital');
     }
 };

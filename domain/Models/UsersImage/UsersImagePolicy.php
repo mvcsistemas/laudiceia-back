@@ -1,6 +1,6 @@
 <?php
 
-namespace CRM\Models\UsersImage;
+namespace MVC\Models\UsersImage;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;

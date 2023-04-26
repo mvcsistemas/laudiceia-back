@@ -1,13 +1,13 @@
 <?php
 
-namespace CRM\Models\UsersImage;
+namespace MVC\Models\UsersImage;
 
-use CRM\Base\CRMService;
-use CRM\Models\CadArquivoDigital\CadArquivoDigitalService;
+use MVC\Base\MVCService;
+use MVC\Models\CadArquivoDigital\CadArquivoDigitalService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 
-class UsersImageService extends CRMService {
+class UsersImageService extends MVCService {
 
     protected UsersImage             $model;
     private CadArquivoDigitalService $cadArquivoDigitalService;

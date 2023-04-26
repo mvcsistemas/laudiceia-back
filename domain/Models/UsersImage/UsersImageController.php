@@ -1,11 +1,11 @@
 <?php
 
-namespace CRM\Models\UsersImage;
+namespace MVC\Models\UsersImage;
 
-use CRM\Base\CRMController;
+use MVC\Base\MVCController;
 use Illuminate\Http\Request;
 
-class UsersImageController extends CRMController {
+class UsersImageController extends MVCController {
 
     protected UsersImageService $service;
     protected                  $resource;

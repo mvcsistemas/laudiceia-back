@@ -1,16 +1,19 @@
 <?php
 
-namespace CRM\Models\CadConsulta\CadConsultaImagem;
+namespace MVC\Models\CadConsulta\CadConsultaImagem;
 
-use CRM\Base\CRMRequest;
+use MVC\Base\MVCRequest;
 
-class CadConsultaImagemRequest extends CRMRequest {
+class CadConsultaImagemRequest extends MVCRequest {
 
     public function rules()
     {
         return [
-            'id_arquivo' => '',
-            'id_user'    => 'required',
+            'id_arquivo'  => '',
+            'observacao'  => '',
+            'id_consulta' => 'required',
+            'id_user'     => 'required',
+            'created_at'  => '',
         ];
     }
 }

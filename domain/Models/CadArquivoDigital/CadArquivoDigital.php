@@ -1,10 +1,10 @@
 <?php
 
-namespace CRM\Models\CadArquivoDigital;
+namespace MVC\Models\CadArquivoDigital;
 
-use CRM\Base\CRMModel;
+use MVC\Base\MVCModel;
 
-class CadArquivoDigital extends CRMModel {
+class CadArquivoDigital extends MVCModel {
 
     protected $table      = 'cad_arquivo_digital';
     protected $primaryKey = 'id_arquivo';

@@ -1,10 +1,10 @@
 <?php
 
-namespace CRM\Models\UsersImage;
+namespace MVC\Models\UsersImage;
 
-use CRM\Base\CRMModel;
+use MVC\Base\MVCModel;
 
-class UsersImage extends CRMModel {
+class UsersImage extends MVCModel {
 
     protected $table      = 'users_image';
     protected $primaryKey = 'id_arquivo';

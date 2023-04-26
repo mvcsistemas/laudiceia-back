@@ -70,6 +70,11 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
 
     Route::prefix('consulta')->name('consulta.')->group(function () {
         Route::resource('', 'CadConsulta\CadConsultaController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
+
+        Route::group(['prefix' => '{uuid}'], function () {
+            Route::get('arquivo/{id_aquivo}/download', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController@download')->name('arquivo.download');
+            Route::resource('arquivo', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController')->except(['create', 'edit']);
+        });
     });
 });
 

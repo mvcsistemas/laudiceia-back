@@ -1,6 +1,6 @@
 <?php
 
-namespace CRM\Models\UsersImage;
+namespace MVC\Models\UsersImage;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace CRM\Models\CadConsulta\CadConsultaImagem;
+namespace MVC\Models\CadConsulta\CadConsultaImagem;
 
-use CRM\Base\CRMController;
+use MVC\Base\MVCController;
 use Illuminate\Http\Request;
 
-class CadConsultaImagemController extends CRMController {
+class CadConsultaImagemController extends MVCController {
 
     protected CadConsultaImagemService $service;
     protected                          $resource;
@@ -30,27 +30,27 @@ class CadConsultaImagemController extends CRMController {
         return $this->responseBuilderRow($row);
     }
 
-    public function store(int $id_user, Request $request)
+    public function store(int $id_consulta, Request $request)
     {
         $payload = $request->validate([
             'arq_conteudo' => 'required|file'
         ]);
 
-        $this->service->upload($id_user, $payload);
+        $this->service->upload($id_consulta, $payload);
 
         return $this->responseBuilderRow([], false, 201);
     }
 
-    public function destroy(int $id_user, int $id_arquivo)
+    public function destroy(int $id_consulta, int $id_arquivo)
     {
-        $this->service->apagarImagem($id_user, $id_arquivo);
+        $this->service->apagarImagem($id_consulta, $id_arquivo);
 
         return $this->responseBuilderRow([], false, 204);
     }
 
-    public function download(int $id_user, int $id_arquivo)
+    public function download(int $id_consulta, int $id_arquivo)
     {
-        $fileBase64 = $this->service->download($id_user, $id_arquivo);
+        $fileBase64 = $this->service->download($id_consulta, $id_arquivo);
 
         $payload['data'] = [['file' => $fileBase64]];
 

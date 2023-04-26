@@ -1,10 +1,10 @@
 <?php
 
-namespace CRM\Models\CadArquivoDigital;
+namespace MVC\Models\CadArquivoDigital;
 
-use CRM\Base\CRMService;
+use MVC\Base\MVCService;
 
-class CadArquivoDigitalService extends CRMService {
+class CadArquivoDigitalService extends MVCService {
 
     private $file;
     private $fileName;

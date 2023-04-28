@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('dsc_departamento', 150);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            // $table->index(['id_departamento', 'uuid', 'dsc_departamento']);
+            $table->index(['id_departamento', 'uuid', 'dsc_departamento']);
         });
     }
 

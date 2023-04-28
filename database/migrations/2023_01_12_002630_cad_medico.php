@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreignId('id_clinica')->references('id_clinica')->on('cad_clinica')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            // $table->index(['id_medico', 'uuid', 'nome_medico', 'email', 'acesso_sistema', 'ativo', 'id_clinica']);
+            $table->index(['id_medico', 'uuid', 'nome_medico', 'email', 'acesso_sistema', 'ativo', 'id_clinica'], 'cad_medico_index');
         });
     }
 

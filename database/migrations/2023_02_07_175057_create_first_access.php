@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('otp');
             $table->timestamp('expire_at')->nullable();
             $table->uuid('user_uuid');
+            $table->index(['id', 'user_uuid']);
         });
     }
 

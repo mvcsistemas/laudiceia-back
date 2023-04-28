@@ -23,7 +23,7 @@ return new class extends Migration
             $table->foreignId('id_medico')->references('id_medico')->on('cad_medico');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            // $table->index(['id_consulta', 'uuid', 'data_consulta', 'valor', 'id_paciente', 'id_medico']);
+            $table->index(['id_consulta', 'uuid', 'data_consulta', 'valor', 'id_paciente', 'id_medico'], 'cad_consulta_index');
         });
     }
 

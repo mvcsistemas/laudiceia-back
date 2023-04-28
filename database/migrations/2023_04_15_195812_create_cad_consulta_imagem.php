@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('observacao', 255)->nullable();
             $table->foreignId('id_consulta')->references('id_consulta')->on('cad_consulta')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
-            // $table->index(['id_arquivo', 'id_consulta']);
+            $table->index(['id_arquivo', 'nome_arquivo', 'id_consulta']);
         });
     }
 

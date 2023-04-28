@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id('id_arquivo');
             $table->binary('arq_conteudo');
             $table->timestamp('created_at')->useCurrent();
+            $table->index(['id_arquivo']);
         });
     }
 

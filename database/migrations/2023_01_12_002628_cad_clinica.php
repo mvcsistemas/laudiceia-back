@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('complemento', 200)->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            // $table->index(['id_clinica', 'uuid', 'nome_clinica', 'cep', 'cidade', 'estado']);
+            $table->index(['id_clinica', 'uuid', 'nome_clinica', 'cep', 'cidade', 'estado']);
         });
     }
 

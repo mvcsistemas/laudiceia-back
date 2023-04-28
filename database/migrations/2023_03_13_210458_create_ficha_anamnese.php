@@ -49,7 +49,7 @@ return new class extends Migration
             $table->foreignId('id_paciente')->references('id_paciente')->on('cad_paciente');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            // $table->index(['id_ficha', 'id_paciente']);
+            $table->index(['id_ficha', 'id_paciente']);
         });
     }
 

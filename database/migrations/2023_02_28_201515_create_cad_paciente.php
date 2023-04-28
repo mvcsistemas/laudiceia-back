@@ -34,7 +34,7 @@ return new class extends Migration
             $table->string('complemento', 200)->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            // $table->index(['id_paciente', 'uuid', 'nome_paciente', 'email', 'cpf', 'cidade', 'estado', 'telefone', 'celular']);
+            $table->index(['id_paciente', 'uuid', 'nome_paciente', 'email', 'cpf', 'cidade', 'estado', 'telefone', 'celular'], 'cad_paciente_index');
         });
     }
 

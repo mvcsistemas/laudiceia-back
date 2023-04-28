@@ -27,8 +27,8 @@ class CadConsultaImagemService extends MVCService {
 
             if ($fileId) {
                 $payload = array_merge($data,
-                    ['id_consulta'    => $id_consulta,
-                     'id_arquivo' => $fileId]);
+                    ['id_consulta' => $id_consulta,
+                     'id_arquivo'  => $fileId]);
 
                 return $this->model->create($payload);
             }

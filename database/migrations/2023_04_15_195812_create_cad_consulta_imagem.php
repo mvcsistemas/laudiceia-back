@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('cad_consulta_imagem', function (Blueprint $table) {
             $table->bigInteger('id_arquivo');
+            $table->string('nome_arquivo', 150);
             $table->string('observacao', 255)->nullable();
             $table->foreignId('id_consulta')->references('id_consulta')->on('cad_consulta')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();

@@ -4,6 +4,7 @@ namespace MVC\Models\CadConsulta\CadConsultaImagem;
 
 use MVC\Base\MVCController;
 use Illuminate\Http\Request;
+use MVC\Models\CadConsulta\CadConsulta;
 
 class CadConsultaImagemController extends MVCController {
 
@@ -30,13 +31,11 @@ class CadConsultaImagemController extends MVCController {
         return $this->responseBuilderRow($row);
     }
 
-    public function store(int $id_consulta, Request $request)
+    public function store(string $uuid, CadConsultaImagemRequest $request)
     {
-        $payload = $request->validate([
-            'arq_conteudo' => 'required|file'
-        ]);
+        $consulta = CadConsulta::findByUuid($uuid);
 
-        $this->service->upload($id_consulta, $payload);
+        $this->service->upload($consulta->id_consulta, $request->all());
 
         return $this->responseBuilderRow([], false, 201);
     }

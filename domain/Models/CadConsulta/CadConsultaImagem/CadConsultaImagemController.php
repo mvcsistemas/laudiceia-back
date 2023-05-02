@@ -40,9 +40,11 @@ class CadConsultaImagemController extends MVCController {
         return $this->responseBuilderRow([], false, 201);
     }
 
-    public function destroy(int $id_consulta, int $id_arquivo)
+    public function destroy(string $uuid, int $id_arquivo)
     {
-        $this->service->apagarImagem($id_consulta, $id_arquivo);
+        $consulta = CadConsulta::findByUuid($uuid);
+
+        $this->service->apagarImagem($consulta->id_consulta, $id_arquivo);
 
         return $this->responseBuilderRow([], false, 204);
     }

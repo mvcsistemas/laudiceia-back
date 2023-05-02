@@ -17,10 +17,33 @@ class CadConsultaImagem extends MVCModel {
 
     public function filter($query, array $params = [])
     {
-        $uuid = (int)($params['uuid'] ?? '');
+        $id_arquivo      = (int)($params['id_arquivo'] ?? '');
+        $uuid            = (string)($params['uuid'] ?? '');
+        $nome_arquivo    = (string)($params['nome_arquivo'] ?? '');
+        $observacao      = (string)($params['observacao'] ?? '');
+        $tipo_ordenacao  = $params['tipo_ordenacao'] ?? '';
+        $campo_ordenacao = $params['campo_ordenacao'] ?? '';
+
+        if ($id_arquivo) {
+            $query->where('id_arquivo', $id_arquivo);
+        }
 
         if ($uuid) {
             $query->where('cad_consulta.uuid', $uuid);
+        }
+
+        if ($nome_arquivo) {
+            $query->where('nome_arquivo', 'LIKE', "%{$nome_arquivo}%");
+        }
+
+        if ($observacao) {
+            $query->where('observacao', 'LIKE', "%{$observacao}%");
+        }
+
+        if ($tipo_ordenacao && $campo_ordenacao) {
+            $query->orderBy($campo_ordenacao, $tipo_ordenacao);
+        } else {
+            $query->orderBy('id_arquivo', 'desc');
         }
 
         return $query;

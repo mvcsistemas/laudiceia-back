@@ -49,11 +49,13 @@ class CadConsultaImagemController extends MVCController {
         return $this->responseBuilderRow([], false, 204);
     }
 
-    public function download(int $id_consulta, int $id_arquivo)
+    public function download(string $uuid, int $id_arquivo)
     {
-        $fileBase64 = $this->service->download($id_consulta, $id_arquivo);
+        $consulta = CadConsulta::findByUuid($uuid);
 
-        $payload['data'] = [['file' => $fileBase64]];
+        $data = $this->service->download($consulta->id_consulta, $id_arquivo);
+
+        $payload['data'] = ['arq_conteudo' => $data['file'], 'arqImagem' => $data['arqImagem']];
 
         return $payload;
     }

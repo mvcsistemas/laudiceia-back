@@ -48,7 +48,9 @@ class CadConsultaImagemService extends MVCService {
 
         $file = $this->cadArquivoDigitalService->download();
 
-        return $file ? base64_encode($file['arq_conteudo']) : '';
+        $file = $file ? base64_encode($file['arq_conteudo']) : '';
+
+        return ['file' => $file, 'arqImagem' => $arqImagem];
     }
 
     public function apagarImagem(int $id_consulta, int $id_arquivo)

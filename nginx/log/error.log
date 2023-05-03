@@ -4044,3 +4044,72 @@ Stack trace:
 2023/04/28 13:40:09 [notice] 1#1: signal 17 (SIGCHLD) received from 35
 2023/04/28 13:40:09 [notice] 1#1: worker process 35 exited with code 0
 2023/04/28 13:40:09 [notice] 1#1: exit
+2023/05/03 12:35:25 [notice] 1#1: using the "epoll" event method
+2023/05/03 12:35:25 [notice] 1#1: nginx/1.24.0
+2023/05/03 12:35:25 [notice] 1#1: built by gcc 12.2.1 20220924 (Alpine 12.2.1_git20220924-r4) 
+2023/05/03 12:35:25 [notice] 1#1: OS: Linux 5.19.0-41-generic
+2023/05/03 12:35:25 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2023/05/03 12:35:25 [notice] 1#1: start worker processes
+2023/05/03 12:35:25 [notice] 1#1: start worker process 29
+2023/05/03 12:35:25 [notice] 1#1: start worker process 30
+2023/05/03 12:35:25 [notice] 1#1: start worker process 31
+2023/05/03 12:35:25 [notice] 1#1: start worker process 32
+2023/05/03 12:35:25 [notice] 1#1: start worker process 33
+2023/05/03 12:35:25 [notice] 1#1: start worker process 34
+2023/05/03 12:35:25 [notice] 1#1: start worker process 35
+2023/05/03 12:35:25 [notice] 1#1: start worker process 36
+2023/05/03 12:38:57 [warn] 32#32: *10 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000001, client: 172.24.0.1, server: back_default.test, request: "POST /api/consulta/fe6d1a33-422c-4f1d-8a62-b52fcdd5378e/arquivo HTTP/1.1", host: "localhost", referrer: "http://localhost:8080/"
+2023/05/03 12:42:31 [warn] 32#32: *10 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000002, client: 172.24.0.1, server: back_default.test, request: "POST /api/consulta/fe6d1a33-422c-4f1d-8a62-b52fcdd5378e/arquivo HTTP/1.1", host: "localhost", referrer: "http://localhost:8080/"
+2023/05/03 12:47:26 [warn] 34#34: *48 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000003, client: 172.24.0.1, server: back_default.test, request: "POST /api/consulta/fe6d1a33-422c-4f1d-8a62-b52fcdd5378e/arquivo HTTP/1.1", host: "localhost", referrer: "http://localhost:8080/"
+2023/05/03 12:47:46 [warn] 34#34: *48 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000004, client: 172.24.0.1, server: back_default.test, request: "POST /api/consulta/fe6d1a33-422c-4f1d-8a62-b52fcdd5378e/arquivo HTTP/1.1", host: "localhost", referrer: "http://localhost:8080/"
+2023/05/03 12:49:24 [warn] 35#35: *90 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000005, client: 172.24.0.1, server: back_default.test, request: "POST /api/consulta/fe6d1a33-422c-4f1d-8a62-b52fcdd5378e/arquivo HTTP/1.1", host: "localhost", referrer: "http://localhost:8080/"
+2023/05/03 13:16:09 [warn] 29#29: *244 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000006, client: 172.24.0.1, server: back_default.test, request: "POST /api/consulta/fe6d1a33-422c-4f1d-8a62-b52fcdd5378e/arquivo HTTP/1.1", host: "localhost", referrer: "http://localhost:8080/"
+2023/05/03 13:17:08 [warn] 29#29: *244 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000007, client: 172.24.0.1, server: back_default.test, request: "POST /api/consulta/fe6d1a33-422c-4f1d-8a62-b52fcdd5378e/arquivo HTTP/1.1", host: "localhost", referrer: "http://localhost:8080/"
+2023/05/03 13:17:42 [warn] 30#30: *283 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000008, client: 172.24.0.1, server: back_default.test, request: "POST /api/consulta/fe6d1a33-422c-4f1d-8a62-b52fcdd5378e/arquivo HTTP/1.1", host: "localhost", referrer: "http://localhost:8080/"
+2023/05/03 13:18:02 [warn] 30#30: *283 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000009, client: 172.24.0.1, server: back_default.test, request: "POST /api/consulta/fe6d1a33-422c-4f1d-8a62-b52fcdd5378e/arquivo HTTP/1.1", host: "localhost", referrer: "http://localhost:8080/"
+2023/05/03 13:18:14 [warn] 29#29: *244 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000010, client: 172.24.0.1, server: back_default.test, request: "POST /api/consulta/fe6d1a33-422c-4f1d-8a62-b52fcdd5378e/arquivo HTTP/1.1", host: "localhost", referrer: "http://localhost:8080/"
+2023/05/03 13:18:32 [warn] 30#30: *283 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000011, client: 172.24.0.1, server: back_default.test, request: "POST /api/consulta/fe6d1a33-422c-4f1d-8a62-b52fcdd5378e/arquivo HTTP/1.1", host: "localhost", referrer: "http://localhost:8080/"
+2023/05/03 13:19:51 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2023/05/03 13:19:51 [notice] 29#29: gracefully shutting down
+2023/05/03 13:19:51 [notice] 30#30: gracefully shutting down
+2023/05/03 13:19:51 [notice] 31#31: gracefully shutting down
+2023/05/03 13:19:51 [notice] 33#33: gracefully shutting down
+2023/05/03 13:19:51 [notice] 32#32: gracefully shutting down
+2023/05/03 13:19:51 [notice] 34#34: gracefully shutting down
+2023/05/03 13:19:51 [notice] 35#35: gracefully shutting down
+2023/05/03 13:19:51 [notice] 36#36: gracefully shutting down
+2023/05/03 13:19:51 [notice] 33#33: exiting
+2023/05/03 13:19:51 [notice] 31#31: exiting
+2023/05/03 13:19:51 [notice] 32#32: exiting
+2023/05/03 13:19:51 [notice] 34#34: exiting
+2023/05/03 13:19:51 [notice] 35#35: exiting
+2023/05/03 13:19:51 [notice] 30#30: exiting
+2023/05/03 13:19:51 [notice] 29#29: exiting
+2023/05/03 13:19:51 [notice] 36#36: exiting
+2023/05/03 13:19:51 [notice] 32#32: exit
+2023/05/03 13:19:51 [notice] 33#33: exit
+2023/05/03 13:19:51 [notice] 34#34: exit
+2023/05/03 13:19:51 [notice] 35#35: exit
+2023/05/03 13:19:51 [notice] 30#30: exit
+2023/05/03 13:19:51 [notice] 31#31: exit
+2023/05/03 13:19:51 [notice] 36#36: exit
+2023/05/03 13:19:51 [notice] 29#29: exit
+2023/05/03 13:19:51 [notice] 1#1: signal 17 (SIGCHLD) received from 33
+2023/05/03 13:19:51 [notice] 1#1: worker process 33 exited with code 0
+2023/05/03 13:19:51 [notice] 1#1: worker process 36 exited with code 0
+2023/05/03 13:19:51 [notice] 1#1: signal 29 (SIGIO) received
+2023/05/03 13:19:51 [notice] 1#1: signal 17 (SIGCHLD) received from 36
+2023/05/03 13:19:51 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2023/05/03 13:19:51 [notice] 1#1: worker process 30 exited with code 0
+2023/05/03 13:19:51 [notice] 1#1: signal 29 (SIGIO) received
+2023/05/03 13:19:51 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2023/05/03 13:19:51 [notice] 1#1: worker process 31 exited with code 0
+2023/05/03 13:19:51 [notice] 1#1: signal 29 (SIGIO) received
+2023/05/03 13:19:51 [notice] 1#1: signal 17 (SIGCHLD) received from 35
+2023/05/03 13:19:51 [notice] 1#1: worker process 35 exited with code 0
+2023/05/03 13:19:51 [notice] 1#1: signal 29 (SIGIO) received
+2023/05/03 13:19:51 [notice] 1#1: signal 17 (SIGCHLD) received from 34
+2023/05/03 13:19:51 [notice] 1#1: worker process 29 exited with code 0
+2023/05/03 13:19:51 [notice] 1#1: worker process 32 exited with code 0
+2023/05/03 13:19:51 [notice] 1#1: worker process 34 exited with code 0
+2023/05/03 13:19:51 [notice] 1#1: exit

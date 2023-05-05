@@ -9,6 +9,15 @@ class MVCService {
         return $this->model->index();
     }
 
+    public function lists(array $params)
+    {
+        if (method_exists($this->model, 'lists')) {
+            return $this->model->lists(array_merge(request()->all(), $params));
+        }
+
+        return  [];
+    }
+
     public function showById($id)
     {
         return $this->model->showById($id);
@@ -56,7 +65,7 @@ class MVCService {
     public function filter(\Illuminate\Database\Eloquent\Builder $query, array $params)
     {
         if (method_exists($this->model, 'filter')) {
-            $query = $this->model->filter($query, $params);
+            $query    = $this->model->filter($query, $params);
         }
 
         return $query;

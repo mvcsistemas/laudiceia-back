@@ -10,9 +10,14 @@ class CadConsultaImagem extends MVCModel {
     protected $primaryKey = 'id_arquivo';
     protected $guarded    = [''];
 
-    public function index(){
-        return $this->select('cad_consulta_imagem.*')
-                    ->join('cad_consulta', 'cad_consulta.id_consulta', 'cad_consulta_imagem.id_consulta');
+    public function lists(array $params = [])
+    {
+        $rows = $this->select('cad_consulta_imagem.*')
+                     ->join('cad_consulta', 'cad_consulta.id_consulta', 'cad_consulta_imagem.id_consulta');
+
+        $rows = $this->filter($rows, $params);
+
+        return $rows;
     }
 
     public function filter($query, array $params = [])

@@ -17,9 +17,9 @@ class CadConsultaImagemController extends MVCController {
         $this->resource = CadConsultaImagemResource::class;
     }
 
-    public function index()
+    public function lists($uuid)
     {
-        $rows = $this->service->index();
+        $rows = $this->service->lists(['uuid' => $uuid]);
 
         return $this->responseBuilder($rows);
     }
@@ -38,6 +38,13 @@ class CadConsultaImagemController extends MVCController {
         $this->service->upload($consulta->id_consulta, $request->all());
 
         return $this->responseBuilderRow([], false, 201);
+    }
+
+    public function update(string $uuid, int $id_arquivo, Request $request)
+    {
+        $this->service->updateById($id_arquivo, $request->all());
+
+        return $this->responseBuilderRow([], false, 204);
     }
 
     public function destroy(string $uuid, int $id_arquivo)

@@ -73,7 +73,9 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
 
         Route::group(['prefix' => '{uuid}'], function () {
             Route::get('arquivo/{id_aquivo}/download', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController@download')->name('arquivo.download');
-            Route::resource('arquivo', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController')->except(['create', 'edit']);
+            Route::get('arquivo', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController@lists')->name('arquivo.lists');
+            Route::put('arquivo/{id_aquivo}', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController@update')->name('arquivo.update');
+            Route::resource('arquivo', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController')->except(['create', 'edit', 'index', 'update']);
         });
     });
 });

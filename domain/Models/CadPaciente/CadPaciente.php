@@ -17,7 +17,7 @@ class CadPaciente extends MVCModel {
 
     public function lookup(array $params = [])
     {
-        $rows = $this->select('id_paciente', 'nome_paciente');
+        $rows = $this->select('id_paciente', 'nome_paciente', 'celular', 'telefone');
 
         $this->filter($rows, $params);
 

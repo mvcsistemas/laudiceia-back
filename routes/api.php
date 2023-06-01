@@ -78,6 +78,10 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
             Route::resource('arquivo', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController')->except(['create', 'edit', 'index', 'update']);
         });
     });
+
+    Route::prefix('agendamento')->name('agendamento.')->group(function () {
+        Route::resource('', 'CadAgendamento\CadAgendamentoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
+    });
 });
 
 

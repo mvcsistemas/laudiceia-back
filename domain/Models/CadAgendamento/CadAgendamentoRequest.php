@@ -12,14 +12,14 @@ class CadAgendamentoRequest extends MVCRequest
         return [
             'id_agendamento'     => '',
             'uuid'               => '',
-            'agenda_ou_bloqueia' => '',
-            'data_agendamento'   => '',
-            'hora_inicio'        => '',
-            'hora_fim'           => '',
-            'telefone'           => 'required',
-            'celular'            => 'required',
-            'observacao'         => 'required',
-            'id_paciente'        => 'required',
+            'agenda_ou_bloqueia' => 'required',
+            'data_agendamento'   => 'required',
+            'hora_inicio'        => 'required',
+            'hora_fim'           => 'required',
+            'telefone'           => '',
+            'celular'            => '',
+            'observacao'         => '',
+            'id_paciente'        => '', //fazer if tipo agendamento == A = required
             'created_at'         => '',
             'updated_at'         => '',
         ];
@@ -28,10 +28,10 @@ class CadAgendamentoRequest extends MVCRequest
     public function messages()
     {
         return [
-            'telefone.required'    => 'O campo Telefone é obrigatório.',
-            'celular.required'     => 'O campo Celular é obrigatório.',
-            'observacao.required'  => 'O campo Observação é obrigatório.',
-            'id_paciente.required' => 'O campo Paciente é obrigatório.',
+            'agenda_ou_bloqueia.required' => 'O campo Agenda é obrigatório.',
+            'data_agendamento.required'   => 'O campo Data é obrigatório.',
+            'hora_inicio.required'        => 'O campo Início é obrigatório.',
+            'hora_fim.required'           => 'O campo Fim é obrigatório.',
         ];
     }
 }

@@ -16,17 +16,17 @@ return new class extends Migration
         Schema::create('cad_agendamento', function (Blueprint $table) {
             $table->id('id_agendamento');
             $table->uuid('uuid');
-            $table->string('agenda_ou_bloqueia', 1)->nullable();
-            $table->date('data_agendamento')->nullable();
-            $table->time('hora_inicio')->nullable();
-            $table->time('hora_fim')->nullable();
-            $table->string('telefone', 15);
-            $table->string('celular', 15);
-            $table->string('observacao');
-            $table->foreignId('id_paciente')->references('id_paciente')->on('cad_paciente')->onDelete('cascade');
+            $table->string('agenda_ou_bloqueia', 1);
+            $table->date('data_agendamento');
+            $table->time('hora_inicio');
+            $table->time('hora_fim');
+            $table->string('telefone', 15)->nullable();
+            $table->string('celular', 15)->nullable();
+            $table->string('observacao')->nullable();
+            $table->foreignId('id_paciente')->references('id_paciente')->on('cad_paciente')->onDelete('cascade')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->index(['id_agendamento', 'uuid', 'data_agendamento', 'id_paciente']);
+            $table->index(['id_agendamento', 'uuid', 'data_agendamento', 'id_paciente'], 'cad_agendamento_index');
         });
     }
 

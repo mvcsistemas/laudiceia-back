@@ -12,7 +12,7 @@ class CadAgendamentoResource extends JsonResource {
             'id_agendamento'     => $this->id_agendamento,
             'uuid'               => $this->uuid,
             'agenda_ou_bloqueia' => $this->agenda_ou_bloqueia,
-            'data_agendamento'   => $this->data_agendamento,
+            'data_agendamento'   => setDataFormatoBr($this->data_agendamento),
             'hora_inicio'        => $this->hora_inicio,
             'hora_fim'           => $this->hora_fim,
             'telefone'           => $this->telefone,

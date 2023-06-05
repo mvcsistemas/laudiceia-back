@@ -23,7 +23,7 @@ class CadAgendamentoController extends MVCController {
 
         $rows = $this->service->index();
 
-        return $this->responseBuilder($rows);
+        return $this->responseBuilderWithoutPagination($rows);
     }
 
     public function show($uuid)
@@ -35,6 +35,8 @@ class CadAgendamentoController extends MVCController {
 
     public function store(CadAgendamentoRequest $request)
     {
+        $request['data_agendamento'] = setData($request['data_agendamento']);
+
         $row = $this->service->create($request->all());
 
         return $this->responseBuilderRow($row, true, 201);
@@ -42,6 +44,8 @@ class CadAgendamentoController extends MVCController {
 
     public function update($uuid, CadAgendamentoRequest $request)
     {
+        $request['data_agendamento'] = setData($request['data_agendamento']);
+
         $this->service->updateByUuid($uuid, $request->all());
 
         return $this->responseBuilderRow([], false, 204);

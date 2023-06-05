@@ -15,11 +15,11 @@ class CadAgendamentoRequest extends MVCRequest
             'agenda_ou_bloqueia' => 'required',
             'data_agendamento'   => 'required',
             'hora_inicio'        => 'required',
-            'hora_fim'           => 'required',
+            'hora_fim'           => 'required', //TODO: tem que ser maior que a hora_inicio
             'telefone'           => '',
             'celular'            => '',
             'observacao'         => '',
-            'id_paciente'        => '', //fazer if tipo agendamento == A = required
+            'id_paciente'        => '', //TODO: fazer if tipo agendamento == A = required
             'created_at'         => '',
             'updated_at'         => '',
         ];

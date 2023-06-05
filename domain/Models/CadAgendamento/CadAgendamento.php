@@ -27,18 +27,18 @@ class CadAgendamento extends MVCModel {
         $campo_ordenacao = $params['campo_ordenacao'] ?? '';
 
         if ($id) {
-            $query->where('id_agendamento', $id);
+            $query->where('cad_agendamento.id_agendamento', $id);
         }
 
         if ($uuid) {
-            $query->where('uuid', $uuid);
+            $query->where('cad_agendamento.uuid', $uuid);
         }
 
         if ($tipo_ordenacao && $campo_ordenacao) {
             $query->orderBy($campo_ordenacao, $tipo_ordenacao);
         } else {
-            $query->orderBy('data_agendamento')
-                  ->orderBy('hora_inicio');
+            $query->orderBy('cad_agendamento.data_agendamento')
+                  ->orderBy('cad_agendamento.hora_inicio');
         }
 
         return $query;

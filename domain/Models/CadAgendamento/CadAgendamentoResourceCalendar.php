@@ -9,12 +9,11 @@ class CadAgendamentoResourceCalendar extends JsonResource {
     public function toArray($request)
     {
         $retorno = [
-            'id_agendamento' => $this->id_agendamento,
-            'uuid'           => $this->uuid,
-            'start'          => $this->data_agendamento . ' ' . $this->hora_inicio,
-            'end'            => $this->data_agendamento . ' ' . $this->hora_fim,
-            'title'          => $this->nome_paciente,
-            'class'          => $this->agenda_ou_bloqueia == 'A' ? 'primary_vuecal' : ''
+            'uuid'  => $this->uuid,
+            'start' => $this->data_agendamento . ' ' . $this->hora_inicio,
+            'end'   => $this->data_agendamento . ' ' . $this->hora_fim,
+            'title' => $this->nome_paciente,
+            'class' => $this->agenda_ou_bloqueia == 'A' ? 'primary_vuecal' : ''
         ];
 
         return $retorno;

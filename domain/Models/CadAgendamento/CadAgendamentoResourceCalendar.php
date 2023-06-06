@@ -12,8 +12,8 @@ class CadAgendamentoResourceCalendar extends JsonResource {
             'uuid'  => $this->uuid,
             'start' => $this->data_agendamento . ' ' . $this->hora_inicio,
             'end'   => $this->data_agendamento . ' ' . $this->hora_fim,
-            'title' => $this->nome_paciente,
-            'class' => $this->agenda_ou_bloqueia == 'A' ? 'primary_vuecal' : ''
+            'title' => $this->agenda_ou_bloqueia == 'A' ? $this->nome_paciente : 'BLOQUEADO',
+            'class' => $this->agenda_ou_bloqueia == 'A' ? 'primary_vuecal' : 'blocked_vuecal',
         ];
 
         return $retorno;

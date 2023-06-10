@@ -3,6 +3,7 @@
 namespace MVC\Models\CadAgendamento;
 
 use MVC\Base\MVCRequest;
+use MVC\Rules\TimeSizeRule;
 
 class CadAgendamentoRequest extends MVCRequest
 {
@@ -15,11 +16,11 @@ class CadAgendamentoRequest extends MVCRequest
             'agenda_ou_bloqueia' => 'required',
             'data_agendamento'   => 'required',
             'hora_inicio'        => 'required',
-            'hora_fim'           => 'required', //TODO: tem que ser maior que a hora_inicio
+            'hora_fim'           => ['required', new TimeSizeRule()],
             'telefone'           => '',
             'celular'            => '',
             'observacao'         => '',
-            'id_paciente'        => '', //TODO: fazer if tipo agendamento == A = required
+            'id_paciente'        => 'required_if:agenda_ou_bloqueia,A',
             'created_at'         => '',
             'updated_at'         => '',
         ];
@@ -32,6 +33,7 @@ class CadAgendamentoRequest extends MVCRequest
             'data_agendamento.required'   => 'O campo Data é obrigatório.',
             'hora_inicio.required'        => 'O campo Início é obrigatório.',
             'hora_fim.required'           => 'O campo Fim é obrigatório.',
+            'id_paciente.required_if'     => 'O campo Paciente é obrigatório.',
         ];
     }
 }

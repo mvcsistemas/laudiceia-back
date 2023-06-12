@@ -80,6 +80,8 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     });
 
     Route::prefix('agendamento')->name('agendamento.')->group(function () {
+        Route::put('{uuid}/updateDragDrop', 'CadAgendamento\CadAgendamentoController@updateDragDrop')->name('updateDragDrop');
+        
         Route::resource('', 'CadAgendamento\CadAgendamentoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
 });

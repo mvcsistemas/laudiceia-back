@@ -15,6 +15,6 @@ class TimeSizeRule implements Rule
 
     public function message()
     {
-        return 'O campo deve ser maior que o campo Início';
+        return 'O Fim deve ser maior que o Início';
     }
 }

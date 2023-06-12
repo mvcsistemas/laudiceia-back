@@ -3,6 +3,7 @@
 namespace MVC\Models\CadAgendamento;
 
 use MVC\Base\MVCController;
+use Illuminate\Http\Request;
 
 class CadAgendamentoController extends MVCController {
 
@@ -47,6 +48,15 @@ class CadAgendamentoController extends MVCController {
         $request['data_agendamento'] = setData($request['data_agendamento']);
 
         $this->service->updateByUuid($uuid, $request->all());
+
+        return $this->responseBuilderRow([], false, 204);
+    }
+
+    public function updateDragDrop($uuid, Request $request)
+    {
+        $request['data_agendamento'] = setData($request['data_agendamento']);
+
+        $this->service->updateByUuid($uuid, $request->only(['uuid', 'data_agendamento', 'hora_inicio', 'hora_fim']));
 
         return $this->responseBuilderRow([], false, 204);
     }

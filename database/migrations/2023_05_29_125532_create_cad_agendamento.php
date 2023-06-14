@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('observacao')->nullable();
             $table->integer('id_status')->default(0);
             $table->foreignId('id_paciente')->nullable()->references('id_paciente')->on('cad_paciente')->onDelete('cascade');
+            $table->foreignId('id_medico')->nullable()->references('id_medico')->on('cad_medico')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
             $table->index(['id_agendamento', 'uuid', 'data_agendamento', 'id_paciente'], 'cad_agendamento_index');

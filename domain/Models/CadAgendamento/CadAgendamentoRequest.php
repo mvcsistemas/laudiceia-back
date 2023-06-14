@@ -20,6 +20,7 @@ class CadAgendamentoRequest extends MVCRequest
             'telefone'           => '',
             'celular'            => '',
             'observacao'         => '',
+            'id_status'          => 'required',
             'id_paciente'        => 'required_if:agenda_ou_bloqueia,A',
             'created_at'         => '',
             'updated_at'         => '',
@@ -34,6 +35,7 @@ class CadAgendamentoRequest extends MVCRequest
             'hora_inicio.required'        => 'O campo Início é obrigatório.',
             'hora_fim.required'           => 'O campo Fim é obrigatório.',
             'id_paciente.required_if'     => 'O campo Paciente é obrigatório.',
+            'id_status.required'          => 'O campo Status é obrigatório.',
         ];
     }
 }

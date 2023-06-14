@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('telefone', 15)->nullable();
             $table->string('celular', 15)->nullable();
             $table->string('observacao')->nullable();
+            $table->integer('id_status')->default(0);
             $table->foreignId('id_paciente')->nullable()->references('id_paciente')->on('cad_paciente')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

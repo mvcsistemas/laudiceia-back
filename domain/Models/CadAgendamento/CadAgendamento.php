@@ -14,6 +14,15 @@ class CadAgendamento extends MVCModel {
     protected $guarded    = [''];
     public    $timestamps = true;
 
+    public static function boot()
+    {
+        parent::boot();
+
+        self::creating(function ($model) {
+            $model->id_status = 0;
+        });
+    }
+
     public function index(){
         return $this->select('cad_agendamento.*', 'cad_paciente.nome_paciente')
                     ->leftJoin('cad_paciente', 'cad_paciente.id_paciente', 'cad_agendamento.id_paciente');
@@ -42,5 +51,14 @@ class CadAgendamento extends MVCModel {
         }
 
         return $query;
+    }
+
+    public function getDscStatusAttribute()
+    {
+        return match ($this->id_status) {
+                    0 => 'Agendado',
+                    1 => 'Confirmado',
+                    2 => 'Não Confirmado',
+                };
     }
 }

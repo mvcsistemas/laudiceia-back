@@ -3,6 +3,7 @@
 namespace MVC\Models\CadFuncionario;
 
 use MVC\Base\MVCModel;
+use MVC\Models\User\User;
 use YourAppRocks\EloquentUuid\Traits\HasUuid;
 
 class CadFuncionario extends MVCModel {
@@ -14,6 +15,23 @@ class CadFuncionario extends MVCModel {
     protected $guarded    = [''];
 
     public $timestamps = true;
+
+    public static function boot()
+    {
+        $maxIdUser = User::max('id') + 1;
+
+        parent::boot();
+
+        self::creating(function ($model) use($maxIdUser) {
+            $model->id_funcionario = $maxIdUser;
+
+            User::create([
+                'email'         => $model->email,
+                'tipo_cadastro' => 'F'
+            ]);
+        });
+
+    }
 
     public function index(){
         return $this->select('cad_funcionario.*', 'cad_departamento.dsc_departamento')

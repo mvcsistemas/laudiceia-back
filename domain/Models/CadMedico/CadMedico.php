@@ -3,6 +3,7 @@
 namespace MVC\Models\CadMedico;
 
 use MVC\Base\MVCModel;
+use MVC\Models\User\User;
 use YourAppRocks\EloquentUuid\Traits\HasUuid;
 
 class CadMedico extends MVCModel
@@ -13,6 +14,23 @@ class CadMedico extends MVCModel
     protected $primaryKey = 'id_medico';
     protected $guarded = [''];
     public $timestamps = true;
+
+    public static function boot()
+    {
+        $maxIdUser = User::max('id') + 1;
+
+        parent::boot();
+
+        self::creating(function ($model) use($maxIdUser) {
+            $model->id_funcionario = $maxIdUser;
+
+            User::create([
+                'email'         => $model->email,
+                'tipo_cadastro' => 'M'
+            ]);
+        });
+
+    }
 
     public function index(){
         return $this->select('cad_medico.*', 'cad_clinica.nome_clinica as nome_clinica')

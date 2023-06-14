@@ -34,7 +34,9 @@ class User extends MVCModel implements AuthenticatableContract, AuthorizableCont
         parent::boot();
 
         self::creating(function ($model) {
-            $model->password = Hash::make($model->password);
+            if ($model->password) {
+                $model->password = Hash::make($model->password);
+            }
         });
     }
 

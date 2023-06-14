@@ -1,12 +1,12 @@
 <?php
 
-namespace MVC\Models\CadClinica;
+namespace MVC\Policys\RolePolicy;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Auth\Access\Response;
 use MVC\Models\User\User;
 
-class CadClinicaPolicy
+class RolePolicy
 {
     use HandlesAuthorization;
 

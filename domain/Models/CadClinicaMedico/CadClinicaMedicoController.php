@@ -18,6 +18,8 @@ class CadClinicaMedicoController extends MVCController
 
     public function index()
     {
+        $this->authorize('view', auth()->user());
+
         $rows = $this->service->index();
 
         return $this->responseBuilder($rows);
@@ -25,6 +27,8 @@ class CadClinicaMedicoController extends MVCController
 
     public function show($uuid)
     {
+        $this->authorize('view', auth()->user());
+
         $row = $this->service->showByUuid($uuid);
 
         return $this->responseBuilderRow($row);
@@ -32,6 +36,8 @@ class CadClinicaMedicoController extends MVCController
 
     public function store(CadClinicaMedicoRequest $request)
     {
+        $this->authorize('create', auth()->user());
+
         $row = $this->service->create($request->all());
 
         return $this->responseBuilderRow($row, true, 201);
@@ -39,6 +45,8 @@ class CadClinicaMedicoController extends MVCController
 
     public function update($uuid, CadClinicaMedicoRequest $request)
     {
+        $this->authorize('update', auth()->user());
+
         $this->service->updateByUuid($uuid, $request->all());
 
         return $this->responseBuilderRow([], false, 204);
@@ -46,6 +54,8 @@ class CadClinicaMedicoController extends MVCController
 
     public function destroy($uuid)
     {
+        $this->authorize('delete', auth()->user());
+
         $this->service->deleteByUuid($uuid);
 
         return $this->responseBuilderRow([], false, 204);

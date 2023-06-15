@@ -141,5 +141,6 @@
     "usuario_ja_cadastrado": "Usuário já fez acesso no sistema. Caso necessário, redefina sua senha.",
     "codigo_invalido": "Código inválido",
     "codigo_expirado": "Seu código expirou",
-    "senha_criada_sucesso": "Senha criada com sucesso!"
+    "senha_criada_sucesso": "Senha criada com sucesso!",
+    "sem_permissao": "Você não tem permissão para executar essa ação."
 }

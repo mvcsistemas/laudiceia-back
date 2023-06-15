@@ -62,8 +62,6 @@ class CadClinicaController extends MVCController
 
     public function lookup()
     {
-        $this->authorize('view', auth()->user());
-
         return $this->service->lookup(request()->all());
     }
 }

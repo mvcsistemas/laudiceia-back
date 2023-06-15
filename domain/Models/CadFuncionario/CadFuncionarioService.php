@@ -14,7 +14,7 @@ class CadFuncionarioService extends MVCService {
     }
 
     public function deleteByUuid($uuid){
-        return $this->model::findByUuid($uuid)->update( [
+        return $this->model::findByUuid($uuid)->update([
             'ativo'          => 0,
             'acesso_sistema' => 0
         ]);

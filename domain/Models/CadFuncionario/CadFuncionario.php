@@ -18,19 +18,19 @@ class CadFuncionario extends MVCModel {
 
     public static function boot()
     {
-        $maxIdUser = User::max('id') + 1;
-
         parent::boot();
 
-        self::creating(function ($model) use($maxIdUser) {
-            $model->id_funcionario = $maxIdUser;
+        self::creating(function ($model) {
+            $max_id_user           = User::max('id') + 1;
+            $model->id_funcionario = $max_id_user;
+        });
 
+        self::created(function ($model) {
             User::create([
                 'email'         => $model->email,
                 'tipo_cadastro' => 'F'
             ]);
         });
-
     }
 
     public function index(){

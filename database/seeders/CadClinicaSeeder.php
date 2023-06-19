@@ -22,15 +22,15 @@ class CadClinicaSeeder extends Seeder
 
         for ($i = 0; $i < 3; $i++) {
             DB::table('cad_clinica')->insert([
-                'uuid' => Str::uuid(36),
+                'uuid'         => Str::uuid(36),
                 'nome_clinica' => $faker->name,
-                'endereco' => 'Teste',
-                'cep' => '13504361',
-                'numero' => '3455',
-                'cidade' => 'Teste',
-                'estado' => 'Teste',
-                'bairro' => 'Parque Universitario',
-                'complemento' => 'complemento Teste'
+                'endereco'     => 'Teste',
+                'cep'          => '13504361',
+                'numero'       => '3455',
+                'cidade'       => 'Teste',
+                'estado'       => 'Teste',
+                'bairro'       => 'Parque Universitario',
+                'complemento'  => 'complemento Teste'
             ]);
         }
     }

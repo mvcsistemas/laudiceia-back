@@ -13,21 +13,21 @@ class RolePermissionPolicy
 
     public function view(User $user)
     {
-        return $user->tipo_cadastro == 'M' ? Response::allow(): Response::deny(Lang::get('sem_permissao'));
+        return $user->tipo_cadastro == 'P' ? Response::allow(): Response::deny(Lang::get('sem_permissao'));
     }
 
     public function create(User $user)
     {
-        return $user->tipo_cadastro == 'M' ? Response::allow(): Response::deny(Lang::get('sem_permissao'));
+        return $user->tipo_cadastro == 'P' ? Response::allow(): Response::deny(Lang::get('sem_permissao'));
     }
 
     public function update(User $user)
     {
-        return $user->tipo_cadastro == 'M' ? Response::allow(): Response::deny(Lang::get('sem_permissao'));
+        return $user->tipo_cadastro == 'P' ? Response::allow(): Response::deny(Lang::get('sem_permissao'));
     }
 
     public function delete(User $user)
     {
-        return $user->tipo_cadastro == 'M' ? Response::allow(): Response::deny(Lang::get('sem_permissao'));
+        return $user->tipo_cadastro == 'P' ? Response::allow(): Response::deny(Lang::get('sem_permissao'));
     }
 }

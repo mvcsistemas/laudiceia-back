@@ -1,7 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
-/*
+    /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
@@ -12,19 +12,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Login WEB
+    // Login WEB
 Route::post('/login', 'Auth\AuthenticateController@login');
 Route::post('/logout', 'Auth\AuthenticateController@logout');
 
-//Login API
+    //Login API
 Route::post('/loginApi', 'Auth\AuthenticateController@loginApi');
 Route::post('/logoutApi', 'Auth\AuthenticateController@logoutApi')->middleware('auth:sanctum');
 
-//Reset Password
+    //Reset Password
 Route::post('forgot-password', 'ResetPassword\NewPasswordController@forgotPassword')->name('password.forgot');
 Route::post('reset-password', 'ResetPassword\NewPasswordController@resetPassword')->name('password.reset');
 
-//First Access
+    //First Access
 Route::post('first-access/generate-otp', 'FirstAccess\FirstAccessController@generate')->name('first-acess.generate-otp');
 Route::post('first-access/check-otp', 'FirstAccess\FirstAccessController@checkCodeForNewPassword')->name('first-acess.check-otp');
 Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@createPassword')->name('first-acess.create-password');
@@ -39,9 +39,9 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
         Route::resource('', 'CadClinica\CadClinicaController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
 
-    Route::prefix('medico')->name('medico.')->group(function () {
-        Route::get('lookup', 'CadMedico\CadMedicoController@lookup');
-        Route::resource('', 'CadMedico\CadMedicoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
+    Route::prefix('podologo')->name('podologo.')->group(function () {
+        Route::get('lookup', 'CadPodologo\CadPodologoController@lookup');
+        Route::resource('', 'CadPodologo\CadPodologoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
 
     Route::prefix('funcionario')->name('funcionario.')->group(function () {
@@ -53,8 +53,8 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
         Route::resource('', 'CadDepartamento\CadDepartamentoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
 
-    Route::prefix('clinica_medico')->name('clinica_medico.')->group(function () {
-        Route::resource('', 'CadClinicaMedico\CadClinicaMedicoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
+    Route::prefix('clinica_podologo')->name('clinica_podologo.')->group(function () {
+        Route::resource('', 'CadClinicaPodologo\CadClinicaPodologoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
 
     Route::prefix('paciente')->name('paciente.')->group(function () {
@@ -81,7 +81,7 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
 
     Route::prefix('agendamento')->name('agendamento.')->group(function () {
         Route::put('{uuid}/updateDragDrop', 'CadAgendamento\CadAgendamentoController@updateDragDrop')->name('updateDragDrop');
-        
+
         Route::resource('', 'CadAgendamento\CadAgendamentoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
 });

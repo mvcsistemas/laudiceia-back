@@ -13,16 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cad_clinica_medico', function (Blueprint $table) {
-            $table->id('id_clinica_medico');
+        Schema::create('cad_clinica_podologo', function (Blueprint $table) {
+            $table->id('id_clinica_podologo');
             $table->uuid('uuid');
             $table->foreignId('id_clinica')->references('id_clinica')->on('cad_clinica')->onDelete('cascade');
-            $table->foreignId('id_medico')->references('id_medico')->on('cad_medico')->onDelete('cascade');
+            $table->foreignId('id_podologo')->references('id_podologo')->on('cad_podologo')->onDelete('cascade');
             $table->string('telefone', 15);
             $table->string('whatsapp', 15);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->index(['id_clinica_medico', 'uuid', 'id_clinica', 'id_medico'], 'cad_clinica_medico_index');
+            $table->index(['id_clinica_podologo', 'uuid', 'id_clinica', 'id_podologo'], 'cad_clinica_podologo_index');
         });
     }
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cad_clinica_medico');
+        Schema::dropIfExists('cad_clinica_podologo');
     }
 };

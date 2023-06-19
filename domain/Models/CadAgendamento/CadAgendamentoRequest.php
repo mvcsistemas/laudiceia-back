@@ -22,7 +22,7 @@ class CadAgendamentoRequest extends MVCRequest
             'observacao'         => '',
             'id_status'          => 'required',
             'id_paciente'        => 'required_if:agenda_ou_bloqueia,A',
-            'id_medico'          => 'required_if:agenda_ou_bloqueia,A',
+            'id_podologo'        => 'required_if:agenda_ou_bloqueia,A',
             'created_at'         => '',
             'updated_at'         => '',
         ];

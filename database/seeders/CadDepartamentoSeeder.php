@@ -22,7 +22,7 @@ class CadDepartamentoSeeder extends Seeder
 
         for ($i = 0; $i < 3; $i++) {
             DB::table('cad_departamento')->insert([
-                'uuid' => Str::uuid(36),
+                'uuid'             => Str::uuid(36),
                 'dsc_departamento' => $faker->name
             ]);
         }

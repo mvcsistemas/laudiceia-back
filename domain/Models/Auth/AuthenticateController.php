@@ -4,6 +4,8 @@ namespace MVC\Models\Auth;
 
 use MVC\Base\MVCController;
 use MVC\Models\User\User;
+use MVC\Models\CadPodologo\CadPodologo;
+use MVC\Models\CadFuncionario\CadFuncionario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -13,13 +15,19 @@ class AuthenticateController extends MVCController
 {
     public function login(AuthenticateRequest $request)
     {
-        $credentials = $request->only(['email', 'password']);
-        $remember    = $request->remember;
+        $credentials           = $request->only(['email', 'password']);
+        $remember              = $request->remember;
+        $user                  = User::where('email', $credentials['email']);
+        $tipo_cadastro         = $user->first()->tipo_cadastro;
+        $podologoOuFuncionario = $tipo_cadastro == 'P' ? $user->with('podologo')->first() : $user->with('funcionario')->first();
+        $acesso_sistema        = $tipo_cadastro == 'P' ? $podologoOuFuncionario->podologo->acesso_sistema : $podologoOuFuncionario->funcionario->acesso_sistema;
+        $ativo                 = $tipo_cadastro == 'P' ? $podologoOuFuncionario->podologo->ativo : $podologoOuFuncionario->funcionario->ativo;
+        $nome                  = $tipo_cadastro == 'P' ? $podologoOuFuncionario->podologo->nome_podologo : $podologoOuFuncionario->funcionario->nome_funcionario;
 
-        if (Auth::attempt($credentials, $remember)) {
+        if ($acesso_sistema && $ativo && Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
-            return auth()->user();
+            return array_merge(auth()->user()->toArray(), ['name' => $nome]);
         }
 
         throw ValidationException::withMessages(['email' => ['Email e/ou senha inválido(s).']]);

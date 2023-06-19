@@ -15,6 +15,8 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\ResetPasswordNotification;
+use MVC\Models\CadPodologo\CadPodologo;
+use MVC\Models\CadFuncionario\CadFuncionario;
 
 class User extends MVCModel implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
@@ -54,5 +56,15 @@ class User extends MVCModel implements AuthenticatableContract, AuthorizableCont
         $url =  env('FRONT_URL') . '/reset-password/' . $token . '?email=' . $this->email;
 
         $this->notify(new ResetPasswordNotification($url));
+    }
+
+    public function podologo ()
+    {
+        return $this->belongsTo(CadPodologo::class, 'id', 'id_podologo');
+    }
+
+    public function funcionario ()
+    {
+        return $this->belongsTo(CadFuncionario::class, 'id', 'id_funcionario');
     }
 }

@@ -18,17 +18,17 @@ class CadConsulta extends MVCModel {
         return $this->select('cad_consulta.*',
                              'cad_paciente.id_paciente',
                              'cad_paciente.nome_paciente',
-                             'cad_medico.id_medico',
-                             'cad_medico.nome_medico')
+                             'cad_podologo.id_podologo',
+                             'cad_podologo.nome_podologo')
                     ->join('cad_paciente', 'cad_paciente.id_paciente', 'cad_consulta.id_paciente')
-                    ->join('cad_medico', 'cad_medico.id_medico', 'cad_consulta.id_medico');
+                    ->join('cad_podologo', 'cad_podologo.id_podologo', 'cad_consulta.id_podologo');
     }
 
     public function filter($query, array $params = [])
     {
         $id              = (int)($params['id_consulta'] ?? '');
         $id_paciente     = (int)($params['id_paciente'] ?? '');
-        $id_medico       = (int)($params['id_medico'] ?? '');
+        $id_podologo     = (int)($params['id_podologo'] ?? '');
         $uuid            = (string)($params['uuid'] ?? '');
         $data_consulta   = setData($params['data_consulta'] ?? '');
         $tipo_ordenacao  = $params['tipo_ordenacao'] ?? '';
@@ -46,8 +46,8 @@ class CadConsulta extends MVCModel {
             $query->where('cad_paciente.id_paciente', $id_paciente);
         }
 
-        if ($id_medico) {
-            $query->where('cad_medico.id_medico', $id_medico);
+        if ($id_podologo) {
+            $query->where('cad_podologo.id_podologo', $id_podologo);
         }
 
         if ($data_consulta) {

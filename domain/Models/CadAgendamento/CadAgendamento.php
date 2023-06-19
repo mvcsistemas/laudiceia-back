@@ -24,8 +24,8 @@ class CadAgendamento extends MVCModel {
     }
 
     public function index(){
-        return $this->select('cad_agendamento.*', 'cad_paciente.nome_paciente', 'cad_medico.nome_medico')
-                    ->leftJoin('cad_medico', 'cad_medico.id_medico', 'cad_agendamento.id_medico')
+        return $this->select('cad_agendamento.*', 'cad_paciente.nome_paciente', 'cad_podologo.nome_podologo')
+                    ->leftJoin('cad_podologo', 'cad_podologo.id_podologo', 'cad_agendamento.id_podologo')
                     ->leftJoin('cad_paciente', 'cad_paciente.id_paciente', 'cad_agendamento.id_paciente');
     }
 

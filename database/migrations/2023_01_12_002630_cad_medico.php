@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cad_medico', function (Blueprint $table) {
-            $table->id('id_medico');
+        Schema::create('cad_podologo', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_podologo')->primary();
             $table->uuid('uuid');
-            $table->string('nome_medico');
+            $table->string('nome_podologo');
             $table->string('email')->unique();
             $table->boolean('acesso_sistema')->default(true);
             $table->boolean('ativo')->default(true);
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreignId('id_clinica')->references('id_clinica')->on('cad_clinica')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->index(['id_medico', 'uuid', 'nome_medico', 'email', 'acesso_sistema', 'ativo', 'id_clinica'], 'cad_medico_index');
+            $table->index(['id_podologo', 'uuid', 'nome_podologo', 'email', 'acesso_sistema', 'ativo', 'id_clinica'], 'cad_podologo_index');
         });
     }
 
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cad_medico');
+        Schema::dropIfExists('cad_podologo');
     }
 };

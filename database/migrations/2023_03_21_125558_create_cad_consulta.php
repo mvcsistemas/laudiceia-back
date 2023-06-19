@@ -20,10 +20,10 @@ return new class extends Migration
             $table->text('procedimento');
             $table->decimal('valor', 13, 2);
             $table->foreignId('id_paciente')->references('id_paciente')->on('cad_paciente');
-            $table->foreignId('id_medico')->references('id_medico')->on('cad_medico');
+            $table->foreignId('id_podologo')->references('id_podologo')->on('cad_podologo');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->index(['id_consulta', 'uuid', 'data_consulta', 'valor', 'id_paciente', 'id_medico'], 'cad_consulta_index');
+            $table->index(['id_consulta', 'uuid', 'data_consulta', 'valor', 'id_paciente', 'id_podologo'], 'cad_consulta_index');
         });
     }
 

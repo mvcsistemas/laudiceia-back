@@ -1,19 +1,19 @@
 <?php
 
-namespace MVC\Models\CadMedico;
+namespace MVC\Models\CadPodologo;
 
 use MVC\Base\MVCController;
 
-class CadMedicoController extends MVCController
+class CadPodologoController extends MVCController
 {
 
-    protected CadMedicoService $service;
+    protected CadPodologoService $service;
     protected $resource;
 
-    public function __construct(CadMedicoService $service)
+    public function __construct(CadPodologoService $service)
     {
         $this->service  = $service;
-        $this->resource = CadMedicoResource::class;
+        $this->resource = CadPodologoResource::class;
     }
 
     public function index()
@@ -34,7 +34,7 @@ class CadMedicoController extends MVCController
         return $this->responseBuilderRow($row);
     }
 
-    public function store(CadMedicoRequest $request)
+    public function store(CadPodologoRequest $request)
     {
         $this->authorize('create', auth()->user());
 
@@ -43,7 +43,7 @@ class CadMedicoController extends MVCController
         return $this->responseBuilderRow($row, true, 201);
     }
 
-    public function update($uuid, CadMedicoRequest $request)
+    public function update($uuid, CadPodologoRequest $request)
     {
         $this->authorize('update', auth()->user());
 

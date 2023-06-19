@@ -1,14 +1,14 @@
 <?php
 
-namespace MVC\Models\CadClinicaMedico;
+namespace MVC\Models\CadClinicaPodologo;
 
 use MVC\Base\MVCService;
 
-class CadClinicaMedicoService extends MVCService {
+class CadClinicaPodologoService extends MVCService {
 
-    protected CadClinicaMedico $model;
+    protected CadClinicaPodologo $model;
 
-    public function __construct(CadClinicaMedico $model)
+    public function __construct(CadClinicaPodologo $model)
     {
         $this->model = $model;
     }

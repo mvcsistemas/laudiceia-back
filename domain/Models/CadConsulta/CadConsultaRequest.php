@@ -16,7 +16,7 @@ class CadConsultaRequest extends MVCRequest
             'procedimento'  => 'required',
             'valor'         => 'required',
             'id_paciente'   => 'required',
-            'id_medico'     => 'required',
+            'id_podologo'   => 'required',
             'created_at'    => '',
             'updated_at'    => '',
         ];
@@ -29,7 +29,7 @@ class CadConsultaRequest extends MVCRequest
             'procedimento.required'  => 'O campo Procedimento é obrigatório.',
             'valor.required'         => 'O campo Valor é obrigatório.',
             'id_paciente.required'   => 'O campo Paciente é obrigatório.',
-            'id_medico.required'     => 'O campo Podólogo é obrigatório.',
+            'id_podologo.required'   => 'O campo Podólogo é obrigatório.',
         ];
     }
 }

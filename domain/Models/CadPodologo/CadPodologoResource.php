@@ -1,19 +1,19 @@
 <?php
 
-namespace MVC\Models\CadMedico;
+namespace MVC\Models\CadPodologo;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CadMedicoResource extends JsonResource
+class CadPodologoResource extends JsonResource
 {
 
     public function toArray($request)
     {
         $retorno = [
-            'id_medico'        => $this->id_medico,
+            'id_podologo'      => $this->id_podologo,
             'uuid'             => $this->uuid,
             'id_clinica'       => $this->id_clinica,
-            'nome_medico'      => $this->nome_medico,
+            'nome_podologo'    => $this->nome_podologo,
             'nome_clinica'     => $this->nome_clinica,
             'acesso_sistema'   => boolval($this->acesso_sistema),
             'ativo'            => boolval($this->ativo),

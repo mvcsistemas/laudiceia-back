@@ -10,7 +10,6 @@ class CadFuncionarioResource extends JsonResource
     public function toArray($request)
     {
         $retorno = [
-            'id_funcionario'   => $this->id_funcionario,
             'uuid'             => $this->uuid,
             'id_departamento'  => $this->id_departamento,
             'dsc_departamento' => $this->dsc_departamento,

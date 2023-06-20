@@ -11,7 +11,6 @@ class CadAgendamentoRequest extends MVCRequest
     public function rules()
     {
         return [
-            'id_agendamento'     => '',
             'uuid'               => '',
             'agenda_ou_bloqueia' => 'required',
             'data_agendamento'   => 'required',

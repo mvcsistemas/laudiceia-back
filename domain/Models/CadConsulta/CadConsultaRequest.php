@@ -10,7 +10,6 @@ class CadConsultaRequest extends MVCRequest
     public function rules()
     {
         return [
-            'id_consulta'   => '',
             'uuid'          => '',
             'data_consulta' => 'required',
             'procedimento'  => 'required',

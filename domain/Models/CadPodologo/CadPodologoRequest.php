@@ -10,7 +10,6 @@ class CadPodologoRequest extends MVCRequest
     public function rules()
     {
         return [
-            'id_podologo'      => '',
             'uuid'             => '',
             'nome_podologo'    => 'required',
             'id_clinica'       => 'required',

@@ -10,7 +10,6 @@ class CadDepartamentoRequest extends MVCRequest
     public function rules()
     {
         return [
-            'id_departamento'  => '',
             'uuid'             => '',
             'dsc_departamento' => 'required',
             'created_at'       => '',

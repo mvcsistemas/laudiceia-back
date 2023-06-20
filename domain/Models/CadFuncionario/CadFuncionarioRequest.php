@@ -10,7 +10,6 @@ class CadFuncionarioRequest extends MVCRequest
     public function rules()
     {
         return [
-            'id_funcionario'   => '',
             'uuid'             => '',
             'id_departamento'  => 'required',
             'cpf'              => 'required|cpf',

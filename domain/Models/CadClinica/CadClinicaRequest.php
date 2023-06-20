@@ -10,7 +10,6 @@ class CadClinicaRequest extends MVCRequest
     public function rules()
     {
         return [
-            'id_clinica'   => '',
             'uuid'         => '',
             'nome_clinica' => 'required',
             'cep'          => 'required',

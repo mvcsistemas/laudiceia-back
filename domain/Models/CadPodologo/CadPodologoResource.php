@@ -10,7 +10,6 @@ class CadPodologoResource extends JsonResource
     public function toArray($request)
     {
         $retorno = [
-            'id_podologo'      => $this->id_podologo,
             'uuid'             => $this->uuid,
             'id_clinica'       => $this->id_clinica,
             'nome_podologo'    => $this->nome_podologo,

@@ -10,7 +10,6 @@ class CadPacienteRequest extends MVCRequest
     public function rules()
     {
         return [
-            'id_paciente'     => '',
             'uuid'            => '',
             'bairro'          => 'required',
             'celular'         => '',

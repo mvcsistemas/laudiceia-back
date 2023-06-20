@@ -10,7 +10,6 @@ class CadClinicaResource extends JsonResource
     public function toArray($request)
     {
         $retorno = [
-            'id_clinica'   => $this->id_clinica,
             'uuid'         => $this->uuid,
             'nome_clinica' => $this->nome_clinica,
             'cep'          => $this->cep,

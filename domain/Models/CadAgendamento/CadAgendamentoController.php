@@ -68,8 +68,13 @@ class CadAgendamentoController extends MVCController {
         return $this->responseBuilderRow([], false, 204);
     }
 
-    public function lookup()
+    public function lookup(Request $request)
     {
-        return $this->service->lookup(request()->all());
+        return $this->service->lookup($request->all());
+    }
+
+    public function confirmaAgendamento(Request $request)
+    {
+        return $this->service->confirmaAgendamento($request->all());
     }
 }

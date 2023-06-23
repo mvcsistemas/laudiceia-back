@@ -24,6 +24,9 @@ Route::post('/logoutApi', 'Auth\AuthenticateController@logoutApi')->middleware('
 Route::post('forgot-password', 'ResetPassword\NewPasswordController@forgotPassword')->name('password.forgot');
 Route::post('reset-password', 'ResetPassword\NewPasswordController@resetPassword')->name('password.reset');
 
+//Confirma Agendamento
+Route::put('confirma-agendamento', 'CadAgendamento\CadAgendamentoController@confirmaAgendamento')->name('confirma.agendamento');
+
     //First Access
 Route::post('first-access/generate-otp', 'FirstAccess\FirstAccessController@generate')->name('first-acess.generate-otp');
 Route::post('first-access/check-otp', 'FirstAccess\FirstAccessController@checkCodeForNewPassword')->name('first-acess.check-otp');

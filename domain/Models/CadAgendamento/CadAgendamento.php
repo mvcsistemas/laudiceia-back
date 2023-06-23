@@ -34,9 +34,8 @@ class CadAgendamento extends MVCModel {
         $id              = (int)($params['id_agendamento'] ?? '');
         $uuid            = (string)($params['uuid'] ?? '');
         $id_paciente     = (int)($params['id_paciente'] ?? '');
-        $id_paciente     = (int)($params['id_paciente'] ?? '');
-        $start_date      = (string)($params['start_date']);
-        $end_date        = (string)($params['end_date']);
+        $start_date      = (string)($params['start_date'] ?? '');
+        $end_date        = (string)($params['end_date'] ?? '');
         $tipo_ordenacao  = $params['tipo_ordenacao'] ?? '';
         $campo_ordenacao = $params['campo_ordenacao'] ?? '';
 
@@ -48,7 +47,14 @@ class CadAgendamento extends MVCModel {
             $query->where('cad_agendamento.uuid', $uuid);
         }
 
-        $query->whereBetween('cad_agendamento.data_agendamento', [$start_date, $end_date]);
+        if ($id_paciente) {
+            $query->where('cad_agendamento.id_paciente', $id_paciente);
+        }
+
+        if($start_date && $end_date){
+            $query->whereBetween('cad_agendamento.data_agendamento', [$start_date, $end_date]);
+        }
+
 
         if ($tipo_ordenacao && $campo_ordenacao) {
             $query->orderBy($campo_ordenacao, $tipo_ordenacao);

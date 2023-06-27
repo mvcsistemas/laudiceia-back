@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([UserSeeder::class, CadClinicaSeeder::class, CadDepartamentoSeeder::class, CadPodologoSeeder::class, CadFuncionarioSeeder::class, CadClinicaPodologoSeeder::class, CadPacienteSeeder::class]);
+        $this->call([UserSeeder::class, CadClinicaSeeder::class, CadDepartamentoSeeder::class, CadPodologoSeeder::class, CadFuncionarioSeeder::class, CadPacienteSeeder::class]);
     }
 }

@@ -15,19 +15,16 @@ class AuthenticateController extends MVCController
 {
     public function login(AuthenticateRequest $request)
     {
-        $credentials           = $request->only(['email', 'password']);
-        $remember              = $request->remember;
-        $user                  = User::where('email', $credentials['email']);
-        $tipo_cadastro         = $user->first()->tipo_cadastro;
-        $podologoOuFuncionario = $tipo_cadastro == 'P' ? $user->with('podologo')->first() : $user->with('funcionario')->first();
-        $acesso_sistema        = $tipo_cadastro == 'P' ? $podologoOuFuncionario->podologo->acesso_sistema : $podologoOuFuncionario->funcionario->acesso_sistema;
-        $ativo                 = $tipo_cadastro == 'P' ? $podologoOuFuncionario->podologo->ativo : $podologoOuFuncionario->funcionario->ativo;
-        $nome                  = $tipo_cadastro == 'P' ? $podologoOuFuncionario->podologo->nome_podologo : $podologoOuFuncionario->funcionario->nome_funcionario;
+        $credentials   = $request->only(['email', 'password']);
+        $remember      = $request->remember;
+        $user          = User::where('email', $credentials['email'])->first();
+        $tipo_cadastro = $user->tipoCadastro instanceof CadFuncionario ? 'F' : 'P';
+        $nome          = $tipo_cadastro == 'F' ? $user->tipoCadastro->nome_funcionario : $user->tipoCadastro->nome_podologo;
 
-        if ($acesso_sistema && $ativo && Auth::attempt($credentials, $remember)) {
+        if ($user->tipoCadastro->ativo && $user->tipoCadastro->acesso_sistema && Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
-            return  ['name' => $nome, 'tipo_cadastro' => auth()->user()->tipo_cadastro];
+            return  ['name' => $nome, 'tipo_cadastro' => $tipo_cadastro];
         }
 
         throw ValidationException::withMessages(['email' => ['Email e/ou senha inválido(s).']]);

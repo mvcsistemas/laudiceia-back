@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->string('tipo_cadastro', 10);
+            $table->nullableMorphs('tipo_cadastro');
             $table->rememberToken();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->index(['id', 'uuid', 'email', 'tipo_cadastro']);
+            $table->index(['id', 'uuid', 'email']);
         });
     }
 

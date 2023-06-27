@@ -40,6 +40,11 @@ class User extends MVCModel implements AuthenticatableContract, AuthorizableCont
         });
     }
 
+    public function tipoCadastro()
+    {
+        return $this->morphTo();
+    }
+
     public function filter($query, array $params = [])
     {
         $email = (string)($params['email'] ?? '');

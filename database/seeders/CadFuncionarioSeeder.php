@@ -22,7 +22,6 @@ class CadFuncionarioSeeder extends Seeder
 
         for ($i = 0; $i < 3; $i++) {
             DB::table('cad_funcionario')->insert([
-                'id_funcionario'   => $i * 3,
                 'uuid'             => Str::uuid(36),
                 'nome_funcionario' => $faker->name,
                 'email'            => $faker->email,

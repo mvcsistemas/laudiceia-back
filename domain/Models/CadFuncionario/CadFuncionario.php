@@ -20,16 +20,11 @@ class CadFuncionario extends MVCModel {
     {
         parent::boot();
 
-        self::creating(function ($model) {
-            $max_id_user           = User::max('id') + 1;
-            $model->id_funcionario = $max_id_user;
-        });
-
         self::created(function ($model) {
-            User::create([
-                'email'         => $model->email,
-                'tipo_cadastro' => 'F'
-            ]);
+            $user = new User;
+            $user->email = $model->email;
+            $user->tipoCadastro()->associate($model);
+            $user->save();
         });
     }
 
@@ -85,5 +80,10 @@ class CadFuncionario extends MVCModel {
         }
 
         return $query;
+    }
+
+    public function user(): MorphOne
+    {
+        return $this->morphOne(User::class, 'tipoCadastro');
     }
 }

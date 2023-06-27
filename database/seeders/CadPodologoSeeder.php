@@ -22,7 +22,6 @@ class CadPodologoSeeder extends Seeder
 
         for ($i = 0; $i < 3; $i++) {
             DB::table('cad_podologo')->insert([
-                'id_podologo'      => $i * 2,
                 'uuid'             => Str::uuid(36),
                 'nome_podologo'    => $faker->name,
                 'email'            => $faker->unique()->safeEmail(),

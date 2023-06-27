@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cad_podologo', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_podologo')->primary();
+            $table->id('id_podologo');
             $table->uuid('uuid');
             $table->string('nome_podologo');
             $table->string('email')->unique();

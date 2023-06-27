@@ -21,11 +21,13 @@ class UserSeeder extends Seeder
 
         for ($i=0; $i < 3; $i++) {
             DB::table('users')->insert([
-                'uuid'              => Str::uuid(36),
-                'email'             => $faker->unique()->safeEmail(),
-                'email_verified_at' => now(),
-                'password'          => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',   // password
-                'remember_token'    => Str::random(10),
+                'uuid'               => Str::uuid(36),
+                'email'              => $faker->unique()->safeEmail(),
+                'email_verified_at'  => now(),
+                'password'           => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',   // password
+                'tipo_cadastro_type' => 'MVC\Models\CadPodologo\CadPodologo',
+                'tipo_cadastro_id'   => $i + 1,
+                'remember_token'     => Str::random(10),
             ]);
         }
     }

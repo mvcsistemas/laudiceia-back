@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Validation\Rules\Password as RulesPassword;
+use MVC\Models\User\User;
 
 class NewPasswordController extends Controller {
 
@@ -19,6 +21,14 @@ class NewPasswordController extends Controller {
         $request->validate([
             'email' => 'required|email',
         ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if(!$user->tipoCadastro->ativo || !$user->tipoCadastro->acesso_sistema){
+            throw ValidationException::withMessages([
+                'email' => [Lang::get('usuario_inativo_ou_sem_acesso')]
+            ]);
+        }
 
         $status = Password::sendResetLink(
             $request->only('email')
@@ -65,7 +75,7 @@ class NewPasswordController extends Controller {
 
         if ($status == Password::PASSWORD_RESET) {
             return response([
-                'message' => 'Senha alterada com sucesso!'
+                'message' => Lang::get('senha_alterada_com_sucesso')
             ]);
         }
 

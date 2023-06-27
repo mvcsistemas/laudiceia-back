@@ -142,5 +142,7 @@
     "codigo_invalido": "Código inválido",
     "codigo_expirado": "Seu código expirou",
     "senha_criada_sucesso": "Senha criada com sucesso!",
-    "sem_permissao": "Você não tem permissão para executar essa ação."
+    "sem_permissao": "Você não tem permissão para executar essa ação.",
+    "usuario_inativo_ou_sem_acesso": "Usuário inativo ou sem acesso ao sistema",
+    "senha_alterada_com_sucesso": "Senha alterada com sucesso!"
 }

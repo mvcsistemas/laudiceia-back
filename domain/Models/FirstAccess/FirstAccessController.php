@@ -34,7 +34,11 @@ class FirstAccessController extends MVCController
             throw ValidationException::withMessages([
                 'email' => Lang::get('User')
                 ]);
-        }else if($user && $user->password){
+        }else if(!$user->tipoCadastro->ativo || !$user->tipoCadastro->acesso_sistema){
+            throw ValidationException::withMessages([
+                'email' => [Lang::get('usuario_inativo_ou_sem_acesso')]
+            ]);
+        } else if($user && $user->password){
             throw ValidationException::withMessages([
                 'email' => Lang::get('usuario_ja_cadastrado')
                 ]);

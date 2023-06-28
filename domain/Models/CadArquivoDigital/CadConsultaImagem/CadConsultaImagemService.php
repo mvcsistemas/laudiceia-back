@@ -6,42 +6,19 @@ use MVC\Base\MVCService;
 use MVC\Models\CadArquivoDigital\CadArquivoDigitalService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
-use MVC\Models\CadConsulta\CadConsulta;
-use Illuminate\Support\Facades\Storage;
 
 class CadConsultaImagemService extends MVCService {
 
-    protected CadConsultaImagem $model;
+    protected CadConsultaImagem      $model;
+    private CadArquivoDigitalService $cadArquivoDigitalService;
 
-    public function __construct(CadConsultaImagem $model)
+    public function __construct(CadConsultaImagem $model, CadArquivoDigitalService $cadArquivoDigitalService)
     {
-        $this->model = $model;
+        $this->model                    = $model;
+        $this->cadArquivoDigitalService = $cadArquivoDigitalService;
     }
 
-    public function createUpload(string $uuid, array $request)
-    {
-        $consulta = CadConsulta::findByUuid($uuid);
-
-        $path = $request['arq_conteudo']->store('consultaImagens');
-
-        $payload = array_merge($request, ['id_consulta' => $consulta->id_consulta,
-                                          'path'        => $path]);
-
-        return $this->model->create($payload);
-    }
-
-
-    public function download(int $id_consulta, int $id_arquivo)
-    {
-        $imagem = $this->model
-            ->where('id_consulta', $id_consulta)
-            ->where('id_arquivo', $id_arquivo)
-            ->firstOrFail();
-
-        return Storage::download($imagem->path);
-    }
-
-    /* public function upload(int $id_consulta, array $data)
+    public function upload(int $id_consulta, array $data)
     {
         return DB::transaction(function () use ($id_consulta, $data) {
             $this->cadArquivoDigitalService->upload($data['arq_conteudo']);
@@ -88,5 +65,5 @@ class CadConsultaImagemService extends MVCService {
 
             $arqImagem->delete();
         });
-    } */
+    }
 }

@@ -14,11 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cad_consulta_imagem', function (Blueprint $table) {
-            $table->bigInteger('id_arquivo');
+            $table->id('id_arquivo');
             $table->string('nome_arquivo', 150);
-            $table->string('observacao', 255)->nullable();
+            $table->string('path')->nullable();
+            $table->string('observacao')->nullable();
             $table->foreignId('id_consulta')->references('id_consulta')->on('cad_consulta')->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
             $table->index(['id_arquivo', 'nome_arquivo', 'id_consulta']);
         });
     }

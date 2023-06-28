@@ -14,7 +14,7 @@ class CadConsultaImagemRequest extends MVCRequest {
             'nome_arquivo' => 'required',
             'observacao'   => '',
             'id_consulta'  => '',
-            'path'         => '',
+            'created_at'   => '',
         ];
     }
 

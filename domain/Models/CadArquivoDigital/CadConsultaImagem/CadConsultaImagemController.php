@@ -26,14 +26,16 @@ class CadConsultaImagemController extends MVCController {
 
     public function show($uuid)
     {
-        $row = $this->service->showById(1);
+        $row = $this->service->showByUuid($uuid);
 
         return $this->responseBuilderRow($row);
     }
 
     public function store(string $uuid, CadConsultaImagemRequest $request)
     {
-        $this->service->createUpload($uuid, $request->all());
+        $consulta = CadConsulta::findByUuid($uuid);
+
+        $this->service->upload($consulta->id_consulta, $request->all());
 
         return $this->responseBuilderRow([], false, 201);
     }
@@ -58,6 +60,10 @@ class CadConsultaImagemController extends MVCController {
     {
         $consulta = CadConsulta::findByUuid($uuid);
 
-        return $this->service->download($consulta->id_consulta, $id_arquivo);
+        $data = $this->service->download($consulta->id_consulta, $id_arquivo);
+
+        $payload['data'] = ['arq_conteudo' => $data['file'], 'arqImagem' => $data['arqImagem']];
+
+        return $payload;
     }
 }

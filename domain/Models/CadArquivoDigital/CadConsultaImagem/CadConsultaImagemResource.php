@@ -13,7 +13,7 @@ class CadConsultaImagemResource extends JsonResource {
             'nome_arquivo' => $this->nome_arquivo,
             'observacao'   => $this->observacao,
             'id_consulta'  => $this->id_consulta,
-            'path'         => $this->path
+            'created_at'   => $this->created_at
         ];
 
         return $retorno;

@@ -24,69 +24,43 @@ class CadConsultaImagemService extends MVCService {
 
         $path = $request['arq_conteudo']->store('consultaImagens');
 
-        $payload = array_merge($request, ['id_consulta' => $consulta->id_consulta,
+        $payload = array_merge($request,['id_consulta' => $consulta->id_consulta,
                                           'path'        => $path]);
 
         return $this->model->create($payload);
     }
 
-
-    public function download(int $id_consulta, int $id_arquivo)
+    public function updateUpload(string $uuid, int $id_arquivo, array $request)
     {
-        $imagem = $this->model
-            ->where('id_consulta', $id_consulta)
-            ->where('id_arquivo', $id_arquivo)
-            ->firstOrFail();
+        if(isset($request['arq_conteudo'])){
+            if(Storage::exists($request['path'])){
+                Storage::delete($request['path']);
+            }
+
+            $request['path'] = $request['arq_conteudo']->store('consultaImagens');
+        }
+
+
+        return $this->updateById($id_arquivo, $request);
+    }
+
+    public function deleteUpload(int $id_arquivo)
+    {
+        $imagem = $this->model->findOrFail($id_arquivo);
+
+        if(Storage::exists($imagem->path)){
+            Storage::delete($imagem->path);
+        }
+
+
+        $imagem->delete();
+    }
+
+
+    public function download(int $id_arquivo)
+    {
+        $imagem = $this->model->findOrFail($id_arquivo);
 
         return Storage::download($imagem->path);
     }
-
-    /* public function upload(int $id_consulta, array $data)
-    {
-        return DB::transaction(function () use ($id_consulta, $data) {
-            $this->cadArquivoDigitalService->upload($data['arq_conteudo']);
-
-            $fileId = $this->cadArquivoDigitalService->getFileId();
-
-            if ($fileId) {
-                $payload = array_merge($data,
-                    ['id_consulta' => $id_consulta,
-                     'id_arquivo'  => $fileId]);
-
-                return $this->model->create($payload);
-            }
-
-            throw ValidationException::withMessages(['image' => 'Ocorreu um problema ao anexar o arquivo.']);
-        });
-    }
-
-    public function download(int $id_consulta, int $id_arquivo)
-    {
-        $arqImagem = $this->model
-            ->where('id_consulta', $id_consulta)
-            ->where('id_arquivo', $id_arquivo)
-            ->firstOrFail();
-
-        $this->cadArquivoDigitalService->setFileId($arqImagem->id_arquivo);
-
-        $file = $this->cadArquivoDigitalService->download();
-
-        $file = $file ? base64_encode($file['arq_conteudo']) : '';
-
-        return ['file' => $file, 'arqImagem' => $arqImagem];
-    }
-
-    public function apagarImagem(int $id_consulta, int $id_arquivo)
-    {
-        return DB::transaction(function () use ($id_consulta, $id_arquivo) {
-            $arqImagem = $this->model
-                ->where('id_consulta', $id_consulta)
-                ->where('id_arquivo', $id_arquivo)
-                ->firstOrFail();
-
-            $this->cadArquivoDigitalService->delete($arqImagem->id_arquivo);
-
-            $arqImagem->delete();
-        });
-    } */
 }

@@ -24,40 +24,36 @@ class CadConsultaImagemController extends MVCController {
         return $this->responseBuilder($rows);
     }
 
-    public function show($uuid)
+    public function show(string $uuid, int $id)
     {
-        $row = $this->service->showById(1);
+        $row = $this->service->showById($id);
 
         return $this->responseBuilderRow($row);
     }
 
     public function store(string $uuid, CadConsultaImagemRequest $request)
     {
-        $this->service->createUpload($uuid, $request->all());
+        $row = $this->service->createUpload($uuid, $request->all());
 
-        return $this->responseBuilderRow([], false, 201);
+        return $this->responseBuilderRow($row, true, 201);
     }
 
     public function update(string $uuid, int $id_arquivo, Request $request)
     {
-        $this->service->updateById($id_arquivo, $request->all());
+        $this->service->updateUpload($uuid, $id_arquivo, $request->all());
 
         return $this->responseBuilderRow([], false, 204);
     }
 
     public function destroy(string $uuid, int $id_arquivo)
     {
-        $consulta = CadConsulta::findByUuid($uuid);
-
-        $this->service->apagarImagem($consulta->id_consulta, $id_arquivo);
+        $this->service->deleteUpload($id_arquivo);
 
         return $this->responseBuilderRow([], false, 204);
     }
 
     public function download(string $uuid, int $id_arquivo)
     {
-        $consulta = CadConsulta::findByUuid($uuid);
-
-        return $this->service->download($consulta->id_consulta, $id_arquivo);
+        return $this->service->download($id_arquivo);
     }
 }

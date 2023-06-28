@@ -32,7 +32,7 @@ Route::post('first-access/generate-otp', 'FirstAccess\FirstAccessController@gene
 Route::post('first-access/check-otp', 'FirstAccess\FirstAccessController@checkCodeForNewPassword')->name('first-acess.check-otp');
 Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@createPassword')->name('first-acess.create-password');
 
-Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
+// Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     Route::prefix('user')->name('user.')->group(function () {
         Route::resource('', 'User\UserController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
@@ -77,8 +77,8 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
         Route::group(['prefix' => '{uuid}'], function () {
             Route::get('arquivo/{id_aquivo}/download', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController@download')->name('arquivo.download');
             Route::get('arquivo', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController@lists')->name('arquivo.lists');
-            Route::put('arquivo/{id_aquivo}', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController@update')->name('arquivo.update');
-            Route::resource('arquivo', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController')->except(['create', 'edit', 'index', 'update']);
+            Route::post('arquivo', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController@store')->name('arquivo.store');
+            Route::resource('arquivo', 'CadConsulta\CadConsultaImagem\CadConsultaImagemController', ['except' => ['create', 'edit', 'index']])->parameters(['' => 'id_arquivo']);
         });
     });
 
@@ -87,6 +87,6 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
 
         Route::resource('', 'CadAgendamento\CadAgendamentoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
-});
+// });
 
 

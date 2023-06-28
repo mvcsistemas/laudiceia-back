@@ -30,7 +30,7 @@ class CadConsultaImagem extends MVCModel {
         $campo_ordenacao = $params['campo_ordenacao'] ?? '';
 
         if ($id_arquivo) {
-            $query->where('id_arquivo', $id_arquivo);
+            $query->where('cad_consulta_imagem.id_arquivo', $id_arquivo);
         }
 
         if ($uuid) {

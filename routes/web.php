@@ -21,3 +21,7 @@ Route::get('/notification', function () {
     return (new SendOtpFirtAccess($user, $newCode))
         ->toMail('teste@teste.com');
 });
+
+Route::get('/', function () {
+    return view('consulta/termo_aceitacao');
+});

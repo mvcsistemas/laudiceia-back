@@ -9,6 +9,7 @@ class CadConsultaResource extends JsonResource {
     public function toArray($request)
     {
         $retorno = [
+            'id_consulta'   => $this->id_consulta,
             'uuid'          => $this->uuid,
             'data_consulta' => setDataFormatoBr($this->data_consulta),
             'procedimento'  => $this->procedimento,

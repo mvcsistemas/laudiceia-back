@@ -32,7 +32,7 @@ Route::post('first-access/generate-otp', 'FirstAccess\FirstAccessController@gene
 Route::post('first-access/check-otp', 'FirstAccess\FirstAccessController@checkCodeForNewPassword')->name('first-acess.check-otp');
 Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@createPassword')->name('first-acess.create-password');
 
-// Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
+Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     Route::prefix('user')->name('user.')->group(function () {
         Route::resource('', 'User\UserController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
@@ -56,10 +56,6 @@ Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@c
         Route::resource('', 'CadDepartamento\CadDepartamentoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
 
-    Route::prefix('clinica_podologo')->name('clinica_podologo.')->group(function () {
-        Route::resource('', 'CadClinicaPodologo\CadClinicaPodologoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
-    });
-
     Route::prefix('paciente')->name('paciente.')->group(function () {
         Route::get('lookup', 'CadPaciente\CadPacienteController@lookup');
         Route::resource('', 'CadPaciente\CadPacienteController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
@@ -72,6 +68,7 @@ Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@c
     });
 
     Route::prefix('consulta')->name('consulta.')->group(function () {
+        Route::get('termo_aceitacao', 'CadConsulta\CadConsultaController@termoAceitacao')->name('termoAceitacao');
         Route::resource('', 'CadConsulta\CadConsultaController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
 
         Route::group(['prefix' => '{uuid}'], function () {
@@ -87,6 +84,6 @@ Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@c
 
         Route::resource('', 'CadAgendamento\CadAgendamentoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
-// });
+});
 
 

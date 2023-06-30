@@ -3,6 +3,7 @@
 namespace MVC\Models\CadConsulta;
 
 use MVC\Base\MVCService;
+use Dompdf\Dompdf;
 
 class CadConsultaService extends MVCService {
 
@@ -11,5 +12,16 @@ class CadConsultaService extends MVCService {
     public function __construct(CadConsulta $model)
     {
         $this->model = $model;
+    }
+
+    public function termoAceitacao()
+    {
+        $html = view('consulta/termo_aceitacao')->render();
+
+        $dompdf = new Dompdf();
+        $dompdf->loadHtml($html);
+        $dompdf->render();
+
+        return  $dompdf->stream('nome_do_arquivo.pdf');
     }
 }

@@ -9,12 +9,16 @@
 </head>
 <body>
     <div class="container">
-        <h3 class="text-center">Termo de Aceitação</h3>
+        <div class="row">
+            <img style="width:  14rem" src="{{url('/assets/images/logo.png')}}" alt="Laudicéia Podologia">
+            <h3 class="text-center">Termo de Aceitação</h3>
+        </div>
+
         <p class="text-justify" style="margin-top: 50px;">
             Pelo presente termo, eu Teste, CPF 123.123.123-12 deixo aqui consignado que aceito o tratamento na área de podologia proposto pelo profissional abaixo identificado, me comprometendo a seguir as recomendações e cuidados preconizados.
         </p>
-        <p class="text-justify" style="margin-top: 50px;">Ass: ___________________________</p>
-        <p class="text-justify">Laudicéia Rodrigues RG: 17.373-451 - Rio Claro, SP - {{date('d/m/Y')}}</p>
+        <p class="text-justify" style="margin-top: 50px;">Ass: _______________________________________________________________</p>
+        <p class="text-justify">{{config("mvc.podologo")}} RG: 17.373-451 - {{date('d/m/Y')}} | Rio Claro, SP</p>
     </div>
 </body>
 </html>

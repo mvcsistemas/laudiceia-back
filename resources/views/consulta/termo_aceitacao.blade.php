@@ -12,24 +12,19 @@
 
 <body>
     <div class="container">
-        <div class="d-flex align-items-center">
-            <div class="col-md-4">
-                <img style="width:  180px;" src="http://localhost/assets/images/logo.png" alt="Laudicéia Podologia">
-            </div>
-            <div class="col-md-4 text-center">
-                <h3>Termo de Aceitação</h3>
+        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+            <img style="width:  180px;" src="http://erp.crmsolucoes.net/assets/images/login.png" alt="Laudicéia Podologia">
 
-            </div>
-            <div class="col-md-4"></div>
+            <h3 style="margin-top: 50px">Termo de Aceitação</h3>
         </div>
 
-        <p class="text-justify" style="margin-top: 50px;">
+        <p style="margin-top: 50px; text-align: justify; text-justify: inter-word;">
             Pelo presente termo, eu Teste, CPF 123.123.123-12 deixo aqui consignado que aceito o tratamento na área de
             podologia proposto pelo profissional abaixo identificado, me comprometendo a seguir as recomendações e
             cuidados preconizados.
         </p>
-        <p class="text-justify" style="margin-top: 50px;">Ass:__________________________________________________</p>
-        <p class="text-justify">{{config("mvc.podologo")}} RG: 17.373-451</p>
+        <p style="margin-top: 50px; text-align: justify; text-justify: inter-word;">Ass:__________________________________________________</p>
+        <p>{{config("mvc.podologo")}} RG: 17.373-451</p>
         <p> {{date('d/m/Y')}} | Rio Claro, SP </p>
     </div>
 </body>

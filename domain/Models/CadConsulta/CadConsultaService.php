@@ -19,6 +19,10 @@ class CadConsultaService extends MVCService {
         $html = view('consulta/termo_aceitacao')->render();
 
         $dompdf = new Dompdf();
+        $options = $dompdf->getOptions();
+        $options->setDefaultFont('Courier');
+        $options->set('isRemoteEnabled', true);
+        $dompdf->setOptions($options);
         $dompdf->loadHtml($html);
         $dompdf->render();
 

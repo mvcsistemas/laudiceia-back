@@ -32,7 +32,7 @@ Route::post('first-access/generate-otp', 'FirstAccess\FirstAccessController@gene
 Route::post('first-access/check-otp', 'FirstAccess\FirstAccessController@checkCodeForNewPassword')->name('first-acess.check-otp');
 Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@createPassword')->name('first-acess.create-password');
 
-Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
+// Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     Route::prefix('user')->name('user.')->group(function () {
         Route::resource('', 'User\UserController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
@@ -84,6 +84,6 @@ Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
 
         Route::resource('', 'CadAgendamento\CadAgendamentoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
-});
+// });
 
 

@@ -19,13 +19,13 @@
         </div>
 
         <p style="margin-top: 50px; text-align: justify; text-justify: inter-word;">
-            Pelo presente termo, eu Teste, CPF 123.123.123-12 deixo aqui consignado que aceito o tratamento na área de
+            Pelo presente termo, eu {{$paciente->nome_paciente}}, CPF {{$paciente->cpf}} deixo aqui consignado que aceito o tratamento na área de
             podologia proposto pelo profissional abaixo identificado, me comprometendo a seguir as recomendações e
             cuidados preconizados.
         </p>
         <p style="margin-top: 50px; text-align: justify; text-justify: inter-word;">Ass:__________________________________________________</p>
         <p>{{config("mvc.podologo")}} RG: 17.373-451</p>
-        <p> {{date('d/m/Y')}} | Rio Claro, SP </p>
+        <p> Rio Claro, SP - {{date('d/m/Y')}} </p>
     </div>
 </body>
 

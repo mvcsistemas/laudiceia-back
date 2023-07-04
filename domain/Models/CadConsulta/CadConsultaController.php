@@ -59,8 +59,13 @@ class CadConsultaController extends MVCController {
         return $this->service->lookup(request()->all());
     }
 
-    public function termoAceitacao()
+    public function termoAceitacao(string $uuid)
     {
-        return $this->service->termoAceitacao();
+        return $this->service->termoAceitacao($uuid);
+    }
+
+    public function recibo(string $uuid)
+    {
+        return $this->service->recibo($uuid);
     }
 }

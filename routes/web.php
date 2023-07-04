@@ -23,5 +23,5 @@ Route::get('/notification', function () {
 });
 
 Route::get('/', function () {
-    return view('consulta/termo_aceitacao');
+    return view('consulta/recibo');
 });

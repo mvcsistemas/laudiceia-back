@@ -68,7 +68,8 @@ Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@c
     });
 
     Route::prefix('consulta')->name('consulta.')->group(function () {
-        Route::get('termo_aceitacao', 'CadConsulta\CadConsultaController@termoAceitacao')->name('termoAceitacao');
+        Route::get('termo_aceitacao/{uuid}', 'CadConsulta\CadConsultaController@termoAceitacao')->name('termoAceitacao');
+        Route::get('recibo/{uuid}', 'CadConsulta\CadConsultaController@recibo')->name('recibo');
         Route::resource('', 'CadConsulta\CadConsultaController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
 
         Route::group(['prefix' => '{uuid}'], function () {

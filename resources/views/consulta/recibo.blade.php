@@ -18,21 +18,20 @@
             <h3 style="margin-top: 50px">Recibo</h3>
         </div>
 
-        <div class="col-sm-12 col-md-12 col-lg-12" style="display: flex; justify-content: space-between; align-items: center">
+        <div class="col-sm-12 col-md-12 col-lg-12" style="margin-top: 50px">
             <p>Número: <strong>123</strong></p>
-            <p>{{date('d/m/Y')}}</p>
         </div>
 
         <p style="margin-top: 50px; text-align: justify; text-justify: inter-word;">
             Recebemos de <strong>$consulta->nome_paciente</strong>, o valor de <strong>R$$consulta->valor.</strong>Referente ao pagamento dos seguintes serviços:
         </p>
 
-        <table class="table">
+        <table class="table table-responsive">
            <thead>
                 <tr>
                 <th scope="col">Serviço</th>
                 <th scope="col">Qtd.</th>
-                <th scope="col">Valor</th>
+                <th scope="col">Valor Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,16 +40,12 @@
                     <td>1</td>
                     <td>$consulta->valor</td>
                 </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td>Total</td>
-                </tr>
             </tbody>
         </table>
+
         <p style="margin-top: 50px; text-align: justify; text-justify: inter-word;">Ass:__________________________________________________</p>
-        <p>{{config("mvc.podologo")}} RG: 17.373-451</p>
-        <p> Rio Claro, SP - {{date('d/m/Y')}} </p>
+
+        <p>Rio Claro, SP - {{date('d/m/Y')}}</p>
     </div>
 </body>
 

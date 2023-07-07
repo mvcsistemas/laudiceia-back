@@ -49,7 +49,7 @@ class SendOtpFirtAccess extends Notification implements ShouldQueue
     {
         return (new MailMessage)
                 ->subject(Lang::get('assunto_primeiro_acesso'))
-                ->greeting(Lang::get('ola_nome', ['nome' => $this->user->name]))
+                ->greeting(Lang::get('ola_nome', ['nome' => $this->user->tipoCadastro->nome_podologo ?? $this->user->tipoCadastro->nome_funcionario]))
                 ->line(Lang::get('linha_primeiro_acesso_1'))
                 ->line(Lang::get('linha_primeiro_acesso_2'))
                 ->action($this->newCode->otp, env('FRONT_URL') . '/first-access/' . $this->newCode->user_uuid)

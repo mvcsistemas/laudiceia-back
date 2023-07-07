@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-            <img style="width:  180px;" src="http://erp.crmsolucoes.net/assets/images/login.png" alt="Laudicéia Podologia">
+            <img style="width:  180px;" src="http://erp.crmsolucoes.net/assets/images/login.png" alt="Laudicéia Rodrigues Podologia">
 
             <h3 style="margin-top: 50px">Termo de Aceitação</h3>
         </div>

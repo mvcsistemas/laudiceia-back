@@ -33,6 +33,11 @@ function setDataFormatoBr($data)
     return date("d/m/Y", strtotime($data));
 }
 
+function setDateTimeFormatoBr($data)
+{
+    return date("d/m/Y H:i", strtotime($data));
+}
+
 function setTimeHoursMinutes($time)
 {
     return date('H:i', strtotime($time));

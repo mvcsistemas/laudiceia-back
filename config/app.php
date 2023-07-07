@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laudicéia Podologia'),
+    'name' => env('APP_NAME', 'Laudicéia Rodrigues Podologia'),
 
     /*
     |--------------------------------------------------------------------------

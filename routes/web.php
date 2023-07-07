@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Notifications\SendOtpFirtAccess;
+use App\Notifications\ObrigadoPelaConsulta;
 
 Route::get('/notification', function () {
-    $user = \MVC\Models\User\User::first();
-    $newCode = \MVC\Models\FirstAccess\FirstAccess::first();
+    $paciente = \MVC\Models\CadPaciente\CadPaciente::first();
+    $consulta = \MVC\Models\CadConsulta\CadConsulta::first();
 
-    return (new SendOtpFirtAccess($user, $newCode))
+    return (new ObrigadoPelaConsulta($paciente, $consulta))
         ->toMail('teste@teste.com');
 });
 

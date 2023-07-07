@@ -2,7 +2,7 @@
 {{-- Header --}}
 <x-slot:header>
 <x-mail::header :url="env('FRONT_URL')">
-    <img style="width:  14rem" src="{{url('/assets/images/logo.png')}}" alt="Laudicéia Podologia">
+    <img style="width:  14rem" src="{{url('/assets/images/logo.png')}}" alt="Laudicéia Rodrigues Podologia">
 </x-mail::header>
 </x-slot:header>
 

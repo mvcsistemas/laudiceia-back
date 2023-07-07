@@ -4,10 +4,11 @@ namespace MVC\Models\CadConsulta;
 
 use MVC\Base\MVCModel;
 use YourAppRocks\EloquentUuid\Traits\HasUuid;
+use Illuminate\Notifications\Notifiable;
 
 class CadConsulta extends MVCModel {
 
-    use HasUuid;
+    use HasUuid, Notifiable;
 
     protected $table      = 'cad_consulta';
     protected $primaryKey = 'id_consulta';

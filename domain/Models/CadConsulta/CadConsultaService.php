@@ -4,6 +4,8 @@ namespace MVC\Models\CadConsulta;
 
 use MVC\Base\MVCService;
 use MVC\Models\CadPaciente\CadPaciente;
+use MVC\Models\CadPodologo\CadPodologo;
+use App\Notifications\ObrigadoPelaConsulta;
 use Dompdf\Dompdf;
 
 class CadConsultaService extends MVCService {
@@ -13,6 +15,18 @@ class CadConsultaService extends MVCService {
     public function __construct(CadConsulta $model)
     {
         $this->model = $model;
+    }
+
+    public function create($data){
+        $consulta = $this->model->create($data);
+
+        $paciente = CadPaciente::find($consulta['id_paciente']);
+
+        $podologo = CadPodologo::find($consulta['id_podologo']);
+
+        $this->model->notify(new ObrigadoPelaConsulta($consulta, $paciente, $podologo));
+
+        return $consulta;
     }
 
     public function setDomPdf(){

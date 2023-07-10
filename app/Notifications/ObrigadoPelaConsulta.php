@@ -15,19 +15,20 @@ class ObrigadoPelaConsulta extends Notification implements ShouldQueue {
 
     use Queueable;
 
-    public $paciente;
     public $consulta;
+    public $paciente;
+    public $podologo;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(CadConsulta $consulta, CadPaciente $paciente, CadPodologo $podlogo)
+    public function __construct(CadConsulta $consulta, CadPaciente $paciente, CadPodologo $podologo)
     {
-        $this->paciente = $paciente;
         $this->consulta = $consulta;
-        $this->podlogo = $podlogo;
+        $this->paciente = $paciente;
+        $this->podologo = $podologo;
     }
 
     /**
@@ -55,7 +56,7 @@ class ObrigadoPelaConsulta extends Notification implements ShouldQueue {
             ->line(Lang::get('linha_obrigado_pela_consulta_1'))
             ->line(Lang::get('linha_obrigado_pela_consulta_2'))
             ->line(Lang::get('linha_obrigado_pela_consulta_3', ['data' => setDataFormatoBr($this->consulta->data_consulta)]))
-            ->line(Lang::get('linha_obrigado_pela_consulta_4', ['podologo' => $this->podlogo->nome_podologo]))
+            ->line(Lang::get('linha_obrigado_pela_consulta_4', ['podologo' => $this->podologo->nome_podologo]))
             ->line(Lang::get('linha_obrigado_pela_consulta_5', ['valor' => number_format($this->consulta->valor, 2, ',', '.')]))
             ->line(Lang::get('linha_obrigado_pela_consulta_6', ['procedimento' => $this->consulta->procedimento]))
             ->salutation(Lang::get('saudacao_email'));

@@ -19,13 +19,9 @@ class CadConsultaService extends MVCService {
 
     public function create($data){
         $consulta = $this->model->create($data);
-
         $paciente = CadPaciente::find($consulta['id_paciente']);
-
         $podologo = CadPodologo::find($consulta['id_podologo']);
-
-        $this->model->notify(new ObrigadoPelaConsulta($consulta, $paciente, $podologo));
-
+        $paciente->sendObrigadoPelaConsultaNotification($consulta, $paciente, $podologo);
         return $consulta;
     }
 

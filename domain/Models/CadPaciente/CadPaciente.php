@@ -4,10 +4,12 @@ namespace MVC\Models\CadPaciente;
 
 use MVC\Base\MVCModel;
 use YourAppRocks\EloquentUuid\Traits\HasUuid;
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\ObrigadoPelaConsulta;
 
 class CadPaciente extends MVCModel {
 
-    use HasUuid;
+    use HasUuid, Notifiable;
 
     protected $table      = 'cad_paciente';
     protected $primaryKey = 'id_paciente';
@@ -82,4 +84,10 @@ class CadPaciente extends MVCModel {
 
         return $query;
     }
+
+    public function sendObrigadoPelaConsultaNotification($consulta, $paciente, $podologo)
+    {
+        $this->notify(new ObrigadoPelaConsulta($consulta, $paciente, $podologo));
+    }
+
 }

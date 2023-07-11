@@ -31,6 +31,8 @@ class CadConsulta extends MVCModel {
         $id_podologo     = (int)($params['id_podologo'] ?? '');
         $uuid            = (string)($params['uuid'] ?? '');
         $data_consulta   = setData($params['data_consulta'] ?? '');
+        $data_inicio     = setData($params['data_inicio'] ?? '');
+        $data_fim        = setData($params['data_fim'] ?? '');
         $tipo_ordenacao  = $params['tipo_ordenacao'] ?? '';
         $campo_ordenacao = $params['campo_ordenacao'] ?? '';
 
@@ -52,6 +54,11 @@ class CadConsulta extends MVCModel {
 
         if ($data_consulta) {
             $query->where('data_consulta', $data_consulta);
+        }
+
+        //TODO: validate     'data_fim'      => new DataFimRule(),
+        if ($data_inicio && $data_fim) {
+            $query->whereBetween('data_consulta', [$data_inicio, $data_fim]);
         }
 
         if ($tipo_ordenacao && $campo_ordenacao) {

@@ -16,6 +16,7 @@ class CadConsultaResource extends JsonResource {
             'valor'         => $this->valor,
             'id_paciente'   => $this->id_paciente,
             'nome_paciente' => $this->nome_paciente,
+            'uuid_paciente' => $this->uuid_paciente,
             'id_podologo'   => $this->id_podologo,
             'nome_podologo' => $this->nome_podologo,
             'created_at'    => $this->created_at,

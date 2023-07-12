@@ -18,6 +18,7 @@ class CadConsulta extends MVCModel {
         return $this->select('cad_consulta.*',
                              'cad_paciente.id_paciente',
                              'cad_paciente.nome_paciente',
+                             'cad_paciente.uuid as uuid_paciente',
                              'cad_podologo.id_podologo',
                              'cad_podologo.nome_podologo')
                     ->join('cad_paciente', 'cad_paciente.id_paciente', 'cad_consulta.id_paciente')
@@ -56,7 +57,6 @@ class CadConsulta extends MVCModel {
             $query->where('data_consulta', $data_consulta);
         }
 
-        //TODO: validate     'data_fim'      => new DataFimRule(),
         if ($data_inicio && $data_fim) {
             $query->whereBetween('data_consulta', [$data_inicio, $data_fim]);
         }

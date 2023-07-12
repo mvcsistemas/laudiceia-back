@@ -3,14 +3,16 @@
 namespace MVC\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Carbon\Carbon;
 
 class DateFimRule implements Rule
 {
     public function passes($attribute, $value)
     {
-        $data_inicio = request()->data_inicio;
+        $data_inicio = Carbon::createFromFormat('d/m/Y', request()->data_inicio);
+        $data_fim    = Carbon::createFromFormat('d/m/Y', $value);
 
-        return $value > $data_inicio;
+        return $data_fim->greaterThan($data_inicio);
     }
 
     public function message()

@@ -54,6 +54,15 @@ class CadConsultaController extends MVCController {
         return $this->responseBuilderRow([], false, 204);
     }
 
+    public function historicoConsulta(CadConsultaHistoricoRequest $request)
+    {
+        $this->resource = CadConsultaResourceHistorico::class;
+
+        $rows = $this->service->index();
+
+        return $this->responseBuilder($rows);
+    }
+
     public function lookup()
     {
         return $this->service->lookup(request()->all());

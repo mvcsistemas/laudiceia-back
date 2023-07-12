@@ -5,8 +5,7 @@ namespace MVC\Models\CadConsulta;
 use MVC\Base\MVCService;
 use MVC\Models\CadPaciente\CadPaciente;
 use MVC\Models\CadPodologo\CadPodologo;
-use App\Notifications\ObrigadoPelaConsulta;
-use Dompdf\Dompdf;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CadConsultaService extends MVCService {
 
@@ -40,14 +39,11 @@ class CadConsultaService extends MVCService {
 
     public function termoAceitacao($uuid)
     {
-        $paciente = CadPaciente::findByUuid($uuid);
-        $html     = view('consulta/termo_aceitacao', ['paciente' => $paciente])->render();
-        $dompdf   = $this->setDomPdf();
+        $paciente      = CadPaciente::findByUuid($uuid);
+        $paciente->cpf = preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", "\$1.\$2.\$3-\$4", $paciente->cpf);
+        $pdf           = Pdf::loadview('consulta.termo_aceitacao', compact('paciente'));
 
-        $dompdf->loadHtml($html);
-        $dompdf->render();
-
-        return  $dompdf->stream($paciente->cpf);
+        return $pdf->download('termo_aceitacao.pdf');
     }
 
     public function recibo($uuid)
@@ -55,12 +51,9 @@ class CadConsultaService extends MVCService {
         $consulta = CadConsulta::findByUuid($uuid)
                                 ->join('cad_paciente', 'cad_paciente.id_paciente', 'cad_consulta.id_paciente')
                                 ->first();
-        $html   = view('consulta/recibo', ['consulta' => $consulta])->render();
-        $dompdf = $this->setDomPdf();
 
-        $dompdf->loadHtml($html);
-        $dompdf->render();
+        $pdf   = Pdf::loadview('consulta.recibo', compact('consulta'));
 
-        return  $dompdf->stream($consulta->id_consulta);
+        return $pdf->download('recibo_' . $consulta->id_consulta . '.pdf');
     }
 }

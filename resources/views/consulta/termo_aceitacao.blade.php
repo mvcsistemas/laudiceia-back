@@ -11,22 +11,19 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-            <img style="width:  180px;" src="http://erp.crmsolucoes.net/assets/images/login.png" alt="Laudicéia Rodrigues Podologia">
+    <div class="col-sm-12 col-md-12 col-lg-12 text-center">
+        <img style="width:  180px;" src="http://erp.crmsolucoes.net/assets/images/login.png" alt="{{config("mvc.nome_clinica")}}">
 
-            <h3 style="margin-top: 50px">Termo de Aceitação</h3>
-        </div>
-
-        <p style="margin-top: 50px; text-align: justify; text-justify: inter-word;">
-            Pelo presente termo, eu {{$paciente->nome_paciente}}, CPF {{$paciente->cpf}} deixo aqui consignado que aceito o tratamento na área de
-            podologia proposto pelo profissional abaixo identificado, me comprometendo a seguir as recomendações e
-            cuidados preconizados.
-        </p>
-        <p style="margin-top: 50px; text-align: justify; text-justify: inter-word;">Ass:__________________________________________________</p>
-        <p>{{config("mvc.podologo")}} RG: 17.373-451</p>
-        <p> Rio Claro, SP - {{date('d/m/Y')}} </p>
+        <h3 style="margin-top: 50px">Termo de Aceitação</h3>
     </div>
+
+    <p style="margin-top: 50px; text-align: justify; text-justify: inter-word;">
+        Pelo presente termo, eu <strong>{{$paciente->nome_paciente}}</strong>, <strong>CPF: {{$paciente->cpf}}</strong> deixo aqui consignado que aceito o tratamento na área de
+        podologia proposto pelo profissional abaixo identificado, me comprometendo a seguir as recomendações e
+        cuidados preconizados.
+    </p>
+    <p style="margin-top: 50px; text-align: justify; text-justify: inter-word;">Ass:__________________________________________________</p>
+    <p> Rio Claro, SP - {{date('d/m/Y')}} </p>
 </body>
 
 </html>

@@ -2,6 +2,6 @@
 
 return [
 
-'podologo' => 'Laudicéia Rodrigues.'
+'nome_clinica' => 'Laudicéia Rodrigues Podologia'
 
 ];

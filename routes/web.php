@@ -23,5 +23,5 @@ Route::get('/notification', function () {
 });
 
 Route::get('/', function () {
-    return view('consulta/recibo');
+    return view('ficha_anamnese/ficha');
 });

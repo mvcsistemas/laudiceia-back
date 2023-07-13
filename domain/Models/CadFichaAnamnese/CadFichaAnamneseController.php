@@ -61,4 +61,9 @@ class CadFichaAnamneseController extends MVCController {
 
         return response()->json();
     }
+
+    public function fichaAnamnesePdf(string $uuid)
+    {
+        return $this->service->fichaAnamnesePdf($uuid);
+    }
 }

@@ -26,17 +26,6 @@ class CadConsultaService extends MVCService {
         return $consulta;
     }
 
-    public function setDomPdf(){
-        $dompdf  = new Dompdf();
-        $options = $dompdf->getOptions();
-
-        $options->setDefaultFont('Courier');
-        $options->set('isRemoteEnabled', true);
-        $dompdf->setOptions($options);
-
-        return $dompdf;
-    }
-
     public function termoAceitacao($uuid)
     {
         $paciente      = CadPaciente::findByUuid($uuid);

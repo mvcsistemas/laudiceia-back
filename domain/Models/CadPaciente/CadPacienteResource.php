@@ -10,6 +10,7 @@ class CadPacienteResource extends JsonResource
     public function toArray($request)
     {
         $retorno = [
+            'id_paciente'     => $this->id_paciente,
             'uuid'            => $this->uuid,
             'bairro'          => $this->bairro,
             'celular'         => $this->celular,

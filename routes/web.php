@@ -23,5 +23,7 @@ Route::get('/notification', function () {
 });
 
 Route::get('/', function () {
-    return view('ficha_anamnese/ficha');
+    $paciente       = \MVC\Models\CadPaciente\CadPaciente::first();
+    $ficha_anamnese = \MVC\Models\CadFichaAnamnese\CadFichaAnamnese::select('*')->first();
+    return view('ficha_anamnese/ficha', compact('paciente', 'ficha_anamnese'));
 });

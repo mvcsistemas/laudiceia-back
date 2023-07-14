@@ -61,6 +61,7 @@ Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@c
         Route::resource('', 'CadPaciente\CadPacienteController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
 
         Route::prefix('{uuid}')->group(function () {
+            Route::get('ficha_anamnese_pdf', 'CadFichaAnamnese\CadFichaAnamneseController@fichaAnamnesePdf');
             Route::get('ficha_anamnese', 'CadFichaAnamnese\CadFichaAnamneseController@hasFichaAnamnese');
             Route::put('ficha_anamnese/{id_ficha}', 'CadFichaAnamnese\CadFichaAnamneseController@update');
             Route::resource('ficha_anamnese', 'CadFichaAnamnese\CadFichaAnamneseController', ['except' => ['index', 'create', 'edit', 'update', 'destroy']]);
@@ -69,8 +70,8 @@ Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@c
 
     Route::prefix('consulta')->name('consulta.')->group(function () {
         Route::get('historico', 'CadConsulta\CadConsultaController@historicoConsulta')->name('historico');
-        Route::get('termo_aceitacao/{uuid}', 'CadConsulta\CadConsultaController@termoAceitacao')->name('termoAceitacao');
-        Route::get('recibo/{uuid}', 'CadConsulta\CadConsultaController@recibo')->name('recibo');
+        Route::get('termo_aceitacao/{uuid_paciente}', 'CadConsulta\CadConsultaController@termoAceitacao')->name('termoAceitacao');
+        Route::get('recibo/{uuid_consulta}', 'CadConsulta\CadConsultaController@recibo')->name('recibo');
         Route::resource('', 'CadConsulta\CadConsultaController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
 
         Route::group(['prefix' => '{uuid}'], function () {

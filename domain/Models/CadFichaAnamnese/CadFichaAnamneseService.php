@@ -25,7 +25,9 @@ class CadFichaAnamneseService extends MVCService {
     public function fichaAnamnesePdf($uuid)
     {
         $paciente       = CadPaciente::findByUuid($uuid);
-        $ficha_anamnese = $this->model->select('*')->where('id_paciente', $paciente->id_paciente);
+        $ficha_anamnese = $this->model->select('*')
+                                      ->where('id_paciente', $paciente->id_paciente)
+                                      ->first();
         $pdf            = Pdf::loadview('ficha_anamnese.ficha', compact(['paciente', 'ficha_anamnese']));
 
         return $pdf->download('ficha_anamnese_' . $paciente->id_paciente . '.pdf');

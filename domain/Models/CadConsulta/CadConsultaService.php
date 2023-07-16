@@ -37,7 +37,7 @@ class CadConsultaService extends MVCService {
 
     public function recibo($uuid)
     {
-        $consulta = CadConsulta::findByUuid($uuid)
+        $consulta = CadConsulta::where('cad_consulta.uuid', $uuid)
                                 ->join('cad_paciente', 'cad_paciente.id_paciente', 'cad_consulta.id_paciente')
                                 ->first();
 

@@ -20,7 +20,7 @@ class CadFichaAnamnese extends MVCModel {
     public function filter($query, array $params = [])
     {
         $id              = (int)($params['id_ficha'] ?? '');
-        $uuid            = (int)($params['uuid'] ?? '');
+        $uuid            = (string)($params['uuid'] ?? '');
         $tipo_ordenacao  = $params['tipo_ordenacao'] ?? '';
         $campo_ordenacao = $params['campo_ordenacao'] ?? '';
 

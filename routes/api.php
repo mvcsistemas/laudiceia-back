@@ -35,6 +35,7 @@ Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@c
 // Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     Route::prefix('painel')->name('painel.')->group(function () {
         Route::get('info-geral', 'Painel\PainelController@infoGeral');
+        Route::get('info-dinheiro/{ano_filtro}', 'Painel\PainelController@infoDinheiro');
     });
 
     Route::prefix('user')->name('user.')->group(function () {

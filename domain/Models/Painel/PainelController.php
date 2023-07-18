@@ -22,12 +22,12 @@ class PainelController extends MVCController {
         return $rows;
     }
 
-    public function infoDinheiro()
+    public function infoDinheiro($ano_filtro)
     {
-        $this->authorize('view', auth()->user());
+        //$this->authorize('view', auth()->user());
 
-        $rows = $this->service->infoDinheiro();
+        $rows = $this->service->infoDinheiro($ano_filtro);
 
-        return $this->responseBuilder($rows);
+        return $rows;
     }
 }

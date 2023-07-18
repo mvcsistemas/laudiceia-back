@@ -33,6 +33,10 @@ Route::post('first-access/check-otp', 'FirstAccess\FirstAccessController@checkCo
 Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@createPassword')->name('first-acess.create-password');
 
 // Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
+    Route::prefix('painel')->name('painel.')->group(function () {
+        Route::get('info-geral', 'Painel\PainelController@infoGeral');
+    });
+
     Route::prefix('user')->name('user.')->group(function () {
         Route::resource('', 'User\UserController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });

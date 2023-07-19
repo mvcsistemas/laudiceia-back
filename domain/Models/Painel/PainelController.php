@@ -15,18 +15,27 @@ class PainelController extends MVCController {
 
     public function infoGeral()
     {
-       // $this->authorize('view', auth()->user());
+       $this->authorize('view', auth()->user());
 
         $rows = $this->service->infoGeral();
 
         return $rows;
     }
 
-    public function infoDinheiro($ano_filtro)
+    public function infoDinheiro()
     {
-        //$this->authorize('view', auth()->user());
+        $this->authorize('view', auth()->user());
 
-        $rows = $this->service->infoDinheiro($ano_filtro);
+        $rows = $this->service->infoDinheiro();
+
+        return $rows;
+    }
+
+    public function infoFaturamento()
+    {
+        $this->authorize('view', auth()->user());
+
+        $rows = $this->service->infoFaturamento();
 
         return $rows;
     }

@@ -25,7 +25,7 @@ class PainelService extends MVCService {
         ];
     }
 
-    public function infoDinheiro($ano_filtro){
+    public function infoDinheiro(){
         $data_atual    = date('Y-m-d');
         $mes_atual     = date('m');
         $ano_atual     = date('Y');
@@ -50,23 +50,30 @@ class PainelService extends MVCService {
                                     ->whereYear('data_consulta', '=', $ano_atual)
                                     ->sum('valor');
 
-        $meses = CadConsulta::selectRaw('MONTH(data_consulta) as mes, SUM(valor) as total')
-                            ->groupBy(DB::raw('MONTH(data_consulta)'))
-                            ->whereYear('data_consulta', '=', $ano_filtro)
-                            ->get();
-
-        $anos = CadConsulta::selectRaw('YEAR(data_consulta) as ano, SUM(valor) as total')
-                            ->groupBy(DB::raw('YEAR(data_consulta)'))
-                            ->get();
-
-
         return [
             'ganho_diario'  => number_format($ganho_diario, '2', ',', '.'),
             'ganho_semanal' => number_format($ganho_semanal, '2', ',', '.'),
             'ganho_mensal'  => number_format($ganho_mensal, '2', ',', '.'),
-            'ganho_anual'   => number_format($ganho_anual, '2', ',', '.'),
-            'meses'         => $meses,
-            'anos'          => $anos
+            'ganho_anual'   => number_format($ganho_anual, '2', ',', '.')
+        ];
+    }
+
+    public function infoFaturamento(){
+        $ano_atual = date('Y');
+
+        $meses = CadConsulta::selectRaw('MONTH(data_consulta) as mes, SUM(valor) as total')
+                            ->groupBy(DB::raw('MONTH(data_consulta)'))
+                            ->whereYear('data_consulta', '=', $ano_atual)
+                            ->get();
+
+        $anos = CadConsulta::selectRaw('YEAR(data_consulta) as ano, SUM(valor) as total')
+                            ->groupBy(DB::raw('YEAR(data_consulta)'))
+                            ->orderBy('ano')
+                            ->get();
+
+        return [
+            'meses' => $meses,
+            'anos'  => $anos
         ];
     }
 }

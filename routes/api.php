@@ -32,7 +32,7 @@ Route::post('first-access/generate-otp', 'FirstAccess\FirstAccessController@gene
 Route::post('first-access/check-otp', 'FirstAccess\FirstAccessController@checkCodeForNewPassword')->name('first-acess.check-otp');
 Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@createPassword')->name('first-acess.create-password');
 
-// Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
+Route::name('api.')->middleware(['auth', 'auth.session'])->group(function () {
     Route::prefix('painel')->name('painel.')->group(function () {
         Route::get('info-geral', 'Painel\PainelController@infoGeral');
         Route::get('info-dinheiro', 'Painel\PainelController@infoDinheiro');
@@ -93,6 +93,6 @@ Route::post('first-access/create-password', 'FirstAccess\FirstAccessController@c
 
         Route::resource('', 'CadAgendamento\CadAgendamentoController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
     });
-// });
+});
 
 

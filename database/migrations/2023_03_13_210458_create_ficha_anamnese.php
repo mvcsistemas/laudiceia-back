@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id_ficha');
             $table->string('meia', 255);
             $table->string('calcado', 255);
-            $table->integer('num_calcado');
+            $table->string('num_calcado');
             $table->string('cirurgia_membro_inferior', 255);
             $table->string('hipertensao', 255);
             $table->string('esporte', 255);

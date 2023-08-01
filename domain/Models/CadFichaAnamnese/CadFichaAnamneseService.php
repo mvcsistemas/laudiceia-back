@@ -29,6 +29,8 @@ class CadFichaAnamneseService extends MVCService {
                                       ->where('id_paciente', $paciente->id_paciente)
                                       ->first();
 
+        $paciente->cpf = preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", "\$1.\$2.\$3-\$4", $paciente->cpf);
+
         $pdf            = Pdf::loadview('ficha_anamnese.ficha', compact(['paciente', 'ficha_anamnese']));
 
         return $pdf->download('ficha_anamnese_' . $paciente->id_paciente . '.pdf');

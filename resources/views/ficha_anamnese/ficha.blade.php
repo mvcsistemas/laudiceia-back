@@ -14,9 +14,11 @@
         <img style="width:  200px;" src="https://www.laudiceiapodologia.com/assets/images/logo.png" alt="{{config("mvc.nome_clinica")}}">
 
         <h3 style="margin-top: 50px; margin-bottom: 50px">Ficha Anamnese</h3>
+        <p>Rio Claro, SP - {{date('d/m/Y')}}</p>
     </div>
 
-    <p>Paciente: {{$paciente->nome_paciente}} - {{date('d/m/Y')}} Rio Claro, SP.</p>
+    <p style="margin-top: 50px;"><strong>Paciente: </strong>{{$paciente->nome_paciente}}, <strong>CPF: </strong>{{$paciente->cpf}}
+    </p>
 
     <table class="table">
         <thead>

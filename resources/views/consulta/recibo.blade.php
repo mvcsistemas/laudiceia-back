@@ -14,14 +14,15 @@
         <img style="width:  200px;" src="https://www.laudiceiapodologia.com/assets/images/logo.png" alt="{{config("mvc.nome_clinica")}}">
 
         <h3 style="margin-top: 50px">Recibo</h3>
+        <p>Rio Claro, SP - {{date('d/m/Y')}}</p>
     </div>
 
     <div class="col-sm-12 col-md-12 col-lg-12" style="padding-left: 0px; margin-top: 50px">
         <p>Código da Consulta: <strong>{{$consulta->id_consulta}}</strong></p>
     </div>
 
-    <p style="margin-top: 50px; text-align: justify; text-justify: inter-word;">
-        Recebemos de <strong>{{$consulta->nome_paciente}}</strong>, o valor de <strong>R${{number_format($consulta->valor, 2, ',', '.')}}, </strong>referente ao pagamento dos seguintes serviços:
+    <p style="text-align: justify; text-justify: inter-word;">
+        Recebemos de <strong>{{$consulta->nome_paciente}}</strong>,<strong>CPF: {{$consulta->cpf}},</strong> o valor de <strong>R${{number_format($consulta->valor, 2, ',', '.')}}, </strong>referente ao pagamento dos seguintes serviços:
     </p>
 
     <table class="table">
@@ -42,8 +43,6 @@
     </table>
 
     <p style="margin-top: 50px; text-align: justify; text-justify: inter-word;">Ass:__________________________________________________</p>
-
-    <p>Rio Claro, SP - {{date('d/m/Y')}}</p>
 </body>
 
 </html>

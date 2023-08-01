@@ -41,6 +41,8 @@ class CadConsultaService extends MVCService {
                                 ->join('cad_paciente', 'cad_paciente.id_paciente', 'cad_consulta.id_paciente')
                                 ->first();
 
+        $consulta->cpf = preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", "\$1.\$2.\$3-\$4", $consulta->cpf);
+
         $pdf   = Pdf::loadview('consulta.recibo', compact('consulta'));
 
         return $pdf->download('recibo_' . $consulta->id_consulta . '.pdf');

@@ -22,23 +22,29 @@
     </p>
 
     <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Código da Consulta</th>
-            <th scope="col">Data</th>
-            <th scope="col">Valor</th>
-            <th scope="col">Podólogo</th>
-            <th scope="col">Procedimento</th>
-          </tr>
-        </thead>
         <tbody>
-          <tr>
-            <td scope="row">1</td>
-            <td scope="row">1</td>
-            <td scope="row">Hepatite</td>
-            <td scope="row">Hepatite</td>
-            <td style="width: 60rem; text-align: justify; text-justify: inter-word;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto consectetur, numquam omnis, ea debitis enim quas est facere molestiae dicta laboriosam velit labore facilis ad veritatis neque ut exercitationem praesentium?</td>
-          </tr>
+            @foreach ($consultas as $consulta)
+            <tr>
+                <td scope="row">Cód.</td>
+                <td scope="row">{{$consulta->id_consulta}}</td>
+            </tr>
+            <tr>
+                <td scope="row">Data</td>
+                <td scope="row">{{$consulta->data_consulta}}</td>
+            </tr>
+            <tr>
+                <td scope="row">Valor</td>
+                <td scope="row">{{number_format($consulta->valor, 2, ',', '.')}}</td>
+            </tr>
+            <tr>
+                <td scope="row">Podólogo</td>
+                <td scope="row">{{$consulta->nome_podologo}}</td>
+            </tr>
+            <tr>
+                <td scope="row">Procedimento</td>
+                <td scope="row" style="word-wrap: break-word;">{{$consulta->procedimento}}</td>
+            </tr>
+            @endforeach
         </tbody>
       </table>
 </body>

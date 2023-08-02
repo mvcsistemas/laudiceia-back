@@ -48,8 +48,13 @@ class CadConsultaService extends MVCService {
         return $pdf->download('recibo_' . $consulta->id_consulta . '.pdf');
     }
 
-    public function historicoConsultaPdf($data){
-        $pdf   = Pdf::loadview('consulta.recibo', compact(['consultas' => $data]));
+    public function historicoConsultaPdf($data, $id_paciente){
+        $paciente      = CadPaciente::find($id_paciente);
+        $paciente->cpf = preg_replace("/(\d{3})(\d{3})(\d{3})(\d{2})/", "\$1.\$2.\$3-\$4", $paciente->cpf);
+
+        $consultas = $data;
+
+        $pdf = Pdf::loadview('consulta.historico_paciente', compact('consultas', 'paciente'));
 
         return $pdf->download('historico_paciente.pdf');
     }

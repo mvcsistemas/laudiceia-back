@@ -80,8 +80,8 @@ class CadConsultaController extends MVCController {
 
     public function historicoConsultaPdf(CadConsultaHistoricoRequest $request)
     {
-        $rows = $this->service->index();
+        $rows = $this->service->index()->get();
 
-        return $this->service->historicoConsultaPdf($rows);
+        return $this->service->historicoConsultaPdf($rows, $request->id_paciente);
     }
 }

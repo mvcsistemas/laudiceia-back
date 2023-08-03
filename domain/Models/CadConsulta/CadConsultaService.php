@@ -54,7 +54,12 @@ class CadConsultaService extends MVCService {
 
         $consultas = $data;
 
-        $pdf = Pdf::loadview('consulta.historico_paciente', compact('consultas', 'paciente'));
+        $tempo = [
+            'data_inicio' => request()->data_inicio,
+            'data_fim' => request()->data_fim,
+        ];
+
+        $pdf = Pdf::loadview('consulta.historico_paciente', compact('consultas', 'paciente', 'tempo'));
 
         return $pdf->download('historico_paciente.pdf');
     }

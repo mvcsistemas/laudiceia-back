@@ -12,18 +12,3 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use App\Notifications\ObrigadoPelaConsulta;
-
-Route::get('/notification', function () {
-    $paciente = \MVC\Models\CadPaciente\CadPaciente::first();
-    $consulta = \MVC\Models\CadConsulta\CadConsulta::first();
-
-    return (new ObrigadoPelaConsulta($paciente, $consulta))
-        ->toMail('teste@teste.com');
-});
-
-Route::get('/', function () {
-    $paciente       = \MVC\Models\CadPaciente\CadPaciente::first();
-    $ficha_anamnese = \MVC\Models\CadFichaAnamnese\CadFichaAnamnese::select('*')->first();
-    return view('consulta/historico_paciente', compact('paciente', 'ficha_anamnese'));
-});

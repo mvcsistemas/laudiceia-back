@@ -44,6 +44,7 @@ class PainelService extends MVCService {
 
         $ganho_mensal = CadConsulta::select('valor')
                                     ->whereMonth('data_consulta', '=', $mes_atual)
+                                    ->whereYear('data_consulta', '=', $ano_atual)
                                     ->sum('valor');
 
         $ganho_anual = CadConsulta::select('valor')

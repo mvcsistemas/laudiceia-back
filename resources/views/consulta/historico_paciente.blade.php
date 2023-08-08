@@ -11,7 +11,7 @@
 
 <body>
     <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-        <img style="width:  200px;" src="https://www.laudiceiapodologia.com/assets/images/logo.png" alt="{{config("mvc.nome_clinica")}}">
+        <img style="width:  200px;" src="https://api.laudiceiapodologia.com/assets/images/logo.png" alt="{{config("mvc.nome_clinica")}}">
 
         <h3 style="margin-top: 50px">Histórico do Paciente</h3>
         <p>{{$tempo['data_inicio']}} - {{$tempo['data_fim']}} | Rio Claro, SP</p>

@@ -64,7 +64,8 @@ class CadConsulta extends MVCModel {
         if ($tipo_ordenacao && $campo_ordenacao) {
             $query->orderBy($campo_ordenacao, $tipo_ordenacao);
         } else {
-            $query->orderBy('data_consulta', 'desc');
+            $query->orderBy('data_consulta', 'desc')
+            $query->orderBy('id_consulta', 'desc');
         }
 
         return $query;

@@ -80,8 +80,11 @@ class CadConsultaController extends MVCController {
 
     public function historicoConsultaPdf(CadConsultaHistoricoRequest $request)
     {
-        $rows = $this->service->index()->get();
-
+        $rows = $this->service->index()
+                            ->where('cad_consulta.id_paciente', $request->id_paciente)
+                            ->whereBetween('cad_consulta.data_consulta', [setData($request->data_inicio), setData($request->data_fim)])
+                            ->get();
+     
         return $this->service->historicoConsultaPdf($rows, $request->id_paciente);
     }
 }

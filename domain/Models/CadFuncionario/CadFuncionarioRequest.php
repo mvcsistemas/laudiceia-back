@@ -3,6 +3,8 @@
 namespace MVC\Models\CadFuncionario;
 
 use MVC\Base\MVCRequest;
+use Illuminate\Validation\Rule;
+use MVC\Rules\CadFuncionarioRule;
 
 class CadFuncionarioRequest extends MVCRequest
 {
@@ -13,7 +15,7 @@ class CadFuncionarioRequest extends MVCRequest
             'uuid'             => '',
             'id_departamento'  => 'required',
             'cpf'              => 'required|cpf',
-            'email'            => 'required|email',
+            'email'            => ['required','email', new CadFuncionarioRule()],
             'endereco'         => 'required',
             'numero'           => 'required',
             'complemento'      => '',

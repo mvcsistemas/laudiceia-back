@@ -6,8 +6,8 @@ use MVC\Base\MVCController;
 
 class CadPacienteController extends MVCController {
 
-    protected CadPacienteService   $service;
-    protected               $resource;
+    protected CadPacienteService $service;
+    protected                    $resource;
 
     public function __construct(CadPacienteService $service)
     {

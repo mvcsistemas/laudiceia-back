@@ -3,6 +3,7 @@
 namespace MVC\Models\CadPodologo;
 
 use MVC\Base\MVCRequest;
+use MVC\Rules\CadPodologoRule;
 
 class CadPodologoRequest extends MVCRequest
 {
@@ -14,7 +15,7 @@ class CadPodologoRequest extends MVCRequest
             'nome_podologo'    => 'required',
             'id_clinica'       => 'required',
             'ativo'            => 'required',
-            'email'            => ['required', 'email'],
+            'email'            => ['required', 'email', new CadPodologoRule()],
             'telefone_interno' => '',
             'created_at'       => '',
             'updated_at'       => '',

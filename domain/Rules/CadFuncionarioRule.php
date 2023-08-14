@@ -3,23 +3,26 @@
 namespace MVC\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use MVC\Models\User\User;
 use MVC\Models\CadFuncionario\CadFuncionario;
 
 class CadFuncionarioRule implements Rule
 {
     public function passes($attribute, $value)
     {
-        $method = request()->method();
+        $funcionario = CadFuncionario::findByUuid(request()->uuid);
 
-        if($method !== 'PUT'){
-            return true;
-        }
+        $user_funcionario = User::where('email', $value)
+                            ->where('tipo_cadastro_type', 'MVC\Models\CadFuncionario\CadFuncionario')
+                            ->where('tipo_cadastro_id', '<>', $funcionario->id_funcionario)
+                            ->first();
 
-        $funcionario = CadFuncionario::where('email', $value)
-                                        ->where('uuid', '<>', request()->uuid)
-                                        ->first();
+        $user_podologo = User::where('email', $value)
+                            ->where('tipo_cadastro_type', 'MVC\Models\CadPodologo\CadPodologo')
+                            ->where('tipo_cadastro_id', '<>', $funcionario->id_funcionario)
+                            ->first();
 
-        if($funcionario){
+        if($user_funcionario || $user_podologo){
             return false;
         }
 

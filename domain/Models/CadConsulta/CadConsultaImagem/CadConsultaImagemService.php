@@ -52,7 +52,6 @@ class CadConsultaImagemService extends MVCService {
             Storage::delete($imagem->path);
         }
 
-
         $imagem->delete();
     }
 

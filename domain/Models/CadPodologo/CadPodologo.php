@@ -25,6 +25,20 @@ class CadPodologo extends MVCModel
             $user->tipoCadastro()->associate($model);
             $user->save();
         });
+
+        self::updated(function ($model) {
+            $user = User::where('tipo_cadastro_type', 'MVC\Models\CadPodologo\CadPodologo')
+                          ->where('tipo_cadastro_id', $model->id_podologo);
+
+            $user->update(['email' => $model->email]);
+        });
+
+        self::deleted(function ($model) {
+            $user = User::where('tipo_cadastro_type', 'MVC\Models\CadPodologo\CadPodologo')
+                          ->where('tipo_cadastro_id', $model->id_podologo);
+
+            $user->delete();
+        });
     }
 
     public function index(){

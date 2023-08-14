@@ -21,6 +21,7 @@ class CadAgendamentoResource extends JsonResource {
             'dsc_status'         => $this->dsc_status,
             'id_paciente'        => $this->id_paciente,
             'nome_paciente'      => $this->nome_paciente,
+            'outro_paciente'     => $this->outro_paciente,
             'id_podologo'        => $this->id_podologo,
             'nome_podologo'      => $this->nome_podologo,
             'created_at'         => $this->created_at,

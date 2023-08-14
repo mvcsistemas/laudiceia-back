@@ -25,6 +25,7 @@ Route::post('forgot-password', 'ResetPassword\NewPasswordController@forgotPasswo
 Route::post('reset-password', 'ResetPassword\NewPasswordController@resetPassword')->name('password.reset');
 
 //Confirma Agendamento
+Route::get('confirma-agendamento/{uuid}', 'CadAgendamento\CadAgendamentoController@show')->name('show.agendamento');
 Route::put('confirma-agendamento', 'CadAgendamento\CadAgendamentoController@confirmaAgendamento')->name('confirma.agendamento');
 
     //First Access

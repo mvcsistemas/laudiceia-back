@@ -3,16 +3,21 @@
 namespace MVC\Models\CadConsulta;
 
 use MVC\Base\MVCController;
+use MVC\Models\CadConsulta\CadConsulta;
+use MVC\Models\CadConsulta\CadConsultaImagem\CadConsultaImagem;
+use MVC\Models\CadConsulta\CadConsultaImagem\CadConsultaImagemService;
 
 class CadConsultaController extends MVCController {
 
-    protected CadConsultaService $service;
-    protected                    $resource;
+    protected CadConsultaService       $service;
+    protected CadConsultaImagemService $service_image;
+    protected                          $resource;
 
-    public function __construct(CadConsultaService $service)
+    public function __construct(CadConsultaService $service, CadConsultaImagemService $service_image)
     {
-        $this->service  = $service;
-        $this->resource = CadConsultaResource::class;
+        $this->service       = $service;
+        $this->service_image = $service_image;
+        $this->resource      = CadConsultaResource::class;
     }
 
     public function index()
@@ -49,6 +54,15 @@ class CadConsultaController extends MVCController {
 
     public function destroy($uuid)
     {
+        $consulta = CadConsulta::findByUuid($uuid);
+        $imagens  = CadConsultaImagem::where('id_consulta', $consulta->id_consulta)->get();
+
+        if($imagens){
+            foreach ($imagens as $imagem) {
+                $this->service_image->deleteUpload($imagem->id_arquivo);
+            }
+        }
+
         $this->service->deleteByUuid($uuid);
 
         return $this->responseBuilderRow([], false, 204);
@@ -84,7 +98,7 @@ class CadConsultaController extends MVCController {
                             ->where('cad_consulta.id_paciente', $request->id_paciente)
                             ->whereBetween('cad_consulta.data_consulta', [setData($request->data_inicio), setData($request->data_fim)])
                             ->get();
-     
+
         return $this->service->historicoConsultaPdf($rows, $request->id_paciente);
     }
 }

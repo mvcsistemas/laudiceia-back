@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://laudiceiapodologia.com" target="_blank">
-    <img src="src/assets/images/logo.png" width="400" alt="Laudicéia Rodrigues Podologia">
+    <img src="public/assets/images/logo.png" width="400" alt="Laudicéia Rodrigues Podologia">
   </a>
 </p>
 

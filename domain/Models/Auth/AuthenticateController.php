@@ -18,6 +18,11 @@ class AuthenticateController extends MVCController
         $credentials   = $request->only(['email', 'password']);
         $remember      = $request->remember;
         $user          = User::where('email', $credentials['email'])->first();
+
+        if(!$user){
+            throw ValidationException::withMessages(['email' => ['Email e/ou senha inválido(s).']]);
+        }
+
         $tipo_cadastro = $user->tipoCadastro instanceof CadFuncionario ? 'F' : 'P';
         $nome          = $tipo_cadastro == 'F' ? $user->tipoCadastro->nome_funcionario : $user->tipoCadastro->nome_podologo;
 

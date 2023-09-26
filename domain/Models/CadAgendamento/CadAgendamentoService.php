@@ -26,7 +26,7 @@ class CadAgendamentoService extends MVCService {
 
         if($agendamento && $agendamento->id_status != '0'){
             throw ValidationException::withMessages([
-                'agendamento' => 'Não foi possível executar sua solicitação!'
+                'agendamento' => 'Você já enviou uma resposta. Caso necessário entre em contato com a nossa equipe!'
                 ]);
         }
 

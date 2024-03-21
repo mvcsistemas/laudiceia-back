@@ -1,7 +1,7 @@
 <x-mail::layout>
 {{-- Header --}}
 <x-slot:header>
-<x-mail::header :url="env('FRONT_URL')">
+<x-mail::header :url="config("mvc.front_url")">
     <img style="width:  14rem" src="https://api.laudiceiapodologia.com/assets/images/logo.png" alt="{{config("mvc.nome_clinica")}}">
 </x-mail::header>
 </x-slot:header>

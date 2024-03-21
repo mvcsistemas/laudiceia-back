@@ -49,7 +49,7 @@ class SuccessResetPassword extends Notification implements ShouldQueue {
             ->greeting(Lang::get('ola_nome', ['nome' => $this->user->tipoCadastro->nome_podologo ?? $this->user->tipoCadastro->nome_funcionario]))
             ->line(Lang::get('linha_sucesso_redefinir_senha_1'))
             ->line(Lang::get('linha_sucesso_redefinir_senha_2', ['email' => $this->user->email]))
-            ->action(Lang::get('recuperar_conta'), env('FRONT_URL') . '/forgot-password')
+            ->action(Lang::get('recuperar_conta'), config("mvc.front_url") . '/forgot-password')
             ->line(Lang::get('linha_sucesso_redefinir_senha_3'))
             ->salutation(Lang::get('saudacao_email'));
     }

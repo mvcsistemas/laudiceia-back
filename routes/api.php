@@ -77,7 +77,7 @@ Route::name('api.')->middleware('auth:sanctum')->group(function () {
 
     Route::prefix('consulta')->name('consulta.')->group(function () {
         Route::get('historico', 'CadConsulta\CadConsultaController@historicoConsulta')->name('historico');
-        Route::get('historico/pdf', 'CadConsulta\CadConsultaController@historicoConsultaPdf')->name('termoAceitacao');
+        Route::get('historico/pdf', 'CadConsulta\CadConsultaController@historicoConsultaPdf')->name('historico');
         Route::get('termo_aceitacao/{uuid_paciente}', 'CadConsulta\CadConsultaController@termoAceitacao')->name('termoAceitacao');
         Route::get('recibo/{uuid_consulta}', 'CadConsulta\CadConsultaController@recibo')->name('recibo');
         Route::resource('', 'CadConsulta\CadConsultaController', ['except' => ['create', 'edit']])->parameters(['' => 'uuid']);
